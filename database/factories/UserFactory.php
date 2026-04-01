@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\Role;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
@@ -26,6 +27,9 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'nik' => fake()->unique()->numerify('################'),
+            'no_hp' => fake()->numerify('08##########'),
+            'role' => Role::Warga,
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
@@ -34,6 +38,26 @@ class UserFactory extends Factory
             'two_factor_recovery_codes' => null,
             'two_factor_confirmed_at' => null,
         ];
+    }
+
+    /**
+     * Indicate that the user is an admin.
+     */
+    public function admin(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => Role::Admin,
+        ]);
+    }
+
+    /**
+     * Indicate that the user is a warga.
+     */
+    public function warga(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => Role::Warga,
+        ]);
     }
 
     /**
