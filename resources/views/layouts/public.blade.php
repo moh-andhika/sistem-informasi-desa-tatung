@@ -32,7 +32,7 @@
             </nav>
             <div class="flex items-center gap-2">
                 @auth
-                    <a href="{{ auth()->user()->isAdmin() ? route('admin.dashboard') : route('dashboard') }}"
+                    <a href="{{ auth()->user()->hasAnyRole(['Super Admin', 'Admin Kependudukan']) ? route('admin.dashboard') : route('dashboard') }}"
                        class="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-semibold text-orange-700 hover:border-orange-300 hover:bg-orange-100">
                         <span>Dashboard</span>
                     </a>
@@ -97,6 +97,10 @@
         </div>
     </footer>
 
+    <flux:toast />
+    <livewire:confirm-modal />
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @fluxScripts
 </body>
 </html>

@@ -6,8 +6,8 @@
     <body class="min-h-screen bg-white dark:bg-zinc-800">
         @php
             $user = auth()->user();
-            $isAdmin = $user?->isAdmin();
-            $isWarga = $user?->isWarga();
+            $isAdmin = $user?->hasAnyRole(['Super Admin', 'Admin Kependudukan']);
+            $isWarga = $user?->hasRole('Warga');
 
             $baseMenu = [
                 [
@@ -219,6 +219,9 @@
         </flux:header>
 
         {{ $slot }}
+
+        <flux:toast />
+        <livewire:confirm-modal />
 
         @fluxScripts
     </body>

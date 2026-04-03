@@ -2,6 +2,7 @@
 
 use App\Enums\Role;
 use App\Models\User;
+use App\Models\penduduk;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -9,13 +10,13 @@ use Livewire\Component;
 new #[Layout('layouts.app'), Title('Dashboard Admin')] class extends Component {
     public int $totalPengguna = 0;
     public int $totalAdmin = 0;
-    public int $totalWarga = 0;
+    public int $totalPenduduk = 0;
 
     public function mount(): void
     {
         $this->totalPengguna = User::count();
         $this->totalAdmin = User::where('role', Role::Admin->value)->count();
-        $this->totalWarga = User::where('role', Role::Warga->value)->count();
+        $this->totalPenduduk = penduduk::count();
     }
 }; ?>
 
@@ -49,9 +50,9 @@ new #[Layout('layouts.app'), Title('Dashboard Admin')] class extends Component {
         ])
 
         @include('partials.ui.stat-card', [
-            'title' => 'Warga',
-            'value' => $totalWarga,
-            'description' => 'Akun warga terdaftar',
+            'title' => 'Penduduk',
+            'value' => $totalPenduduk,
+            'description' => 'Total populasi terdata',
             'icon' => 'user-group',
             'trend' => 'Bertambah',
             'trendColor' => 'green',

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PendudukController;
 
 // ==========================================
 // 1. LANDING PAGE
@@ -55,7 +56,7 @@ Route::view('/infografis', 'pages.infografis')->name('infografis');
 // ==========================================
 Route::middleware(['auth', 'verified'])
     ->get('dashboard', function () {
-        return auth()->user()->isAdmin()
+        return auth()->user()->hasAnyRole(['Super Admin', 'Admin Kependudukan'])
             ? redirect()->route('admin.dashboard')
             : redirect()->route('warga.dashboard'); // Atau kembali ke home berdasarkan desain auth level Warga
     })
@@ -64,18 +65,19 @@ Route::middleware(['auth', 'verified'])
 // ==========================================
 // 4. AREA ADMIN
 // ==========================================
-Route::middleware(['auth', 'verified', 'role:admin'])
+Route::middleware(['auth', 'verified', 'role:Super Admin|Admin Kependudukan'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
         Route::livewire('dashboard', 'pages::admin.dashboard')->name('dashboard');
         Route::livewire('penduduk', 'pages::admin.penduduk')->name('penduduk');
+        Route::post('penduduk/import', [PendudukController::class, 'import'])->name('penduduk.import');
     });
 
 // ==========================================
 // 5. AREA WARGA
 // ==========================================
-Route::middleware(['auth', 'verified', 'role:warga'])
+Route::middleware(['auth', 'verified', 'role:Warga'])
     ->prefix('warga')
     ->name('warga.')
     ->group(function () {
