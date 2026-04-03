@@ -1,0 +1,9 @@
+feat(frontend): setup struktur halaman publik, layout, dan reorganisasi route
+
+- Menambahkan template layout utama untuk akses `admin` dan `warga`
+- Membuat struktur direktori tampilan (views) publik meliputi: profil, layanan, potensi, publikasi, dan transparansi
+- Mereorganisasi `routes/web.php` untuk memisahkan route ke dalam grup fungsional (Area Publik, Admin, dan Warga)
+- Menghapus file `berita.blade.php` lama, digantikan oleh struktur modul publikasi yang terpusat
+- Menambahkan aset gambar statis ke dalam `public/assets/`
+- Menambahkan dan memperbarui komponen partials (`head.blade.php` & `sidebar-info.blade.php`)
+- Memperbarui default nama aplikasi (fallback) di `config/app.php`
