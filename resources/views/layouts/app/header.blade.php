@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         @include('partials.head')
     </head>
-    <body class="min-h-screen bg-white dark:bg-zinc-800">
-        <flux:header container class="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
+    <body class="min-h-screen bg-slate-50 dark:bg-slate-900">
+        <flux:header container class="border-b border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900">
             <flux:sidebar.toggle class="lg:hidden mr-2" icon="bars-2" inset="left" />
 
             <x-app-logo href="{{ route('dashboard') }}" wire:navigate />
@@ -41,11 +41,23 @@
                 </flux:tooltip>
             </flux:navbar>
 
+            <!-- Theme Toggle -->
+            <flux:button
+                x-data
+                x-on:click="$flux.dark = ! $flux.dark"
+                variant="subtle"
+                class="mr-2 !px-2.5 max-lg:hidden"
+                aria-label="Toggle dark mode"
+            >
+                <flux:icon.moon x-show="!$flux.dark" class="size-5 text-slate-500" />
+                <flux:icon.sun x-show="$flux.dark" x-cloak class="size-5 text-slate-300" />
+            </flux:button>
+
             <x-desktop-user-menu />
         </flux:header>
 
         <!-- Mobile Menu -->
-        <flux:sidebar collapsible="mobile" sticky class="lg:hidden border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
+        <flux:sidebar collapsible="mobile" sticky class="lg:hidden border-e border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900">
             <flux:sidebar.header>
                 <x-app-logo :sidebar="true" href="{{ route('dashboard') }}" wire:navigate />
                 <flux:sidebar.collapse class="in-data-flux-sidebar-on-desktop:not-in-data-flux-sidebar-collapsed-desktop:-mr-2" />

@@ -1,8 +1,8 @@
-<x-layouts::auth :title="__('Confirm password')">
+<x-layouts::auth :title="__('Konfirmasi Kata Sandi')">
     <div class="flex flex-col gap-6">
         <x-auth-header
-            :title="__('Confirm password')"
-            :description="__('This is a secure area of the application. Please confirm your password before continuing.')"
+            :title="__('Konfirmasi Kata Sandi')"
+            :description="__('Ini adalah area aman dari aplikasi. Harap konfirmasi kata sandi Anda sebelum melanjutkan.')"
         />
 
         <x-auth-session-status class="text-center" :status="session('status')" />
@@ -12,17 +12,22 @@
 
             <flux:input
                 name="password"
-                :label="__('Password')"
+                :label="__('Kata Sandi')"
                 type="password"
                 required
                 autocomplete="current-password"
-                :placeholder="__('Password')"
+                :placeholder="__('Masukkan kata sandi Anda')"
                 viewable
             />
 
-            <flux:button variant="primary" type="submit" class="w-full" data-test="confirm-password-button">
-                {{ __('Confirm') }}
+            <flux:button variant="primary" type="submit" class="w-full mt-2" data-test="confirm-password-button">
+                {{ __('Konfirmasi') }}
             </flux:button>
         </form>
+
+        <div class="mt-2 text-center text-xs text-slate-500 flex flex-col gap-1">
+            <p>Butuh bantuan? Hubungi Admin Balai Desa</p>
+            <p>Pelayanan pada jam kerja (08:00 - 15:00 WIB)</p>
+        </div>
     </div>
 </x-layouts::auth>

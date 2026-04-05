@@ -1,4 +1,4 @@
-<thead {{ $attributes->merge(['class' => 'bg-neutral-50 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300']) }}>
+<thead {{ $attributes->merge(['class' => 'bg-slate-50/80 text-slate-600 dark:bg-slate-800/80 dark:text-slate-300']) }}>
     <tr>
         {{ $slot }}
     </tr>

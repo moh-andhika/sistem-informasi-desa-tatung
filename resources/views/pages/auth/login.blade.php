@@ -1,6 +1,6 @@
-<x-layouts::auth :title="__('Log in')">
+<x-layouts::auth :title="__('Masuk Portal')">
     <div class="flex flex-col gap-6">
-        <x-auth-header :title="__('Log in to your account')" :description="__('Enter your email and password below to log in')" />
+        <x-auth-header :title="__('Akses Layanan Desa')" :description="__('Silakan masuk dengan email dan kata sandi Anda yang terdaftar pada sistem pemerintahan desa.')" />
 
         <!-- Session Status -->
         <x-auth-session-status class="text-center" :status="session('status')" />
@@ -11,49 +11,54 @@
             <!-- Email Address -->
             <flux:input
                 name="email"
-                :label="__('Email address')"
+                :label="__('Alamat Email')"
                 :value="old('email')"
                 type="email"
                 required
                 autofocus
                 autocomplete="email"
-                placeholder="email@example.com"
+                placeholder="nama@email.com"
             />
 
             <!-- Password -->
             <div class="relative">
                 <flux:input
                     name="password"
-                    :label="__('Password')"
+                    :label="__('Kata Sandi')"
                     type="password"
                     required
                     autocomplete="current-password"
-                    :placeholder="__('Password')"
+                    :placeholder="__('Masukkan kata sandi Anda')"
                     viewable
                 />
 
                 @if (Route::has('password.request'))
                     <flux:link class="absolute top-0 text-sm end-0" :href="route('password.request')" wire:navigate>
-                        {{ __('Forgot your password?') }}
+                        {{ __('Lupa kata sandi?') }}
                     </flux:link>
                 @endif
             </div>
 
             <!-- Remember Me -->
-            <flux:checkbox name="remember" :label="__('Remember me')" :checked="old('remember')" />
+            <flux:checkbox name="remember" :label="__('Ingat saya')" :checked="old('remember')" />
 
             <div class="flex items-center justify-end">
                 <flux:button variant="primary" type="submit" class="w-full" data-test="login-button">
-                    {{ __('Log in') }}
+                    {{ __('Masuk Aplikasi') }}
                 </flux:button>
             </div>
         </form>
 
         @if (Route::has('register'))
-            <div class="space-x-1 text-sm text-center rtl:space-x-reverse text-zinc-600 dark:text-zinc-400">
-                <span>{{ __('Don\'t have an account?') }}</span>
-                <flux:link :href="route('register')" wire:navigate>{{ __('Sign up') }}</flux:link>
+            <div class="space-x-1 text-sm text-center rtl:space-x-reverse text-slate-600 dark:text-slate-400 mt-2">
+                <span>{{ __('Belum memiliki akun?') }}</span>
+                <flux:link :href="route('register')" wire:navigate class="font-semibold text-blue-600">{{ __('Daftar di sini') }}</flux:link>
             </div>
         @endif
+
+        <div class="mt-2 text-center text-xs text-slate-500 flex flex-col gap-1">
+            <p>Butuh bantuan akses? Hubungi Admin Balai Desa</p>
+            <p>Pelayanan pada jam kerja (08:00 - 15:00 WIB)</p>
+        </div>
     </div>
 </x-layouts::auth>

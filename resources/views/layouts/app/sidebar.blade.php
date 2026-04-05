@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         @include('partials.head')
     </head>
-    <body class="min-h-screen bg-white dark:bg-zinc-800">
+    <body class="min-h-screen bg-slate-50 dark:bg-slate-900">
         @php
             $user = auth()->user();
             $isAdmin = $user?->hasAnyRole(['Super Admin', 'Admin Kependudukan']);
@@ -30,7 +30,12 @@
                     'icon' => 'users',
                     'href' => route('admin.penduduk'),
                     'active' => request()->routeIs('admin.penduduk'),
-                    'badge' => __('Segera'),
+                ],
+                [
+                    'title' => __('Manajemen Pengguna'),
+                    'icon' => 'user-circle',
+                    'href' => route('admin.pengguna'),
+                    'active' => request()->routeIs('admin.pengguna'),
                 ],
                 [
                     'title' => __('Layanan Surat'),
@@ -42,9 +47,8 @@
                 [
                     'title' => __('Berita Desa'),
                     'icon' => 'newspaper',
-                    'href' => '#',
-                    'active' => false,
-                    'badge' => __('Segera'),
+                    'href' => route('admin.berita'),
+                    'active' => request()->routeIs('admin.berita'),
                 ],
                 [
                     'title' => __('Pengaturan'),
@@ -84,7 +88,7 @@
             ];
         @endphp
 
-        <flux:sidebar sticky collapsible="mobile" class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
+        <flux:sidebar sticky collapsible="mobile" class="border-e border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900">
             <flux:sidebar.header>
                 <x-app-logo :sidebar="true" href="{{ route('dashboard') }}" wire:navigate />
                 <flux:sidebar.collapse class="lg:hidden" />
@@ -190,6 +194,26 @@
                                 </div>
                             </div>
                         </div>
+                    </flux:menu.radio.group>
+
+                    <flux:menu.separator />
+
+                    <flux:menu.radio.group x-data>
+                        <flux:menu.item
+                            icon="moon"
+                            x-show="!$flux.dark"
+                            x-on:click="$flux.dark = true"
+                        >
+                            {{ __('Ganti ke Mode Gelap') }}
+                        </flux:menu.item>
+                        <flux:menu.item
+                            icon="sun"
+                            x-show="$flux.dark"
+                            x-on:click="$flux.dark = false"
+                            x-cloak
+                        >
+                            {{ __('Ganti ke Mode Terang') }}
+                        </flux:menu.item>
                     </flux:menu.radio.group>
 
                     <flux:menu.separator />

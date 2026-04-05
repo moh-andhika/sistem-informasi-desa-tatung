@@ -12,36 +12,86 @@
         </div>
     </div>
 
-    <header class="sticky top-0 z-30 border-b border-neutral-200 bg-white/90 backdrop-blur">
+    <header class="sticky top-0 z-30 border-b border-blue-900/10 bg-white/90 backdrop-blur-md shadow-sm">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
             <div class="flex items-center gap-3">
-                <a href="{{ route('home') }}" class="flex items-center gap-2">
-                    <x-app-logo class="h-8 w-auto" />
+                <a href="{{ route('home') }}" class="flex items-center gap-3 group">
+                    <img src="{{ asset('assets/ponorogo__sid__60A13U2.png') }}" alt="Logo Ponorogo" class="h-9 w-auto transition-transform group-hover:scale-105" />
                     <div class="leading-tight">
-                        <p class="text-sm font-semibold text-neutral-900">Sistem Informasi Desa</p>
-                        <p class="text-xs text-neutral-500">Desa Tatung</p>
+                        <p class="text-sm font-bold text-blue-950 uppercase tracking-wide">Sistem Informasi Desa</p>
+                        <p class="text-xs font-semibold text-blue-600">Desa Tatung</p>
                     </div>
                 </a>
             </div>
-            <nav class="hidden items-center gap-6 text-sm font-medium text-neutral-700 sm:flex">
-                <a href="{{ route('berita') }}" class="hover:text-orange-600">Berita</a>
-                <a href="{{ route('infografis') }}" class="hover:text-orange-600">Infografis</a>
-                <a href="#media" class="hover:text-orange-600">Konten Media</a>
-                <a href="#video" class="hover:text-orange-600">Video</a>
-                <a href="#layanan" class="hover:text-orange-600">Layanan</a>
-            </nav>
-            <div class="flex items-center gap-2">
+            <nav class="hidden items-center gap-6 text-sm font-semibold text-slate-600 sm:flex">
+                <a href="{{ route('home') }}" class="py-2 hover:text-blue-700 transition-colors {{ request()->routeIs('home') ? 'text-blue-700' : '' }}">Beranda</a>
+
+                <div class="group relative py-2">
+                    <a href="#" class="flex items-center gap-1 hover:text-blue-700 transition-colors outline-none {{ request()->routeIs('publik.profil.*') ? 'text-blue-700' : '' }}">
+                        Profil Desa <flux:icon.chevron-down class="size-3 transition-transform group-hover:-rotate-180" />
+                    </a>
+                    <div class="absolute left-0 top-full mt-0 hidden w-48 flex-col rounded-xl border border-slate-200 bg-white p-1.5 shadow-lg group-hover:flex opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                        <a href="{{ route('publik.profil.sejarah') }}" class="rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-blue-700">Sejarah Desa</a>
+                        <a href="{{ route('publik.profil.visi-misi') }}" class="rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-blue-700">Visi & Misi</a>
+                        <a href="{{ route('publik.profil.aparatur') }}" class="rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-blue-700">Aparatur Desa</a>
+                        <a href="{{ route('publik.profil.wilayah') }}" class="rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-blue-700">Peta & Wilayah</a>
+                    </div>
+                </div>
+
+                <div class="group relative py-2">
+                    <a href="#" class="flex items-center gap-1 hover:text-blue-700 transition-colors outline-none {{ request()->routeIs('publik.publikasi.*') ? 'text-blue-700' : '' }}">
+                        Publikasi <flux:icon.chevron-down class="size-3 transition-transform group-hover:-rotate-180" />
+                    </a>
+                    <div class="absolute left-0 top-full mt-0 hidden w-48 flex-col rounded-xl border border-slate-200 bg-white p-1.5 shadow-lg group-hover:flex opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                        <a href="{{ route('publik.publikasi.berita.index') }}" class="rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-blue-700">Berita Desa</a>
+                        <a href="{{ route('publik.publikasi.agenda') }}" class="rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-blue-700">Agenda Kegiatan</a>
+                        <a href="{{ route('publik.publikasi.galeri') }}" class="rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-blue-700">Galeri Foto</a>
+                    </div>
+                </div>
+
+                <div class="group relative py-2">
+                    <a href="#" class="flex items-center gap-1 hover:text-blue-700 transition-colors outline-none {{ request()->routeIs('publik.potensi.*') ? 'text-blue-700' : '' }}">
+                        Potensi <flux:icon.chevron-down class="size-3 transition-transform group-hover:-rotate-180" />
+                    </a>
+                    <div class="absolute left-0 top-full mt-0 hidden w-48 flex-col rounded-xl border border-slate-200 bg-white p-1.5 shadow-lg group-hover:flex opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                        <a href="{{ route('publik.potensi.umkm') }}" class="rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-blue-700">Produk UMKM</a>
+                        <a href="{{ route('publik.potensi.pariwisata') }}" class="rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-blue-700">Pariwisata</a>
+                    </div>
+                </div>
+
+                <div class="group relative py-2">
+                    <a href="#" class="flex items-center gap-1 hover:text-blue-700 transition-colors outline-none {{ request()->routeIs('publik.transparansi.*') ? 'text-blue-700' : '' }}">
+                        Transparansi <flux:icon.chevron-down class="size-3 transition-transform group-hover:-rotate-180" />
+                    </a>
+                    <div class="absolute left-0 top-full mt-0 hidden w-48 flex-col rounded-xl border border-slate-200 bg-white p-1.5 shadow-lg group-hover:flex opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                        <a href="{{ route('publik.transparansi.apbdes') }}" class="rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-blue-700">Info APBDes</a>
+                    </div>
+                </div>
+
+                <div class="group relative py-2">
+                    <a href="#" class="flex items-center gap-1 hover:text-blue-700 transition-colors outline-none {{ request()->routeIs('publik.layanan.*') ? 'text-blue-700' : '' }}">
+                        Layanan <flux:icon.chevron-down class="size-3 transition-transform group-hover:-rotate-180" />
+                    </a>
+                    <div class="absolute left-0 top-full mt-0 hidden w-48 flex-col rounded-xl border border-slate-200 bg-white p-1.5 shadow-lg group-hover:flex opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                        <a href="{{ route('publik.layanan.informasi-surat') }}" class="rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-blue-700">Informasi Surat</a>
+                        <div class="my-1 border-t border-slate-200"></div>
+                        <a href="{{ route('login') }}" class="rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-blue-700">Pengajuan Online</a>
+                    </div>
+                </div>
+
+                <a href="{{ route('infografis') }}" class="py-2 hover:text-blue-700 transition-colors {{ request()->routeIs('infografis') ? 'text-blue-700' : '' }}">Infografis</a>
+            </nav>            <div class="flex items-center gap-2">
                 @auth
                     <a href="{{ auth()->user()->hasAnyRole(['Super Admin', 'Admin Kependudukan']) ? route('admin.dashboard') : route('dashboard') }}"
-                       class="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-semibold text-orange-700 hover:border-orange-300 hover:bg-orange-100">
-                        <span>Dashboard</span>
+                       class="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700 hover:border-blue-300 hover:bg-blue-100 transition-colors">
+                        <span>Dasbor</span>
                     </a>
                 @else
-                    <a href="{{ route('login') }}" class="inline-flex items-center gap-2 rounded-full border border-neutral-200 px-4 py-2 text-sm font-semibold hover:border-neutral-300">
+                    <a href="{{ route('login') }}" class="hidden sm:inline-flex items-center gap-2 rounded-md border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-blue-300 hover:text-blue-700 transition-colors">
                         Masuk
                     </a>
-                    <a href="{{ route('register') }}" class="inline-flex items-center gap-2 rounded-full bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-700">
-                        Daftar
+                    <a href="{{ route('register') }}" class="inline-flex items-center gap-2 rounded-md bg-blue-700 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-600 transition-colors">
+                        Buat Akun
                     </a>
                 @endauth
             </div>
@@ -53,45 +103,59 @@
         {!! $slot ?? '' !!}
     </main>
 
-    <footer class="mt-16 border-t border-neutral-200 bg-neutral-50/80">
-        <div class="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:px-8 lg:grid-cols-4">
-            <div class="space-y-2">
-                <p class="text-base font-semibold text-neutral-900">Desa Tatung</p>
-                <p class="text-sm text-neutral-600">Sistem Informasi Desa untuk layanan publik, transparansi, dan data kependudukan.</p>
+    <footer class="mt-16 border-t border-slate-200 bg-slate-50">
+        <div class="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:px-8 lg:grid-cols-4">
+            <div class="space-y-4">
+                <div class="flex items-center gap-2">
+                    <img src="{{ asset('assets/ponorogo__sid__60A13U2.png') }}" alt="Logo" class="h-8 w-auto" />
+                    <p class="text-lg font-bold text-slate-900">Desa Tatung</p>
+                </div>
+                <p class="text-sm text-slate-600 leading-relaxed">Sistem Informasi Desa resmi untuk layanan publik, transparansi pembangunan, dan kemudahan akses data kependudukan.</p>
             </div>
             <div>
-                <p class="text-sm font-semibold text-neutral-900">Navigasi</p>
-                <ul class="mt-3 space-y-2 text-sm text-neutral-600">
-                    <li><a href="#berita" class="hover:text-orange-600">Berita</a></li>
-                    <li><a href="#infografis" class="hover:text-orange-600">Infografis</a></li>
-                    <li><a href="#media" class="hover:text-orange-600">Konten Sosial Media</a></li>
-                    <li><a href="#video" class="hover:text-orange-600">Video</a></li>
-                    <li><a href="#layanan" class="hover:text-orange-600">Layanan Desa</a></li>
+                <p class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">Profil & Potensi</p>
+                <ul class="space-y-3 text-sm text-slate-600">
+                    <li><a href="{{ route('publik.profil.sejarah') }}" class="hover:text-blue-600 transition-colors">Sejarah Desa</a></li>
+                    <li><a href="{{ route('publik.profil.aparatur') }}" class="hover:text-blue-600 transition-colors">Aparatur Pemerintahan</a></li>
+                    <li><a href="{{ route('publik.potensi.umkm') }}" class="hover:text-blue-600 transition-colors">Produk UMKM</a></li>
+                    <li><a href="{{ route('publik.potensi.pariwisata') }}" class="hover:text-blue-600 transition-colors">Pariwisata</a></li>
                 </ul>
             </div>
             <div>
-                <p class="text-sm font-semibold text-neutral-900">Kontak</p>
-                <ul class="mt-3 space-y-2 text-sm text-neutral-600">
-                    <li>Alamat: Kantor Desa Tatung</li>
-                    <li>Telepon: 08xx-xxxx-xxxx</li>
-                    <li>Email: desa@tatung.id</li>
+                <p class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">Informasi</p>
+                <ul class="space-y-3 text-sm text-slate-600">
+                    <li><a href="{{ route('publik.publikasi.berita.index') }}" class="hover:text-blue-600 transition-colors">Berita Terkini</a></li>
+                    <li><a href="{{ route('publik.transparansi.apbdes') }}" class="hover:text-blue-600 transition-colors">Transparansi APBDes</a></li>
+                    <li><a href="{{ route('infografis') }}" class="hover:text-blue-600 transition-colors">Data Infografis</a></li>
+                    <li><a href="{{ route('publik.layanan.informasi-surat') }}" class="hover:text-blue-600 transition-colors">Panduan Layanan</a></li>
                 </ul>
             </div>
             <div>
-                <p class="text-sm font-semibold text-neutral-900">Tautan Cepat</p>
-                <ul class="mt-3 space-y-2 text-sm text-neutral-600">
-                    <li><a href="{{ route('login') }}" class="hover:text-orange-600">Masuk</a></li>
-                    <li><a href="{{ route('register') }}" class="hover:text-orange-600">Daftar Warga</a></li>
-                    <li><a href="{{ route('dashboard') }}" class="hover:text-orange-600">Status Pengajuan</a></li>
+                <p class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">Kontak</p>
+                <ul class="space-y-3 text-sm text-slate-600">
+                    <li class="flex items-start gap-2">
+                        <flux:icon.map-pin class="size-5 shrink-0 text-slate-400" />
+                        <span>Kantor Kepala Desa Tatung, Kecamatan Balong, Kabupaten Ponorogo</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <flux:icon.phone class="size-5 shrink-0 text-slate-400" />
+                        <span>08xx-xxxx-xxxx</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <flux:icon.envelope class="size-5 shrink-0 text-slate-400" />
+                        <span>desa@tatung.id</span>
+                    </li>
                 </ul>
             </div>
         </div>
-        <div class="border-t border-neutral-200 bg-white/60">
-            <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-4 text-xs text-neutral-500 sm:flex-row sm:px-6 lg:px-8">
-                <p>© {{ now()->year }} Desa Tatung. All rights reserved.</p>
+        <div class="border-t border-slate-200 bg-white">
+            <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-6 text-sm text-slate-500 sm:flex-row sm:px-6 lg:px-8">
+                <p>&copy; {{ now()->year }} Pemerintah Desa Tatung. Hak Cipta Dilindungi.</p>
                 <div class="flex items-center gap-4">
-                    <span>Versi Publik</span>
-                    <span class="inline-flex items-center gap-1 rounded-full bg-green-100 px-2 py-1 font-semibold text-green-700">Online</span>
+                    <span>Portal e-Government</span>
+                    <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-inset ring-emerald-600/20">
+                        <span class="size-1.5 rounded-full bg-emerald-500"></span> Online
+                    </span>
                 </div>
             </div>
         </div>

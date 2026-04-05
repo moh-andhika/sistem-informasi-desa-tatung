@@ -25,7 +25,13 @@ new #[Layout('layouts.app'), Title('Data Penduduk')] class extends Component {
             $query->where(function ($q) use ($searchTerm) {
                 $q->where('nik', 'like', $searchTerm)
                   ->orWhere('no_kk', 'like', $searchTerm)
-                  ->orWhere('nama', 'like', $searchTerm);
+                  ->orWhere('nama', 'like', $searchTerm)
+                  ->orWhere('jenis_kelamin', 'like', $searchTerm)
+                  ->orWhere('tempat_lahir', 'like', $searchTerm)
+                  ->orWhere('tanggal_lahir', 'like', $searchTerm)
+                  ->orWhere('alamat', 'like', $searchTerm)
+                  ->orWhere('no_rt', 'like', $searchTerm)
+                  ->orWhere('no_rw', 'like', $searchTerm);
             });
         }
 
@@ -37,42 +43,34 @@ new #[Layout('layouts.app'), Title('Data Penduduk')] class extends Component {
 
 <div class="flex flex-col gap-6">
     <div class="flex flex-col gap-1">
-        <h1 class="text-2xl font-semibold text-neutral-900 dark:text-white">Data Penduduk</h1>
-        <p class="text-sm text-neutral-500 dark:text-neutral-400">Menampilkan data daftar penduduk yang tersimpan dalam sistem.</p>
+        <h1 class="text-2xl font-semibold text-slate-900 dark:text-white">Data Penduduk</h1>
+        <p class="text-sm text-slate-500 dark:text-slate-400">Menampilkan data daftar penduduk yang tersimpan dalam sistem.</p>
     </div>
-    <div class="mb-6 rounded-xl border border-neutral-200 bg-white p-5 shadow-sm dark:border-neutral-700 dark:bg-neutral-900">
-        <div class="mb-4">
-            <h2 class="text-base font-semibold text-neutral-900 dark:text-white">Import Data Penduduk</h2>
-            <p class="text-sm text-neutral-500 dark:text-neutral-400">Upload file format .xlsx, .xls, atau .csv untuk menambahkan data secara massal.</p>
+
+    @if(session('success'))
+        <div class="flex items-center gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800 dark:border-emerald-800/30 dark:bg-emerald-900/30 dark:text-emerald-400">
+            <flux:icon.check-circle class="size-5" variant="mini" />
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <!-- Search -->
+        <div class="w-full sm:max-w-xs shrink-0">
+            <flux:input wire:model.live="search" icon="magnifying-glass" placeholder="Cari data penduduk..." />
         </div>
 
-        @if(session('success'))
-            <div class="mb-4 flex items-center gap-2 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm font-medium text-green-800 dark:border-green-800/30 dark:bg-green-900/30 dark:text-green-400">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
-                </svg>
-                {{ session('success') }}
-            </div>
-        @endif
-
-        <form action="{{ route('admin.penduduk.import') }}" method="POST" enctype="multipart/form-data" class="flex flex-col gap-4 sm:flex-row sm:items-end">
+        <!-- Import Form -->
+        <form action="{{ route('admin.penduduk.import') }}" method="POST" enctype="multipart/form-data" class="flex flex-col sm:flex-row sm:items-center gap-2 w-full sm:w-auto">
             @csrf
-            <div class="w-full flex-1 sm:max-w-md">
-                <flux:field>
-                    <flux:input type="file" name="file_excel" accept=".xlsx,.xls,.csv" required />
-                </flux:field>
+            <div class="w-full sm:w-auto shrink-0">
+                <flux:input type="file" name="file_excel" accept=".xlsx,.xls,.csv" required />
             </div>
-            
-            <flux:button type="submit" variant="primary" icon="arrow-up-tray" class="w-full sm:w-auto">
-                Upload & Proses Data
+
+            <flux:button type="submit" variant="primary" icon="arrow-up-tray" class="w-full sm:w-auto shrink-0">
+                Import Data
             </flux:button>
         </form>
-    </div>
-
-    <div class="flex items-center justify-between gap-4">
-        <div class="w-full sm:max-w-xs">
-            <flux:input wire:model.live="search" icon="magnifying-glass" placeholder="Cari NIK, KK, atau Nama..." />
-        </div>
     </div>
 
     <x-table title="Daftar Penduduk" subtitle="Total data: {{ $penduduk->total() }} orang">
@@ -90,7 +88,7 @@ new #[Layout('layouts.app'), Title('Data Penduduk')] class extends Component {
             <x-table.th>Jenis Kelamin</x-table.th>
             <x-table.th>Usia</x-table.th>
         </x-table.thead>
-        
+
         <x-table.tbody>
             @forelse ($penduduk as $row)
                 <x-table.tr>

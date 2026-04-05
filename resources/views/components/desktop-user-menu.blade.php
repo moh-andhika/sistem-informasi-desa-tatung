@@ -18,6 +18,24 @@
             </div>
         </div>
         <flux:menu.separator />
+        <flux:menu.radio.group x-data>
+            <flux:menu.item
+                icon="moon"
+                x-show="!$flux.dark"
+                x-on:click="$flux.dark = true"
+            >
+                {{ __('Ganti ke Mode Gelap') }}
+            </flux:menu.item>
+            <flux:menu.item
+                icon="sun"
+                x-show="$flux.dark"
+                x-on:click="$flux.dark = false"
+                x-cloak
+            >
+                {{ __('Ganti ke Mode Terang') }}
+            </flux:menu.item>
+        </flux:menu.radio.group>
+        <flux:menu.separator />
         <flux:menu.radio.group>
             <flux:menu.item :href="route('profile.edit')" icon="cog" wire:navigate>
                 {{ __('Settings') }}

@@ -1,21 +1,28 @@
-@props(['title' => null, 'subtitle' => null])
+@props(['title' => null, 'subtitle' => null, 'actions' => null])
 
-<div {{ $attributes->merge(['class' => 'overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm shadow-black/5 dark:border-neutral-700 dark:bg-neutral-900']) }}>
-    @if($title || $subtitle)
-        <div class="flex items-center justify-between border-b border-neutral-200 px-4 py-3 text-sm font-semibold text-neutral-700 dark:border-neutral-700 dark:text-neutral-200">
-            @if($title)<span>{{ $title }}</span>@endif
-            @if($subtitle)<span class="text-xs font-medium text-neutral-500 dark:text-neutral-400">{{ $subtitle }}</span>@endif
+<div {{ $attributes->merge(['class' => 'overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900']) }}>
+    @if($title || $subtitle || $actions)
+        <div class="flex items-center justify-between border-b border-slate-200 px-5 py-4 dark:border-slate-700">
+            <div>
+                @if($title)<h3 class="text-base font-semibold text-slate-800 dark:text-slate-200">{{ $title }}</h3>@endif
+                @if($subtitle)<p class="mt-1 text-sm text-slate-500 dark:text-slate-400">{{ $subtitle }}</p>@endif
+            </div>
+            @if($actions)
+                <div class="flex items-center gap-2">
+                    {{ $actions }}
+                </div>
+            @endif
         </div>
     @endif
 
     <div class="overflow-x-auto">
-        <table class="min-w-full divide-y divide-neutral-200 text-sm dark:divide-neutral-700">
+        <table class="min-w-full divide-y divide-slate-200 text-sm dark:divide-slate-700">
             {{ $slot }}
         </table>
     </div>
 
     @isset($footer)
-        <div class="flex items-center justify-between border-t border-neutral-200 bg-neutral-50 px-4 py-3 text-xs text-neutral-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300">
+        <div class="flex items-center justify-between border-t border-slate-200 bg-slate-50/50 px-5 py-3 text-sm text-slate-500 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-400">
             {{ $footer }}
         </div>
     @endisset
