@@ -1,11 +1,24 @@
 {
     "mcpServers": {
+        "github": {
+            "command": "npx",
+            "args": ["-y", "@modelcontextprotocol/server-github"],
+            "env": {}
+        },
+        "context7": {
+            "httpUrl": "https://mcp.context7.com/mcp",
+            "headers": {
+                "Accept": "application/json, text/event-stream"
+            }
+        },
+
         "laravel-boost": {
             "command": "php",
-            "args": [
-                "artisan",
-                "boost:mcp"
-            ]
+            "args": ["artisan", "boost:mcp"]
+        },
+        "browsermcp": {
+            "command": "npx",
+            "args": ["-y", "@browsermcp/mcp@latest"]
         }
     }
 }

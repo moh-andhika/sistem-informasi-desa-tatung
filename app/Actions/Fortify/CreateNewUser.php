@@ -26,7 +26,7 @@ class CreateNewUser implements CreatesNewUsers
 
         return User::create([
             'name' => $input['name'],
-            'email' => $input['email'],
+            'nik' => $input['nik'],
             'password' => $input['password'],
         ]);
     }

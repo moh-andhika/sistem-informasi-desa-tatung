@@ -16,7 +16,7 @@ trait ProfileValidationRules
     {
         return [
             'name' => $this->nameRules(),
-            'email' => $this->emailRules($userId),
+            'nik' => $this->nikRules($userId),
         ];
     }
 
@@ -31,17 +31,16 @@ trait ProfileValidationRules
     }
 
     /**
-     * Get the validation rules used to validate user emails.
+     * Get the validation rules used to validate user NIKs.
      *
      * @return array<int, \Illuminate\Contracts\Validation\Rule|array<mixed>|string>
      */
-    protected function emailRules(?int $userId = null): array
+    protected function nikRules(?int $userId = null): array
     {
         return [
             'required',
-            'string',
-            'email',
-            'max:255',
+            'numeric',
+            'digits:16',
             $userId === null
                 ? Rule::unique(User::class)
                 : Rule::unique(User::class)->ignore($userId),
