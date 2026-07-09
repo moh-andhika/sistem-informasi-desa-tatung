@@ -1,8 +1,8 @@
 @props(['title' => null, 'subtitle' => null, 'actions' => null])
 
-<div {{ $attributes->merge(['class' => 'overflow-hidden rounded-sm border-x border-b border-t-[3px] border-slate-200 border-t-blue-600 bg-white shadow-md dark:border-slate-700 dark:border-t-blue-600 dark:bg-slate-900']) }}>
+<div {{ $attributes->merge(['class' => 'overflow-hidden      bg-white  dark: dark:bg-slate-900']) }}>
     @if($title || $subtitle || $actions)
-        <div class="flex items-center justify-between border-b border-slate-200 px-5 py-4 dark:border-slate-700">
+        <div class="flex items-center justify-between  px-5 py-4 ">
             <div>
                 @if($title)<h3 class="text-base font-semibold text-slate-800 dark:text-slate-200">{{ $title }}</h3>@endif
                 @if($subtitle)<p class="mt-1 text-sm text-slate-500 dark:text-slate-400">{{ $subtitle }}</p>@endif
@@ -22,7 +22,7 @@
     </div>
 
     @isset($footer)
-        <div class="flex items-center justify-between border-t border-slate-200 bg-slate-50/50 px-5 py-3 text-sm text-slate-500 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-400">
+        <div class="flex items-center justify-between   bg-slate-50/50 px-5 py-3 text-sm text-slate-500  dark:bg-slate-800/50 dark:text-slate-400">
             {{ $footer }}
         </div>
     @endisset

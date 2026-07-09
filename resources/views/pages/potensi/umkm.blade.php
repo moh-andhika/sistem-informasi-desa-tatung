@@ -14,17 +14,17 @@
 @section('content')
     <div class="space-y-8">
         {{-- Banner promosi lokal --}}
-        <div class="bg-green-50 border border-green-200 rounded-lg p-5 flex gap-4 items-start">
-            <flux:icon.shopping-bag class="size-6 text-[#2E7D32] shrink-0 mt-0.5" />
+        <div class="bg-blue-50   p-5 flex gap-4 items-start">
+            <flux:icon.shopping-bag class="size-6 text-[#024ad8] shrink-0 mt-0.5" />
             <div>
-                <h4 class="text-sm font-black text-green-900 uppercase tracking-tight mb-1">Beli Lokal, Dukung UMKM Desa</h4>
-                <p class="text-sm text-green-800 leading-relaxed">Dengan membeli produk UMKM warga Desa Tatung, Anda turut menggerakkan roda perekonomian masyarakat dan melestarikan kearifan lokal.</p>
+                <h4 class="text-sm font-black text-blue-900 uppercase tracking-normal mb-1">Beli Lokal, Dukung UMKM Desa</h4>
+                <p class="text-sm text-blue-800 leading-relaxed">Dengan membeli produk UMKM warga Desa Tatung, Anda turut menggerakkan roda perekonomian masyarakat dan melestarikan kearifan lokal.</p>
             </div>
         </div>
 
-        <section aria-labelledby="umkm-grid-title" class="bg-white rounded-lg border border-green-100 shadow-sm overflow-hidden">
-            <div class="bg-[#2E7D32] px-6 py-4 flex items-center justify-between">
-                <h2 class="text-sm font-black text-white uppercase tracking-widest" id="umkm-grid-title">Produk Unggulan Masyarakat</h2>
+        <section aria-labelledby="umkm-grid-title" class="bg-white  overflow-hidden">
+            <div class="bg-[#024ad8] px-6 py-4 flex items-center justify-between">
+                <h2 class="text-sm font-black text-white uppercase tracking-wide" id="umkm-grid-title">Produk Unggulan Masyarakat</h2>
                 <flux:icon.shopping-bag class="size-5 text-white/70" />
             </div>
             <div class="p-8">
@@ -39,23 +39,23 @@
 
                 <div class="grid gap-8 sm:grid-cols-2" role="list" aria-label="Daftar produk unggulan UMKM Desa Tatung">
                     @foreach($umkms as $umkm)
-                    <article class="group rounded-lg border border-green-100 overflow-hidden hover:shadow-lg hover:border-green-200 transition-all bg-white" role="listitem">
+                    <article class="group  overflow-hidden   transition-all bg-white" role="listitem">
                         <div class="aspect-[4/3] bg-slate-100 overflow-hidden relative">
                             <img src="{{ $umkm['img'] }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Produk: {{ $umkm['nama'] }}">
                             <div class="absolute top-3 left-3">
-                                <span class="px-2.5 py-1 bg-[#2E7D32] text-white text-[9px] font-black rounded-md uppercase tracking-widest shadow">{{ $umkm['kategori'] }}</span>
+                                <span class="px-2.5 py-1 bg-[#024ad8] text-white text-[9px] font-black  uppercase tracking-wide shadow">{{ $umkm['kategori'] }}</span>
                             </div>
                             <div class="absolute top-3 right-3">
-                                <span class="px-2.5 py-1 bg-white/95 backdrop-blur-sm text-[#2E7D32] text-[9px] font-black rounded-md shadow uppercase tracking-widest">{{ $umkm['harga'] }}</span>
+                                <span class="px-2.5 py-1 bg-white/95 backdrop-blur-sm text-[#024ad8] text-[9px] font-black  shadow uppercase tracking-wide">{{ $umkm['harga'] }}</span>
                             </div>
                         </div>
                         <div class="p-5">
-                            <h3 class="text-base font-black text-slate-900 uppercase tracking-tight mb-1 group-hover:text-[#2E7D32] transition-colors">{{ $umkm['nama'] }}</h3>
-                            <div class="flex items-center gap-2 text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">
-                                <flux:icon.user class="size-3 text-[#2E7D32]" aria-hidden="true" />
+                            <h3 class="text-base font-black text-slate-900 uppercase tracking-normal mb-1 group-hover:text-[#024ad8] transition-colors">{{ $umkm['nama'] }}</h3>
+                            <div class="flex items-center gap-2 text-[10px] font-bold text-slate-500 uppercase tracking-wide mb-4">
+                                <flux:icon.user class="size-3 text-[#024ad8]" aria-hidden="true" />
                                 <span>{{ $umkm['pemilik'] }}</span>
                             </div>
-                            <button class="w-full py-2.5 bg-[#2E7D32] text-white text-[10px] font-black uppercase tracking-widest rounded-lg hover:bg-[#1B5E20] transition-all focus:outline-none focus:ring-2 focus:ring-[#2E7D32] focus:ring-offset-2 shadow" aria-label="Hubungi penjual {{ $umkm['nama'] }}">
+                            <button class="w-full py-2.5 bg-[#024ad8] text-white text-[10px] font-black uppercase tracking-wide  hover:bg-[#0e3191] transition-all focus:outline-none focus:ring-2 focus:ring-[#024ad8] focus:ring-offset-2 shadow" aria-label="Hubungi penjual {{ $umkm['nama'] }}">
                                 Hubungi Penjual
                             </button>
                         </div>
@@ -66,13 +66,13 @@
         </section>
 
         {{-- CTA Daftar UMKM --}}
-        <div class="p-8 bg-[#1B5E20] rounded-lg text-white relative overflow-hidden">
+        <div class="p-8 bg-[#0e3191]  text-white relative overflow-hidden">
             <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M0 40L40 0H20L0 20M40 40V20L20 40\'/%3E%3C/g%3E%3C/svg%3E');"></div>
             <div class="relative z-10 text-center max-w-xl mx-auto">
-                <flux:icon.plus-circle class="size-10 text-[#F9A825] mx-auto mb-4" />
-                <h3 class="text-lg font-black uppercase tracking-tight mb-3">Ingin Produk Anda Ditampilkan?</h3>
-                <p class="text-sm text-green-200 leading-relaxed mb-6">Bagi warga Desa Tatung yang memiliki produk UMKM dan ingin dipromosikan di website resmi desa, silakan hubungi operator desa atau datang langsung ke kantor desa.</p>
-                <a href="#" class="inline-block px-8 py-3 bg-[#F9A825] text-[#1B5E20] text-xs font-black uppercase tracking-widest rounded-lg hover:bg-yellow-400 transition-colors shadow-lg">
+                <flux:icon.plus-circle class="size-10 text-[#ff5050] mx-auto mb-4" />
+                <h3 class="text-lg font-black uppercase tracking-normal mb-3">Ingin Produk Anda Ditampilkan?</h3>
+                <p class="text-sm text-blue-200 leading-relaxed mb-6">Bagi warga Desa Tatung yang memiliki produk UMKM dan ingin dipromosikan di website resmi desa, silakan hubungi operator desa atau datang langsung ke kantor desa.</p>
+                <a href="#" class="inline-block px-8 py-3 bg-[#ff5050] text-[#0e3191] text-xs font-black uppercase tracking-wide  hover:bg-yellow-400 transition-colors ">
                     Daftarkan Produk UMKM
                 </a>
             </div>

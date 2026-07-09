@@ -11,7 +11,7 @@
 
 @theme {
     --font-sans:
-        "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+        "Open Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
         "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
     --color-zinc-50: #fafafa;
@@ -96,7 +96,7 @@
     }
 
     p {
-        @apply mb-3 text-slate-600 dark:text-slate-400 leading-normal;
+        @apply mb-3 text-slate-600 dark:text-slate-400 leading-relaxed;
     }
 
     /* Accessibility focus styles */

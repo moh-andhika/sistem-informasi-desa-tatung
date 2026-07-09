@@ -60,14 +60,14 @@ new #[Layout('layouts.app'), Title('Dashboard Warga')] class extends Component {
 }; ?>
 
 <div class="flex h-full w-full flex-1 flex-col gap-8">
-    <div class="rounded-sm bg-white border-t-4 border-teal-500 p-6 text-slate-900 shadow-sm dark:bg-slate-900 dark:border-t-teal-600 dark:text-white">
+    <div class=" bg-white  p-6 text-slate-900 dark:bg-slate-900 dark: dark:text-white">
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div class="flex items-center gap-5">
-                <div class="flex size-14 shrink-0 items-center justify-center rounded-sm bg-slate-100 border border-slate-200 dark:bg-slate-800 dark:border-slate-600">
+                <div class="flex size-14 shrink-0 items-center justify-center  bg-slate-100  dark:bg-slate-800 dark:
                     <flux:icon.home-modern class="size-8 text-teal-600 dark:text-teal-400" />
                 </div>
                 <div>
-                    <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 mb-1 dark:text-white">Layanan Mandiri Desa Tatung</h1>
+                    <h1 class="text-xl sm:text-2xl font-bold tracking-normal text-slate-900 mb-1 dark:text-white">Layanan Mandiri Desa Tatung</h1>
                     <p class="text-slate-500 text-sm max-w-xl dark:text-slate-400">
                         Halo, <span class="font-bold text-teal-600 dark:text-teal-400">{{ auth()->user()->name }}</span>.
                         Gunakan dashboard ini untuk mengajukan permohonan surat secara mandiri dan pantau prosesnya.
@@ -76,7 +76,7 @@ new #[Layout('layouts.app'), Title('Dashboard Warga')] class extends Component {
             </div>
             <div class="flex flex-col items-center">
                 <flux:modal.trigger name="ajukan-surat">
-                    <flux:button variant="primary" icon="plus" size="sm" class="shadow-sm rounded-sm">
+                    <flux:button variant="primary" icon="plus" size="sm" class="">
                         Ajukan Surat Baru
                     </flux:button>
                 </flux:modal.trigger>
@@ -86,9 +86,9 @@ new #[Layout('layouts.app'), Title('Dashboard Warga')] class extends Component {
 
     <div class="grid gap-6 md:grid-cols-4">
         <!-- Stat Box: Info (Biru AdminLTE) -->
-        <div class="relative overflow-hidden rounded-sm bg-cyan-500 text-white shadow-sm transition-all hover:shadow-md pb-8 group">
+        <div class="relative overflow-hidden  bg-cyan-500 text-white transition-all  pb-8 group">
             <div class="relative z-10 px-4 py-4">
-                <h3 class="text-4xl font-bold mb-1 drop-shadow-sm">{{ $stats['total'] }}</h3>
+                <h3 class="text-4xl font-bold mb-1 ">{{ $stats['total'] }}</h3>
                 <p class="text-sm font-medium opacity-90 truncate">Total Pengajuan</p>
             </div>
             <div class="absolute right-2 top-2 z-0 opacity-25 transition-transform duration-300 group-hover:scale-110">
@@ -100,9 +100,9 @@ new #[Layout('layouts.app'), Title('Dashboard Warga')] class extends Component {
         </div>
 
         <!-- Stat Box: Warning (Kuning AdminLTE) -->
-        <div class="relative overflow-hidden rounded-sm bg-amber-500 text-white shadow-sm transition-all hover:shadow-md pb-8 group">
+        <div class="relative overflow-hidden  bg-red-500 text-white transition-all  pb-8 group">
             <div class="relative z-10 px-4 py-4">
-                <h3 class="text-4xl font-bold mb-1 drop-shadow-sm">{{ $stats['pending'] }}</h3>
+                <h3 class="text-4xl font-bold mb-1 ">{{ $stats['pending'] }}</h3>
                 <p class="text-sm font-medium opacity-90 truncate">Menunggu</p>
             </div>
             <div class="absolute right-2 top-2 z-0 opacity-25 transition-transform duration-300 group-hover:scale-110">
@@ -114,9 +114,9 @@ new #[Layout('layouts.app'), Title('Dashboard Warga')] class extends Component {
         </div>
 
         <!-- Stat Box: Primary (Biru Tua AdminLTE) -->
-        <div class="relative overflow-hidden rounded-sm bg-blue-600 text-white shadow-sm transition-all hover:shadow-md pb-8 group">
+        <div class="relative overflow-hidden  bg-blue-600 text-white transition-all  pb-8 group">
             <div class="relative z-10 px-4 py-4">
-                <h3 class="text-4xl font-bold mb-1 drop-shadow-sm">{{ $stats['proses'] }}</h3>
+                <h3 class="text-4xl font-bold mb-1 ">{{ $stats['proses'] }}</h3>
                 <p class="text-sm font-medium opacity-90 truncate">Diproses</p>
             </div>
             <div class="absolute right-2 top-2 z-0 opacity-25 transition-transform duration-300 group-hover:scale-110">
@@ -128,9 +128,9 @@ new #[Layout('layouts.app'), Title('Dashboard Warga')] class extends Component {
         </div>
 
         <!-- Stat Box: Success (Hijau AdminLTE) -->
-        <div class="relative overflow-hidden rounded-sm bg-emerald-500 text-white shadow-sm transition-all hover:shadow-md pb-8 group">
+        <div class="relative overflow-hidden  bg-blue-500 text-white transition-all  pb-8 group">
             <div class="relative z-10 px-4 py-4">
-                <h3 class="text-4xl font-bold mb-1 drop-shadow-sm">{{ $stats['selesai'] }}</h3>
+                <h3 class="text-4xl font-bold mb-1 ">{{ $stats['selesai'] }}</h3>
                 <p class="text-sm font-medium opacity-90 truncate">Selesai</p>
             </div>
             <div class="absolute right-2 top-2 z-0 opacity-25 transition-transform duration-300 group-hover:scale-110">
@@ -143,34 +143,34 @@ new #[Layout('layouts.app'), Title('Dashboard Warga')] class extends Component {
     </div>
 
     <div class="flex flex-col gap-6">
-        <div class="rounded-sm bg-white border-t-4 border-slate-400 p-0 shadow-sm dark:bg-slate-900">
-            <div class="px-5 py-4 border-b border-slate-200 dark:border-slate-700 flex justify-between items-center">
+        <div class=" bg-white  p-0 dark:bg-slate-900">
+            <div class="px-5 py-4   flex justify-between items-center">
                 <h3 class="font-semibold text-slate-800 dark:text-slate-200">Riwayat Pengajuan Anda</h3>
-                <flux:button variant="ghost" icon="arrow-path" size="sm" wire:click="$refresh" class="rounded-sm">Segarkan</flux:button>
+                <flux:button variant="ghost" icon="arrow-path" size="sm" wire:click="$refresh" class="">Segarkan</flux:button>
             </div>
 
             <div class="p-5">
                 @if($permohonans->isEmpty())
-                    <div class="flex flex-col items-center justify-center py-12 rounded-sm border-2 border-dashed border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
-                        <div class="size-12 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-3">
+                    <div class="flex flex-col items-center justify-center py-12     dark: bg-slate-50/50 dark:bg-slate-900/50">
+                        <div class="size-12  bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-3">
                             <flux:icon.document-text class="size-6 text-slate-400" />
                         </div>
                         <h3 class="text-md font-medium text-slate-900 dark:text-white">Belum Ada Pengajuan</h3>
                         <p class="text-slate-500 text-sm mt-1 mb-4">Anda belum pernah mengajukan permohonan surat.</p>
                         <flux:modal.trigger name="ajukan-surat">
-                            <flux:button variant="primary" size="sm" icon="plus" class="rounded-sm">Mulai Buat Pengajuan</flux:button>
+                            <flux:button variant="primary" size="sm" icon="plus" class="">Mulai Buat Pengajuan</flux:button>
                         </flux:modal.trigger>
                     </div>
                 @else
                     <div class="grid gap-4">
                         @foreach($permohonans as $item)
-                            <div class="flex items-center justify-between p-4 bg-white border border-slate-200 rounded-sm shadow-[0_1px_2px_rgba(0,0,0,0.05)] dark:bg-slate-800/80 dark:border-slate-700 hover:bg-slate-50 transition-colors">
+                            <div class="flex items-center justify-between p-4 bg-white   shadow-[0_1px_2px_rgba(0,0,0,0.05)] dark:bg-slate-800/80  hover:bg-slate-50 transition-colors">
                                 <div class="flex items-center gap-4">
                                     <div @class([
-                                        'size-10 rounded shrink-0 flex items-center justify-center text-white',
-                                        'bg-amber-500' => $item->status === 'pending',
+                                        'size-10  shrink-0 flex items-center justify-center text-white',
+                                        'bg-red-500' => $item->status === 'pending',
                                         'bg-blue-600' => $item->status === 'proses',
-                                        'bg-emerald-500' => $item->status === 'selesai',
+                                        'bg-blue-500' => $item->status === 'selesai',
                                         'bg-red-500' => $item->status === 'ditolak',
                                     ])>
                                         <flux:icon.document-text class="size-5" />
@@ -182,10 +182,10 @@ new #[Layout('layouts.app'), Title('Dashboard Warga')] class extends Component {
                                                 <flux:icon.calendar class="size-3" /> {{ $item->created_at->format('d M Y, H:i') }}
                                             </span>
                                             <span @class([
-                                                'text-[10px] font-bold uppercase px-1.5 py-0.5 rounded text-white',
-                                                'bg-amber-500' => $item->status === 'pending',
+                                                'text-[10px] font-bold uppercase px-1.5 py-0.5  text-white',
+                                                'bg-red-500' => $item->status === 'pending',
                                                 'bg-blue-600' => $item->status === 'proses',
-                                                'bg-emerald-500' => $item->status === 'selesai',
+                                                'bg-blue-500' => $item->status === 'selesai',
                                                 'bg-red-500' => $item->status === 'ditolak',
                                             ])>
                                                 {{ $item->status }}
@@ -197,10 +197,10 @@ new #[Layout('layouts.app'), Title('Dashboard Warga')] class extends Component {
                                 <div class="flex items-center gap-2">
                                     @if($item->keterangan_admin)
                                         <flux:tooltip position="top" content="{{ $item->keterangan_admin }}">
-                                            <flux:button variant="ghost" size="sm" icon="information-circle" class="rounded-sm" />
+                                            <flux:button variant="ghost" size="sm" icon="information-circle" class="" />
                                         </flux:tooltip>
                                     @endif
-                                    <flux:button variant="ghost" size="sm" icon="eye" class="rounded-sm">Detail</flux:button>
+                                    <flux:button variant="ghost" size="sm" icon="eye" class="">Detail</flux:button>
                                 </div>
                             </div>
                         @endforeach
@@ -235,10 +235,10 @@ new #[Layout('layouts.app'), Title('Dashboard Warga')] class extends Component {
                 <flux:error name="keperluan" />
             </flux:field>
 
-            <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-xl border border-amber-100 dark:border-amber-800/50">
+            <div class="bg-red-50 dark:bg-red-900/20 p-4   dark:
                 <div class="flex gap-3">
-                    <flux:icon.information-circle class="size-5 text-amber-600 shrink-0" />
-                    <div class="text-xs text-amber-800 dark:text-amber-400 leading-relaxed">
+                    <flux:icon.information-circle class="size-5 text-red-600 shrink-0" />
+                    <div class="text-xs text-red-800 dark:text-red-400 leading-relaxed">
                         <p class="font-bold mb-1 underline">Catatan Penting:</p>
                         Setelah dikirim, permohonan akan diverifikasi oleh admin desa. Harap pantau dashboard ini secara berkala atau tunggu pemberitahuan selanjutnya.
                     </div>

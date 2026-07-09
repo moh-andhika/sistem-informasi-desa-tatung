@@ -4,6 +4,7 @@ use App\Http\Controllers\PendudukController;
 use App\Models\Berita;
 use App\Models\Galeri;
 use App\Models\Pengumuman;
+use App\Models\perangkat_desa;
 use Illuminate\Support\Facades\Route;
 
 // ==========================================
@@ -27,11 +28,14 @@ Route::get('/', function () {
 
     $galeri = Galeri::latest()->take(6)->get();
 
+    $perangkatDesa = perangkat_desa::orderBy('urutan')->get();
+
     return view('landing', [
         'beritaTerbaru' => $beritaTerbaru,
         'pengumuman' => $pengumuman,
         'runningTexts' => $runningTexts,
         'galeri' => $galeri,
+        'perangkatDesa' => $perangkatDesa,
     ]);
 })->name('home');
 
@@ -47,7 +51,11 @@ Route::name('publik.')->group(function () {
             Route::view('visi-misi', 'pages.profil.visi-misi')->name(
                 'visi-misi',
             );
-            Route::view('aparatur', 'pages.profil.aparatur')->name('aparatur');
+            Route::get('aparatur', function () {
+                $aparatur = perangkat_desa::orderBy('urutan')->get();
+
+                return view('pages.profil.aparatur', compact('aparatur'));
+            })->name('aparatur');
             Route::view('wilayah', 'pages.profil.wilayah')->name('wilayah');
         });
 
@@ -146,6 +154,7 @@ Route::middleware(['auth', 'verified', 'role:Super Admin|Admin Kependudukan'])
         Route::livewire('berita', 'pages::admin.berita')->name('berita');
         Route::livewire('galeri', 'pages::admin.galeri')->name('galeri');
         Route::livewire('pengumuman', 'pages::admin.pengumuman')->name('pengumuman');
+        Route::livewire('perangkat-desa', 'pages::admin.perangkat-desa')->name('perangkat-desa');
         Route::livewire('permohonan', 'pages::admin.permohonan')->name(
             'permohonan',
         );

@@ -165,14 +165,14 @@ new #[Layout('layouts.app'), Title('Manajemen Pengumuman')] class extends Compon
                         </x-table.td>
                         <x-table.td>
                             @if($row->is_active)
-                                <span class="inline-flex items-center rounded-full bg-emerald-50 px-2 py-1 text-xs font-medium text-emerald-700 ring-1 ring-inset ring-emerald-600/20">Aktif</span>
+                                <span class="inline-flex items-center  bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-600/20">Aktif</span>
                             @else
-                                <span class="inline-flex items-center rounded-full bg-slate-50 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-600/20">Nonaktif</span>
+                                <span class="inline-flex items-center  bg-slate-50 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-600/20">Nonaktif</span>
                             @endif
                         </x-table.td>
                         <x-table.td>
                             @if($row->is_running_text)
-                                <flux:badge color="blue" size="sm" icon="bolt" class="rounded-sm">Tampil</flux:badge>
+                                <flux:badge color="blue" size="sm" icon="bolt" class="">Tampil</flux:badge>
                             @else
                                 <span class="text-slate-400 text-xs">-</span>
                             @endif

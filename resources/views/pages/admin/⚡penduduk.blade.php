@@ -154,7 +154,7 @@ new #[Layout('layouts.app'), Title('Data Penduduk')] class extends Component {
     </div>
 
     @if(session('success'))
-        <div class="flex items-center gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800 dark:border-emerald-800/30 dark:bg-emerald-900/30 dark:text-emerald-400">
+        <div class="flex items-center gap-2   bg-blue-50 px-4 py-3 text-sm font-medium text-blue-800 dark: dark:bg-blue-900/30 dark:text-blue-400">
             <flux:icon.check-circle class="size-5" variant="mini" />
             {{ session('success') }}
         </div>
@@ -235,14 +235,14 @@ new #[Layout('layouts.app'), Title('Data Penduduk')] class extends Component {
     {{-- Modal Tambah / Edit Penduduk --}}
     <flux:modal wire:model="showModal" class="md:w-[500px]">
         <div class="p-6">
-            <h2 class="text-lg font-bold mb-4 text-slate-900 dark:text-white flex items-center gap-2 border-b border-slate-200 pb-3">
+            <h2 class="text-lg font-bold mb-4 text-slate-900 dark:text-white flex items-center gap-2  pb-3">
                 <flux:icon.identification class="size-5 text-blue-600" />
                 {{ $is_edit ? 'Edit Data Penduduk' : 'Tambah Data Penduduk' }}
             </h2>
 
             <form wire:submit.prevent="save" class="flex flex-col gap-4">
                 @if ($errors->any())
-                    <div class="rounded-sm bg-red-50 border border-red-200 p-3 mb-2">
+                    <div class=" bg-red-50  p-3 mb-2">
                         <div class="flex">
                             <flux:icon.exclamation-triangle class="size-5 text-red-500 mr-2 shrink-0" variant="mini" />
                             <div class="text-sm text-red-600 font-medium">
@@ -338,7 +338,7 @@ new #[Layout('layouts.app'), Title('Data Penduduk')] class extends Component {
                     />
                 </div>
 
-                <div class="flex justify-end gap-3 mt-4 pt-4 border-t border-slate-100">
+                <div class="flex justify-end gap-3 mt-4 pt-4  
                     <flux:button type="button" variant="ghost" wire:click="$set('showModal', false)">Batal</flux:button>
                     <flux:button type="submit" variant="primary">{{ $is_edit ? 'Simpan Perubahan' : 'Simpan Data' }}</flux:button>
                 </div>

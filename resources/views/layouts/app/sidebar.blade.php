@@ -56,6 +56,12 @@
                     'active' => request()->routeIs('admin.galeri'),
                 ],
                 [
+                    'title' => __('Perangkat Desa'),
+                    'icon' => 'identification',
+                    'href' => route('admin.perangkat-desa'),
+                    'active' => request()->routeIs('admin.perangkat-desa'),
+                ],
+                [
                     'title' => __('Pengumuman'),
                     'icon' => 'megaphone',
                     'href' => route('admin.pengumuman'),
@@ -99,8 +105,8 @@
             }
         </style>
 
-        <flux:sidebar sticky collapsible="mobile" class="adminlte-sidebar dark border-e border-slate-700 bg-slate-800 text-slate-300">
-            <flux:sidebar.header class="border-b border-slate-700/80 pb-4 mb-2">
+        <flux:sidebar sticky collapsible="mobile" class="adminlte-sidebar dark   bg-slate-800 text-slate-300">
+            <flux:sidebar.header class="  pb-4 mb-2">
                 <x-app-logo :sidebar="true" href="{{ route('dashboard') }}" wire:navigate class="text-white" />
                 <flux:sidebar.collapse class="lg:hidden" />
             </flux:sidebar.header>
@@ -131,7 +137,7 @@
                                 <div class="flex items-center justify-between w-full">
                                     <span>{{ $item['title'] }}</span>
                                     @isset($item['badge'])
-                                        <span class="text-[11px] rounded-full bg-yellow-100 px-2 py-0.5 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
+                                        <span class="text-[11px]  bg-yellow-100 px-2 py-0.5 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
                                             {{ $item['badge'] }}
                                         </span>
                                     @endisset
@@ -153,7 +159,7 @@
                                 <div class="flex items-center justify-between w-full">
                                     <span>{{ $item['title'] }}</span>
                                     @isset($item['badge'])
-                                        <span class="text-[11px] rounded-full bg-yellow-100 px-2 py-0.5 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
+                                        <span class="text-[11px]  bg-yellow-100 px-2 py-0.5 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
                                             {{ $item['badge'] }}
                                         </span>
                                     @endisset

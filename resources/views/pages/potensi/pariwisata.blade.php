@@ -10,18 +10,18 @@
 @section('content')
     <div class="space-y-8">
         {{-- Intro Banner --}}
-        <div class="bg-green-50 border border-green-200 rounded-lg p-5 flex gap-4 items-start">
-            <flux:icon.map-pin class="size-6 text-[#2E7D32] shrink-0 mt-0.5" />
+        <div class="bg-blue-50   p-5 flex gap-4 items-start">
+            <flux:icon.map-pin class="size-6 text-[#024ad8] shrink-0 mt-0.5" />
             <div>
-                <h4 class="text-sm font-black text-green-900 uppercase tracking-tight mb-1">Jelajahi Keindahan Desa Tatung</h4>
-                <p class="text-sm text-green-800 leading-relaxed">Desa Tatung menyimpan potensi wisata alam dan budaya yang indah. Nikmati ketenangan pedesaan sambil mengenal tradisi dan kearifan lokal masyarakat setempat.</p>
+                <h4 class="text-sm font-black text-blue-900 uppercase tracking-normal mb-1">Jelajahi Keindahan Desa Tatung</h4>
+                <p class="text-sm text-blue-800 leading-relaxed">Desa Tatung menyimpan potensi wisata alam dan budaya yang indah. Nikmati ketenangan pedesaan sambil mengenal tradisi dan kearifan lokal masyarakat setempat.</p>
             </div>
         </div>
 
         {{-- Daftar Destinasi --}}
-        <section aria-labelledby="wisata-title" class="bg-white rounded-lg border border-green-100 shadow-sm overflow-hidden">
-            <div class="bg-[#2E7D32] px-6 py-4 flex items-center justify-between">
-                <h2 class="text-sm font-black text-white uppercase tracking-widest" id="wisata-title">Destinasi Wisata Unggulan</h2>
+        <section aria-labelledby="wisata-title" class="bg-white  overflow-hidden">
+            <div class="bg-[#024ad8] px-6 py-4 flex items-center justify-between">
+                <h2 class="text-sm font-black text-white uppercase tracking-wide" id="wisata-title">Destinasi Wisata Unggulan</h2>
                 <flux:icon.map class="size-5 text-white/70" />
             </div>
             <div class="p-8">
@@ -56,28 +56,28 @@
 
                 <div class="space-y-8" role="list" aria-label="Daftar destinasi wisata Desa Tatung">
                     @foreach($destinasi as $tempat)
-                    <article class="group rounded-lg border border-green-100 overflow-hidden hover:shadow-lg hover:border-green-200 transition-all" role="listitem">
+                    <article class="group  overflow-hidden   transition-all" role="listitem">
                         <div class="grid sm:grid-cols-5 gap-0">
                             {{-- Gambar --}}
                             <div class="sm:col-span-2 h-52 sm:h-auto bg-slate-100 overflow-hidden relative">
                                 <img src="{{ $tempat['img'] }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Foto {{ $tempat['nama'] }}">
                                 <div class="absolute top-3 left-3">
-                                    <span class="px-2.5 py-1 bg-[#2E7D32] text-white text-[9px] font-black rounded-md uppercase tracking-widest shadow">{{ $tempat['kategori'] }}</span>
+                                    <span class="px-2.5 py-1 bg-[#024ad8] text-white text-[9px] font-black  uppercase tracking-wide shadow">{{ $tempat['kategori'] }}</span>
                                 </div>
                             </div>
                             {{-- Konten --}}
                             <div class="sm:col-span-3 p-6 flex flex-col justify-between">
                                 <div>
-                                    <h3 class="text-xl font-black text-slate-900 uppercase tracking-tight mb-3 group-hover:text-[#2E7D32] transition-colors">{{ $tempat['nama'] }}</h3>
+                                    <h3 class="text-xl font-black text-slate-900 uppercase tracking-normal mb-3 group-hover:text-[#024ad8] transition-colors">{{ $tempat['nama'] }}</h3>
                                     <p class="text-sm text-slate-600 leading-relaxed mb-5">{{ $tempat['deskripsi'] }}</p>
                                 </div>
-                                <div class="flex flex-wrap gap-4 pt-4 border-t border-green-50">
+                                <div class="flex flex-wrap gap-4 pt-4 
                                     <div class="flex items-center gap-2">
-                                        <flux:icon.clock class="size-4 text-[#2E7D32]" aria-hidden="true" />
+                                        <flux:icon.clock class="size-4 text-[#024ad8]" aria-hidden="true" />
                                         <span class="text-[11px] font-bold text-slate-600 uppercase tracking-wide">{{ $tempat['jam'] }}</span>
                                     </div>
                                     <div class="flex items-center gap-2">
-                                        <flux:icon.ticket class="size-4 text-[#2E7D32]" aria-hidden="true" />
+                                        <flux:icon.ticket class="size-4 text-[#024ad8]" aria-hidden="true" />
                                         <span class="text-[11px] font-bold text-slate-600 uppercase tracking-wide">Tiket: {{ $tempat['tiket'] }}</span>
                                     </div>
                                 </div>
@@ -90,12 +90,12 @@
         </section>
 
         {{-- Info kontak wisata --}}
-        <div class="p-6 bg-[#2E7D32] rounded-lg text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="p-6 bg-[#024ad8]  text-white flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
-                <h3 class="font-black text-base uppercase tracking-tight mb-1">Butuh Informasi Lebih Lanjut?</h3>
-                <p class="text-green-200 text-sm">Hubungi perangkat desa untuk panduan wisata dan paket kunjungan khusus rombongan.</p>
+                <h3 class="font-black text-base uppercase tracking-normal mb-1">Butuh Informasi Lebih Lanjut?</h3>
+                <p class="text-blue-200 text-sm">Hubungi perangkat desa untuk panduan wisata dan paket kunjungan khusus rombongan.</p>
             </div>
-            <a href="{{ route('publik.layanan.informasi-surat') }}" class="shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-[#F9A825] text-[#1B5E20] text-xs font-black uppercase tracking-widest rounded-lg hover:bg-yellow-400 transition-colors shadow-lg">
+            <a href="{{ route('publik.layanan.informasi-surat') }}" class="shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-[#ff5050] text-[#0e3191] text-xs font-black uppercase tracking-wide  hover:bg-yellow-400 transition-colors ">
                 <flux:icon.phone class="size-4" />
                 Hubungi Desa
             </a>

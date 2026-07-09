@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
         // Panggil seeder role & permission
         $this->call(RolePermissionSeeder::class);
 
+        $this->call(BeritaSeeder::class);
+
         // Admin Desa Tatung
         $admin = User::factory()->create([
             'name' => 'Admin Desa Tatung',

@@ -14,96 +14,95 @@
 @section('content')
     <div class="space-y-12">
         {{-- Bagan Struktur --}}
-        <section aria-labelledby="bagan-title" class="bg-white rounded-lg border border-green-100 shadow-sm overflow-hidden">
-            <div class="bg-[#2E7D32] px-6 py-4 flex items-center justify-between">
-                <h2 class="text-sm font-black text-white uppercase tracking-widest" id="bagan-title">Bagan Struktur Organisasi</h2>
+        <section aria-labelledby="bagan-title" class="bg-white  overflow-hidden">
+            <div class="bg-[#024ad8] px-6 py-4 flex items-center justify-between">
+                <h2 class="text-sm font-black text-white uppercase tracking-wide" id="bagan-title">Bagan Struktur Organisasi</h2>
                 <flux:icon.chart-pie class="size-5 text-white/70" />
             </div>
             <div class="p-8">
-                <div class="rounded-lg border border-green-50 overflow-hidden bg-green-50/30 p-2 shadow-inner">
+                <div class="  overflow-hidden bg-blue-50/30 p-2 shadow-inner">
                     <img src="{{ asset('assets/image-98.png') }}" class="w-full h-auto" alt="Bagan Struktur Organisasi Desa Tatung">
                 </div>
             </div>
         </section>
 
         {{-- Struktur Aparatur Desa --}}
-        <section aria-labelledby="personil-title" class="bg-white rounded-lg border border-green-100 shadow-sm overflow-hidden">
-            <div class="bg-[#1B5E20] px-6 py-4 border-b border-green-900 flex items-center justify-between">
-                <h2 class="text-sm font-black text-white uppercase tracking-widest" id="personil-title">Daftar Aparatur Desa</h2>
-                <flux:icon.identification class="size-5 text-green-400" />
+        <section aria-labelledby="personil-title" class="bg-white  overflow-hidden">
+            <div class="bg-[#0e3191] px-6 py-4lue-900 flex items-center justify-between">
+                <h2 class="text-sm font-black text-white uppercase tracking-wide" id="personil-title">Daftar Aparatur Desa</h2>
+                <flux:icon.identification class="size-5 text-blue-400" />
             </div>
 
             @php
-                $aparatur = [
-                    ['nama' => 'Rudianto', 'jabatan' => 'Kepala Desa', 'nip' => '19700101XXXXXXXX'],
-                    ['nama' => 'Siti Aminah', 'jabatan' => 'Sekretaris Desa', 'nip' => '19820512XXXXXXXX'],
-                    ['nama' => 'Budi Santoso', 'jabatan' => 'Kaur Keuangan', 'nip' => '-'],
-                    ['nama' => 'Agus Wijaya', 'jabatan' => 'Kasi Pemerintahan', 'nip' => '-'],
-                    ['nama' => 'Luluk Farida', 'jabatan' => 'Kaur Umum', 'nip' => '-'],
-                    ['nama' => 'Heri Prasetyo', 'jabatan' => 'Kaur Perencanaan', 'nip' => '-'],
-                    ['nama' => 'Slamet Riadi', 'jabatan' => 'Kasi Kesejahteraan', 'nip' => '-'],
-                    ['nama' => 'Mulyono', 'jabatan' => 'Kasi Pelayanan', 'nip' => '-'],
-                ];
-                $kepalaDesa = $aparatur[0];
-                $sekretarisDesa = $aparatur[1];
-                $staf = array_slice($aparatur, 2);
+                $kepalaDesa = $aparatur->firstWhere('jabatan', 'Kepala Desa');
+                $sekretaris = $aparatur->firstWhere('jabatan', 'Sekretaris Desa');
+                $staf = $aparatur->reject(fn ($p) => in_array($p->jabatan, ['Kepala Desa', 'Sekretaris Desa']));
             @endphp
 
             <div class="flex flex-col items-center py-12" role="list" aria-label="Struktur Organisasi Pemerintah Desa Tatung">
                 {{-- Level 1: Kepala Desa --}}
-                <article class="w-full max-w-sm flex flex-col items-center p-8 border-2 border-[#2E7D32] bg-green-50/40 rounded-lg relative mb-12 focus-within:ring-2 focus-within:ring-green-600" role="listitem">
-                    <div class="size-28 rounded-lg overflow-hidden border-4 border-white shadow-md mb-4">
-                        <img src="{{ asset('assets/images/kepala-desa.png') }}" class="w-full h-full object-cover" alt="Foto Kepala Desa: {{ $kepalaDesa['nama'] }}">
-                    </div>
-                    <h3 class="text-lg font-black text-slate-900 uppercase tracking-tight text-center mb-1 leading-none">{{ $kepalaDesa['nama'] }}</h3>
-                    <p class="text-xs font-bold text-[#2E7D32] uppercase tracking-[0.2em] mb-3">{{ $kepalaDesa['jabatan'] }}</p>
-                    @if($kepalaDesa['nip'] !== '-')
-                        <p class="text-[10px] font-medium text-slate-500">NIP. {{ $kepalaDesa['nip'] }}</p>
-                    @endif
-                    
-                    {{-- Vertical Line Down --}}
-                    <div class="absolute -bottom-12 left-1/2 w-px h-12 bg-green-200" aria-hidden="true"></div>
-                </article>
+                @if ($kepalaDesa)
+                    <article class="w-full max-w-sm flex flex-col items-center p-4 bg-[#f9fafb] relative mb-8 focus-within:ring-2 focus-within:ring-blue-600" role="listitem">
+                        <div class="size-24 overflow-hidden mb-3">
+                            @if ($kepalaDesa->gambar)
+                                <img src="{{ Storage::url($kepalaDesa->gambar) }}" class="w-full h-full object-cover" alt="Foto Kepala Desa: {{ $kepalaDesa->nama }}">
+                            @else
+                                <img src="https://ui-avatars.com/api/?name={{ urlencode($kepalaDesa->nama) }}&background=0E3191&color=fff&size=128" class="w-full h-full object-cover" alt="Foto Kepala Desa: {{ $kepalaDesa->nama }}">
+                            @endif
+                        </div>
+                        <h3 class="text-base font-bold text-[#1a1a1a] uppercase tracking-normal text-center mb-1 leading-none">{{ $kepalaDesa->nama }}</h3>
+                        <p class="text-xs font-medium text-[#3d3d3d] uppercase tracking-[0.2em] mb-2">{{ $kepalaDesa->jabatan }}</p>
+                        <div class="absolute -bottom-12 left-1/2 w-px h-12 bg-blue-200" aria-hidden="true"></div>
+                    </article>
+                @endif
 
                 {{-- Level 2: Sekretaris Desa --}}
-                <article class="w-full max-w-xs flex flex-col items-center p-6 border border-green-100 bg-white rounded-lg relative mb-16 focus-within:ring-2 focus-within:ring-green-600 shadow-sm" role="listitem">
-                    <div class="size-24 rounded-lg overflow-hidden border-2 border-green-100 shadow-sm mb-4">
-                        <img src="https://ui-avatars.com/api/?name={{ urlencode($sekretarisDesa['nama']) }}&background=2E7D32&color=fff&size=128" class="w-full h-full object-cover" alt="Foto Sekretaris Desa: {{ $sekretarisDesa['nama'] }}">
-                    </div>
-                    <h3 class="text-base font-black text-slate-800 uppercase tracking-tight text-center mb-1 leading-none">{{ $sekretarisDesa['nama'] }}</h3>
-                    <p class="text-[11px] font-bold text-[#2E7D32] uppercase tracking-widest mb-2">{{ $sekretarisDesa['jabatan'] }}</p>
-                    @if($sekretarisDesa['nip'] !== '-')
-                        <p class="text-[10px] font-medium text-slate-400">NIP. {{ $sekretarisDesa['nip'] }}</p>
-                    @endif
-
-                    {{-- Vertical Line Down --}}
-                    <div class="absolute -bottom-16 left-1/2 w-px h-16 bg-green-200 hidden lg:block" aria-hidden="true"></div>
-                </article>
+                @if ($sekretaris)
+                    <article class="w-full max-w-xs flex flex-col items-center p-4 bg-white relative mb-12 focus-within:ring-2 focus-within:ring-blue-600" role="listitem">
+                        <div class="size-20 overflow-hidden mb-3">
+                            @if ($sekretaris->gambar)
+                                <img src="{{ Storage::url($sekretaris->gambar) }}" class="w-full h-full object-cover" alt="Foto Sekretaris Desa: {{ $sekretaris->nama }}">
+                            @else
+                                <img src="https://ui-avatars.com/api/?name={{ urlencode($sekretaris->nama) }}&background=2E7D32&color=fff&size=128" class="w-full h-full object-cover" alt="Foto Sekretaris Desa: {{ $sekretaris->nama }}">
+                            @endif
+                        </div>
+                        <h3 class="text-base font-bold text-[#1a1a1a] uppercase tracking-normal text-center mb-1 leading-none">{{ $sekretaris->nama }}</h3>
+                        <p class="text-[11px] font-medium text-[#3d3d3d] uppercase tracking-wide mb-1">{{ $sekretaris->jabatan }}</p>
+                        <div class="absolute -bottom-16 left-1/2 w-px h-16 bg-blue-200 hidden lg:block" aria-hidden="true"></div>
+                    </article>
+                @endif
 
                 {{-- Level 3: Kaur & Kasi --}}
-                <div class="w-full px-6">
-                    <div class="relative">
-                        {{-- Horizontal Connector Line --}}
-                        <div class="absolute -top-16 left-[16.6%] right-[16.6%] h-px bg-green-200 hidden lg:block" aria-hidden="true"></div>
-                        
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-12 lg:gap-y-16 gap-x-8">
-                            @foreach($staf as $person)
-                            <article class="flex flex-col items-center relative group focus-within:ring-2 focus-within:ring-green-600" role="listitem">
-                                {{-- Vertical Line Up to Connector --}}
-                                <div class="absolute -top-16 left-1/2 w-px h-16 bg-green-200 hidden lg:block" aria-hidden="true"></div>
-                                
-                                <div class="w-full p-6 border border-green-50 bg-green-50/20 rounded-lg group-hover:border-green-200 group-hover:bg-white group-hover:shadow-md transition-all flex flex-col items-center">
-                                    <div class="size-20 rounded-lg overflow-hidden border-2 border-white shadow-sm mb-4 group-hover:border-green-400 transition-colors">
-                                        <img src="https://ui-avatars.com/api/?name={{ urlencode($person['nama']) }}&background=2E7D32&color=fff&size=128" class="w-full h-full object-cover" alt="Foto {{ $person['jabatan'] }}: {{ $person['nama'] }}">
-                                    </div>
-                                    <h3 class="text-xs font-black text-slate-800 uppercase tracking-tight text-center mb-1 leading-tight group-hover:text-[#2E7D32] transition-colors">{{ $person['nama'] }}</h3>
-                                    <p class="text-[10px] font-bold text-[#2E7D32] uppercase tracking-widest text-center">{{ $person['jabatan'] }}</p>
-                                </div>
-                            </article>
-                            @endforeach
+                @if ($staf->isNotEmpty())
+                    <div class="w-full px-6">
+                        <div class="relative">
+                            <div class="absolute -top-16 left-[16.6%] right-[16.6%] h-px bg-blue-200 hidden lg:block" aria-hidden="true"></div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-8 lg:gap-y-10 gap-x-6">
+                                @foreach($staf as $person)
+                                    <article class="flex flex-col items-center relative group focus-within:ring-2 focus-within:ring-blue-600" role="listitem">
+                                        <div class="absolute -top-16 left-1/2 w-px h-16 bg-blue-200 hidden lg:block" aria-hidden="true"></div>
+                                        <div class="w-full p-4 bg-[#f9fafb] group-hover:bg-white transition-all flex flex-col items-center">
+                                            <div class="size-20 overflow-hidden mb-3">
+                                                @if ($person->gambar)
+                                                    <img src="{{ Storage::url($person->gambar) }}" class="w-full h-full object-cover" alt="Foto {{ $person->jabatan }}: {{ $person->nama }}">
+                                                @else
+                                                    <img src="https://ui-avatars.com/api/?name={{ urlencode($person->nama) }}&background=2E7D32&color=fff&size=128" class="w-full h-full object-cover" alt="Foto {{ $person->jabatan }}: {{ $person->nama }}">
+                                                @endif
+                                            </div>
+                                            <h3 class="text-xs font-bold text-[#1a1a1a] uppercase tracking-normal text-center mb-1 leading-tight">{{ $person->nama }}</h3>
+                                            <p class="text-[10px] font-medium text-[#3d3d3d] uppercase tracking-wide text-center">{{ $person->jabatan }}</p>
+                                        </div>
+                                    </article>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
-                </div>
+                @else
+                    <div class="py-8 text-center text-slate-500">
+                        <p>Data perangkat desa belum tersedia.</p>
+                    </div>
+                @endif
             </div>
         </section>
     </div>

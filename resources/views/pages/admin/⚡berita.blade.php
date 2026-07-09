@@ -61,7 +61,7 @@ new #[Layout('layouts.app'), Title('Manajemen Berita')] class extends Component 
         $imagePath = $this->gambar_lama;
 
         if ($this->gambar) {
-            if ($this->gambar_lama) {
+            if ($this->gambar_lama && ! str_starts_with($this->gambar_lama, 'http')) {
                 Storage::disk('public')->delete($this->gambar_lama);
             }
             $imagePath = $this->gambar->store('berita', 'public');
@@ -92,7 +92,7 @@ new #[Layout('layouts.app'), Title('Manajemen Berita')] class extends Component 
     public function delete($id)
     {
         $berita = Berita::findOrFail($id);
-        if ($berita->gambar) {
+        if ($berita->gambar && ! str_starts_with($berita->gambar, 'http')) {
             Storage::disk('public')->delete($berita->gambar);
         }
         $berita->delete();
@@ -120,7 +120,7 @@ new #[Layout('layouts.app'), Title('Manajemen Berita')] class extends Component 
     {
         if ($this->beritaId) {
             $berita = Berita::findOrFail($this->beritaId);
-            if ($berita->gambar) {
+            if ($berita->gambar && ! str_starts_with($berita->gambar, 'http')) {
                 Storage::disk('public')->delete($berita->gambar);
                 $berita->update(['gambar' => null]);
             }
@@ -192,9 +192,9 @@ new #[Layout('layouts.app'), Title('Manajemen Berita')] class extends Component 
                     <x-table.tr>
                         <x-table.td>
                             @if($row->gambar)
-                                <img src="{{ Storage::url($row->gambar) }}" alt="{{ $row->judul }}" class="h-10 w-16 object-cover rounded-md border border-slate-200">
+                                <img src="{{ $row->gambar_url }}" alt="{{ $row->judul }}" class="h-10 w-16 object-cover  
                             @else
-                                <div class="h-10 w-16 bg-slate-100 rounded-md border border-slate-200 flex items-center justify-center text-slate-400 dark:bg-slate-800 dark:border-slate-700">
+                                <div class="h-10 w-16 bg-slate-100   flex items-center justify-center text-slate-400 dark:bg-slate-800 ">
                                     <flux:icon.photo class="size-5" />
                                 </div>
                             @endif
@@ -204,9 +204,9 @@ new #[Layout('layouts.app'), Title('Manajemen Berita')] class extends Component 
                         </x-table.td>
                         <x-table.td>
                             @if($row->is_published)
-                                <span class="inline-flex items-center rounded-full bg-emerald-50 px-2 py-1 text-xs font-medium text-emerald-700 ring-1 ring-inset ring-emerald-600/20">Publik</span>
+                                <span class="inline-flex items-center  bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-600/20">Publik</span>
                             @else
-                                <span class="inline-flex items-center rounded-full bg-slate-50 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-600/20">Draf</span>
+                                <span class="inline-flex items-center  bg-slate-50 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-600/20">Draf</span>
                             @endif
                         </x-table.td>
                         <x-table.td>{{ $row->published_at ? $row->published_at->format('d M Y H:i') : '-' }}</x-table.td>
@@ -288,14 +288,14 @@ new #[Layout('layouts.app'), Title('Manajemen Berita')] class extends Component 
                             <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
                             <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
                             <style>
-                                .ql-toolbar.ql-snow { border-color: #e2e8f0; border-top-left-radius: 0.2rem; border-top-right-radius: 0.2rem; background: #f8fafc; }
-                                .ql-container.ql-snow { border-color: #e2e8f0; border-bottom-left-radius: 0.2rem; border-bottom-right-radius: 0.2rem; background: #ffffff; min-height: 300px; font-family: inherit; font-size: inherit; }
-                                .dark .ql-toolbar.ql-snow { border-color: #334155; background: #1e293b; color: #fff; }
-                                .dark .ql-container.ql-snow { border-color: #334155; background: #0f172a; color: #f8fafc; }
+                                .ql-toolbar.ql-snow {  #e2e8f0;  0.2rem;  0.2rem; background: #f8fafc; }
+                                .ql-container.ql-snow {  #e2e8f0;ottom-left-radius: 0.2rem;ottom-right-radius: 0.2rem; background: #ffffff; min-height: 300px; font-family: inherit; font-size: inherit; }
+                                .dark .ql-toolbar.ql-snow {  #334155; background: #1e293b; color: #fff; }
+                                .dark .ql-container.ql-snow {  #334155; background: #0f172a; color: #f8fafc; }
                                 .dark .ql-snow .ql-stroke { stroke: #cbd5e1; }
                                 .dark .ql-snow .ql-fill { fill: #cbd5e1; }
                                 .dark .ql-snow .ql-picker { color: #cbd5e1; }
-                                .dark .ql-snow .ql-picker-options { background: #1e293b; border-color: #334155; }
+                                .dark .ql-snow .ql-picker-options { background: #1e293b;  #334155; }
                             </style>
                             <div x-ref="quillEditor"></div>
                         </div>
@@ -309,9 +309,9 @@ new #[Layout('layouts.app'), Title('Manajemen Berita')] class extends Component 
                         <flux:label>Gambar Utama</flux:label>
                         
                         <div class="relative group">
-                            <div class="flex flex-col items-center justify-center w-full px-6 py-8 border-2 border-dashed rounded-2xl transition-all duration-200 bg-slate-50/50 border-slate-200 dark:bg-slate-900/50 dark:border-slate-800 group-hover:border-blue-400 dark:group-hover:border-blue-500 overflow-hidden">
+                            <div class="flex flex-col items-center justify-center w-full px-6 py-8   -2xl transition-all duration-200 bg-slate-50/50  dark:bg-slate-900/50 dark: group-hover: dark:group-hover: overflow-hidden">
                                 <div class="flex flex-col items-center justify-center space-y-2 text-center">
-                                    <div class="p-3 bg-white dark:bg-slate-800 rounded-xl shadow-sm ring-1 ring-slate-200 dark:ring-slate-700">
+                                    <div class="p-3 bg-white dark:bg-slate-800  ring-1 ring-slate-200 dark:ring-slate-700">
                                         <flux:icon.photo class="size-6 text-slate-500 dark:text-slate-400" />
                                     </div>
                                     <div class="space-y-1">
@@ -325,8 +325,8 @@ new #[Layout('layouts.app'), Title('Manajemen Berita')] class extends Component 
 
                         <div class="space-y-3">
                             @if ($gambar)
-                                <div class="flex items-center gap-4 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
-                                    <img src="{{ $gambar->temporaryUrl() }}" class="size-14 rounded-lg object-cover ring-1 ring-slate-200 dark:ring-slate-700" />
+                                <div class="flex items-center gap-4 p-3 bg-white dark:bg-slate-800    ">
+                                    <img src="{{ $gambar->temporaryUrl() }}" class="size-14  object-cover ring-1 ring-slate-200 dark:ring-slate-700" />
                                     <div class="flex-1 min-w-0">
                                         <p class="text-sm font-medium text-slate-900 dark:text-white truncate">{{ $gambar->getClientOriginalName() }}</p>
                                         <p class="text-xs text-slate-500">{{ round($gambar->getSize() / 1024) }} KB</p>
@@ -334,8 +334,8 @@ new #[Layout('layouts.app'), Title('Manajemen Berita')] class extends Component 
                                     <flux:button variant="ghost" size="sm" icon="x-mark" wire:click="removeGambar" class="text-slate-400 hover:text-red-500" />
                                 </div>
                             @elseif ($gambar_lama)
-                                <div class="flex items-center gap-4 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
-                                    <img src="{{ Storage::url($gambar_lama) }}" class="size-14 rounded-lg object-cover ring-1 ring-slate-200 dark:ring-slate-700" />
+                                <div class="flex items-center gap-4 p-3 bg-white dark:bg-slate-800    ">
+                                    <img src="{{ str_starts_with($gambar_lama, 'http') ? $gambar_lama : Storage::url($gambar_lama) }}" class="size-14  object-cover ring-1 ring-slate-200 dark:ring-slate-700" />
                                     <div class="flex-1 min-w-0">
                                         <p class="text-sm font-medium text-slate-900 dark:text-white truncate">Gambar saat ini</p>
                                         <p class="text-xs text-slate-500">Tersimpan di server</p>
@@ -347,7 +347,7 @@ new #[Layout('layouts.app'), Title('Manajemen Berita')] class extends Component 
                         <flux:error name="gambar" />
                     </div>
 
-                    <div class="rounded-2xl border border-slate-200 bg-slate-50/50 p-5 dark:border-slate-800 dark:bg-slate-900/50 space-y-4">
+                    <div class="-2xl  bg-slate-50/50 p-5 dark: dark:bg-slate-900/50 space-y-4">
                         <flux:heading size="sm">Setelan Publikasi</flux:heading>
                         
                         <flux:switch wire:model="is_published" 

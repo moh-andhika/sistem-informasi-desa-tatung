@@ -46,7 +46,7 @@ new #[Layout('layouts.app'), Title('Manajemen Galeri')] class extends Component 
     public function save()
     {
         $this->validate([
-            'judul' => 'required|string|max:255',
+            'judul' => 'nullable|string|max:255',
             'deskripsi' => 'nullable|string|max:500',
             'gambar' => $this->galeriId ? 'nullable|image|max:2048' : 'required|image|max:2048',
         ]);
@@ -138,17 +138,17 @@ new #[Layout('layouts.app'), Title('Manajemen Galeri')] class extends Component 
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             @forelse ($galeris as $item)
-                <div class="group relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm dark:bg-slate-900 dark:border-slate-700">
+                <div class="group relative overflow-hidden   bg-white dark:bg-slate-900 ">
                     <div class="aspect-video w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
                         <img src="{{ Storage::url($item->gambar) }}" alt="{{ $item->judul }}" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105">
                     </div>
-                    
+
                     <div class="p-4">
                         <h3 class="font-medium text-slate-900 dark:text-white truncate">{{ $item->judul }}</h3>
                         @if($item->deskripsi)
                             <p class="mt-1 text-xs text-slate-500 dark:text-slate-400 line-clamp-2">{{ $item->deskripsi }}</p>
                         @endif
-                        
+
                         <div class="mt-4 flex items-center justify-between gap-2">
                             <flux:button wire:click="edit({{ $item->id }})" variant="ghost" size="sm" icon="pencil-square">Edit</flux:button>
                             <flux:button wire:click="delete({{ $item->id }})" variant="ghost" size="sm" icon="trash" color="red" wire:confirm="Apakah Anda yakin ingin menghapus foto ini?">Hapus</flux:button>
@@ -156,7 +156,7 @@ new #[Layout('layouts.app'), Title('Manajemen Galeri')] class extends Component 
                     </div>
                 </div>
             @empty
-                <div class="col-span-full py-12 flex flex-col items-center justify-center border-2 border-dashed border-slate-200 rounded-lg dark:border-slate-700">
+                <div class="col-span-full py-12 flex flex-col items-center justify-center     ">
                     <flux:icon.photo class="size-12 text-slate-300 dark:text-slate-600 mb-2" />
                     <p class="text-slate-500 dark:text-slate-400">Belum ada foto galeri.</p>
                 </div>
@@ -178,26 +178,26 @@ new #[Layout('layouts.app'), Title('Manajemen Galeri')] class extends Component 
 
             <form wire:submit="save" class="space-y-4">
                 <flux:input wire:model="judul" label="Judul" placeholder="Judul foto atau kegiatan" />
-                
+
                 <flux:textarea wire:model="deskripsi" label="Deskripsi (Opsional)" placeholder="Penjelasan singkat mengenai foto" rows="3" />
 
                 <div class="space-y-3">
                     <flux:label>Foto</flux:label>
-                    
+
                     <div class="flex items-start gap-4">
                         @if ($gambar)
-                            <div class="relative size-32 overflow-hidden rounded-lg border border-slate-200">
+                            <div class="relative size-32 overflow-hidden
                                 <img src="{{ $gambar->temporaryUrl() }}" class="h-full w-full object-cover">
-                                <button type="button" wire:click="resetForm" class="absolute top-1 right-1 bg-white/80 rounded-full p-1 shadow-sm hover:bg-white">
+                                <button type="button" wire:click="resetForm" class="absolute top-1 right-1 bg-white/80  p-1 hover:bg-white">
                                     <flux:icon.x-mark class="size-4" />
                                 </button>
                             </div>
                         @elseif ($gambar_lama)
-                            <div class="size-32 overflow-hidden rounded-lg border border-slate-200">
+                            <div class="size-32 overflow-hidden
                                 <img src="{{ Storage::url($gambar_lama) }}" class="h-full w-full object-cover">
                             </div>
                         @else
-                            <div class="size-32 flex flex-col items-center justify-center rounded-lg border-2 border-dashed border-slate-200 dark:border-slate-700">
+                            <div class="size-32 flex flex-col items-center justify-center     ">
                                 <flux:icon.cloud-arrow-up class="size-8 text-slate-400" />
                             </div>
                         @endif

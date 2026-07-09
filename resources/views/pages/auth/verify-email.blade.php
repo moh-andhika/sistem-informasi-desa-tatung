@@ -5,7 +5,7 @@
         </flux:text>
 
         @if (session('status') == 'verification-link-sent')
-            <flux:text class="text-center font-medium !dark:text-green-400 !text-green-600">
+            <flux:text class="text-center font-medium !dark:text-blue-400 !text-blue-600">
                 {{ __('Tautan verifikasi baru telah dikirim ke alamat email yang Anda berikan saat pendaftaran.') }}
             </flux:text>
         @endif

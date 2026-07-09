@@ -268,8 +268,8 @@ new #[Layout('layouts.app'), Title('Manajemen Pengguna')] class extends Componen
 
     {{-- Summary Cards --}}
     <div class="grid grid-cols-2 gap-4">
-        <div class="flex items-center gap-4 rounded-xl border border-neutral-200 bg-white p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-900">
-            <div class="flex size-10 items-center justify-center rounded-lg bg-red-100 text-red-600 dark:bg-red-900/40 dark:text-red-400">
+        <div class="flex items-center gap-4   bg-white p-4 dark: dark:bg-neutral-900">
+            <div class="flex size-10 items-center justify-center  bg-red-100 text-red-600 dark:bg-red-900/40 dark:text-red-400">
                 <flux:icon.shield-check class="size-5" variant="outline" />
             </div>
             <div>
@@ -277,8 +277,8 @@ new #[Layout('layouts.app'), Title('Manajemen Pengguna')] class extends Componen
                 <p class="text-2xl font-bold text-neutral-900 dark:text-white">{{ $totalAdmin }}</p>
             </div>
         </div>
-        <div class="flex items-center gap-4 rounded-xl border border-neutral-200 bg-white p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-900">
-            <div class="flex size-10 items-center justify-center rounded-lg bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400">
+        <div class="flex items-center gap-4   bg-white p-4 dark: dark:bg-neutral-900">
+            <div class="flex size-10 items-center justify-center  bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400">
                 <flux:icon.users class="size-5" variant="outline" />
             </div>
             <div>
@@ -310,12 +310,12 @@ new #[Layout('layouts.app'), Title('Manajemen Pengguna')] class extends Componen
         class="relative w-full"
     >
         {{-- Tab Buttons --}}
-        <div x-ref="tabButtons" class="relative inline-grid w-full grid-cols-2 items-center justify-center rounded-lg border border-neutral-200 bg-neutral-50 p-1 text-neutral-500 select-none dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400">
+        <div x-ref="tabButtons" class="relative inline-grid w-full grid-cols-2 items-center justify-center   bg-neutral-50 p-1 text-neutral-500 select-none dark: dark:bg-neutral-800 dark:text-neutral-400">
             <button
                 :id="$id(tabId)"
                 @click="tabButtonClicked($el)"
                 type="button"
-                class="relative z-20 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 whitespace-nowrap cursor-pointer"
+                class="relative z-20 inline-flex items-center justify-center gap-2  px-4 py-2 text-sm font-medium transition-all duration-200 whitespace-nowrap cursor-pointer"
                 :class="tabSelected == 1 ? 'text-neutral-900 dark:text-white' : 'hover:text-neutral-700 dark:hover:text-neutral-200'"
             >
                 <flux:icon.shield-check class="size-4" variant="outline" />
@@ -325,7 +325,7 @@ new #[Layout('layouts.app'), Title('Manajemen Pengguna')] class extends Componen
                 :id="$id(tabId)"
                 @click="tabButtonClicked($el)"
                 type="button"
-                class="relative z-20 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 whitespace-nowrap cursor-pointer"
+                class="relative z-20 inline-flex items-center justify-center gap-2  px-4 py-2 text-sm font-medium transition-all duration-200 whitespace-nowrap cursor-pointer"
                 :class="tabSelected == 2 ? 'text-neutral-900 dark:text-white' : 'hover:text-neutral-700 dark:hover:text-neutral-200'"
             >
                 <flux:icon.users class="size-4" variant="outline" />
@@ -334,7 +334,7 @@ new #[Layout('layouts.app'), Title('Manajemen Pengguna')] class extends Componen
 
             {{-- Sliding Marker --}}
             <div x-ref="tabMarker" class="absolute left-0 z-10 h-full duration-300 ease-out" x-cloak>
-                <div class="h-full w-full rounded-md bg-white shadow-sm dark:bg-neutral-700"></div>
+                <div class="h-full w-full  bg-white dark:bg-neutral-700"></div>
             </div>
         </div>
 
@@ -369,7 +369,7 @@ new #[Layout('layouts.app'), Title('Manajemen Pengguna')] class extends Componen
                                 <x-table.tr wire:key="admin-{{ $user->id }}">
                                     <x-table.td>
                                         <div class="flex items-center gap-3">
-                                            <div class="flex size-8 shrink-0 items-center justify-center rounded-full bg-red-100 text-xs font-bold text-red-700 dark:bg-red-900/40 dark:text-red-400">
+                                            <div class="flex size-8 shrink-0 items-center justify-center  bg-red-100 text-xs font-bold text-red-700 dark:bg-red-900/40 dark:text-red-400">
                                                 {{ $user->initials() }}
                                             </div>
                                             <span class="font-medium text-neutral-900 dark:text-white">{{ $user->name }}</span>
@@ -433,7 +433,7 @@ new #[Layout('layouts.app'), Title('Manajemen Pengguna')] class extends Componen
                                 <x-table.tr wire:key="warga-{{ $user->id }}">
                                     <x-table.td>
                                         <div class="flex items-center gap-3">
-                                            <div class="flex size-8 shrink-0 items-center justify-center rounded-full bg-blue-100 text-xs font-bold text-blue-700 dark:bg-blue-900/40 dark:text-blue-400">
+                                            <div class="flex size-8 shrink-0 items-center justify-center  bg-blue-100 text-xs font-bold text-blue-700 dark:bg-blue-900/40 dark:text-blue-400">
                                                 {{ $user->initials() }}
                                             </div>
                                             <span class="font-medium text-neutral-900 dark:text-white">{{ $user->name }}</span>
@@ -481,7 +481,7 @@ new #[Layout('layouts.app'), Title('Manajemen Pengguna')] class extends Componen
             <form wire:submit.prevent="save" class="flex flex-col gap-4">
 
                 @if ($errors->any())
-                    <div class="rounded-sm bg-red-50 border border-red-200 p-3 mb-2">
+                    <div class=" bg-red-50  p-3 mb-2">
                         <div class="flex">
                             <flux:icon.exclamation-triangle class="size-5 text-red-500 mr-2 shrink-0" variant="mini" />
                             <div class="text-sm text-red-600 font-medium">
@@ -531,7 +531,7 @@ new #[Layout('layouts.app'), Title('Manajemen Pengguna')] class extends Componen
                             />
 
                             @if(!empty($searchResults))
-                                <div class="absolute z-[9999] w-full mt-1 bg-white dark:bg-slate-800 rounded-md shadow-xl border border-slate-200 dark:border-slate-700 max-h-60 overflow-y-auto" x-show="showDropdown" x-transition x-cloak>
+                                <div class="absolute z-[9999] w-full mt-1 bg-white dark:bg-slate-800  shadow-xl   max-h-60 overflow-y-auto" x-show="showDropdown" x-transition x-cloak>
                                     <ul class="py-1">
                                         @foreach($searchResults as $result)
                                             <li>
@@ -550,9 +550,9 @@ new #[Layout('layouts.app'), Title('Manajemen Pengguna')] class extends Componen
                                                             <p class="font-mono text-xs text-slate-500">{{ $result['nik'] }}</p>
                                                         </div>
                                                         @if($result['is_registered'])
-                                                            <span class="text-[10px] font-bold px-2 py-0.5 bg-red-100 text-red-700 rounded-sm">Sudah Terdaftar</span>
+                                                            <span class="text-[10px] font-bold px-2 py-0.5 bg-red-100 text-red-700 ">Sudah Terdaftar</span>
                                                         @else
-                                                            <flux:icon.check-circle class="size-4 text-emerald-500 opacity-0 group-hover:opacity-100" />
+                                                            <flux:icon.check-circle class="size-4 text-blue-500 opacity-0 group-hover:opacity-100" />
                                                         @endif
                                                     </div>
                                                 </button>
@@ -561,7 +561,7 @@ new #[Layout('layouts.app'), Title('Manajemen Pengguna')] class extends Componen
                                     </ul>
                                 </div>
                             @elseif(strlen($searchPenduduk) >= 3)
-                                <div class="absolute z-[9999] w-full mt-1 bg-white dark:bg-slate-800 rounded-md shadow-xl border border-slate-200 dark:border-slate-700 p-4 text-center" x-show="showDropdown" x-transition x-cloak>
+                                <div class="absolute z-[9999] w-full mt-1 bg-white dark:bg-slate-800  shadow-xl   p-4 text-center" x-show="showDropdown" x-transition x-cloak>
                                     <p class="text-sm text-slate-500">Pencarian "<b>{{ $searchPenduduk }}</b>" tidak ditemukan di data penduduk.</p>
                                 </div>
                             @endif
@@ -611,7 +611,7 @@ new #[Layout('layouts.app'), Title('Manajemen Pengguna')] class extends Componen
     {{-- Modal Detail Penduduk --}}
     <flux:modal wire:model="showDetailModal" class="md:w-[600px]">
         <div class="p-6">
-            <h2 class="text-lg font-bold mb-6 text-slate-900 dark:text-white flex items-center gap-2 border-b border-slate-200 pb-3">
+            <h2 class="text-lg font-bold mb-6 text-slate-900 dark:text-white flex items-center gap-2  pb-3">
                 <flux:icon.identification class="size-5 text-blue-600" />
                 Detail Data Kependudukan
             </h2>
@@ -619,25 +619,25 @@ new #[Layout('layouts.app'), Title('Manajemen Pengguna')] class extends Componen
             @if($detailPenduduk)
             <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6">
                 <div>
-                    <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Nomor Induk Kependudukan</span>
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Nomor Induk Kependudukan</span>
                     <p class="font-mono text-sm font-semibold text-slate-900 mt-1">{{ $detailPenduduk->nik }}</p>
                 </div>
                 <div>
-                    <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Nomor Kartu Keluarga</span>
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Nomor Kartu Keluarga</span>
                     <p class="font-mono text-sm font-semibold text-slate-900 mt-1">{{ $detailPenduduk->no_kk }}</p>
                 </div>
 
                 <div class="md:col-span-2">
-                    <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Nama Lengkap</span>
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Nama Lengkap</span>
                     <p class="text-base font-bold text-slate-900 mt-1">{{ $detailPenduduk->nama }}</p>
                 </div>
 
                 <div>
-                    <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Tempat Lahir</span>
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Tempat Lahir</span>
                     <p class="text-sm font-medium text-slate-900 mt-1">{{ $detailPenduduk->tempat_lahir }}</p>
                 </div>
                 <div>
-                    <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Tanggal Lahir</span>
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Tanggal Lahir</span>
                     <p class="text-sm font-medium text-slate-900 mt-1">
                         {{ \Carbon\Carbon::parse($detailPenduduk->tanggal_lahir)->format('d F Y') }}
                         <span class="text-xs text-slate-500 ml-1">({{ \Carbon\Carbon::parse($detailPenduduk->tanggal_lahir)->age }} Tahun)</span>
@@ -645,12 +645,12 @@ new #[Layout('layouts.app'), Title('Manajemen Pengguna')] class extends Componen
                 </div>
 
                 <div>
-                    <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Jenis Kelamin</span>
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Jenis Kelamin</span>
                     <p class="text-sm font-medium text-slate-900 mt-1">{{ $detailPenduduk->jenis_kelamin }}</p>
                 </div>
 
                 <div class="md:col-span-2">
-                    <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Alamat Lengkap</span>
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Alamat Lengkap</span>
                     <p class="text-sm font-medium text-slate-900 mt-1 leading-relaxed">
                         {{ $detailPenduduk->alamat }}<br>
                         RT {{ str_pad($detailPenduduk->no_rt, 2, '0', STR_PAD_LEFT) }} / RW {{ str_pad($detailPenduduk->no_rw, 2, '0', STR_PAD_LEFT) }}<br>
@@ -660,7 +660,7 @@ new #[Layout('layouts.app'), Title('Manajemen Pengguna')] class extends Componen
             </div>
             @endif
 
-            <div class="flex justify-end mt-8 pt-4 border-t border-slate-100">
+            <div class="flex justify-end mt-8 pt-4  
                 <flux:button type="button" variant="primary" wire:click="$set('showDetailModal', false)">Tutup</flux:button>
             </div>
         </div>

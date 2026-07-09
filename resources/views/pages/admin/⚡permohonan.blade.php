@@ -74,7 +74,7 @@ new #[Layout('layouts.app'), Title('Daftar Permohonan Surat')] class extends Com
             </div>
         </div>
 
-        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden dark:bg-slate-900 dark:border-slate-700 shadow-sm">
+        <div class="bg-white  -2xl overflow-hidden dark:bg-slate-900  ">
             <flux:table>
                 <flux:table.columns>
                     <flux:table.column>Pemohon</flux:table.column>
@@ -110,10 +110,10 @@ new #[Layout('layouts.app'), Title('Daftar Permohonan Surat')] class extends Com
                             </flux:table.cell>
                             <flux:table.cell>
                                 <span @class([
-                                    'px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider',
-                                    'bg-amber-100 text-amber-700' => $item->status === 'pending',
+                                    'px-2 py-1  text-[10px] font-bold uppercase tracking-wide',
+                                    'bg-red-100 text-red-700' => $item->status === 'pending',
                                     'bg-blue-100 text-blue-700' => $item->status === 'proses',
-                                    'bg-emerald-100 text-emerald-700' => $item->status === 'selesai',
+                                    'bg-blue-100 text-blue-700' => $item->status === 'selesai',
                                     'bg-red-100 text-red-700' => $item->status === 'ditolak',
                                 ])>
                                     {{ $item->status }}
@@ -145,7 +145,7 @@ new #[Layout('layouts.app'), Title('Daftar Permohonan Surat')] class extends Com
                 </flux:table.rows>
             </flux:table>
 
-            <div class="px-6 py-4 border-t border-slate-200 dark:border-slate-700">
+            <div class="px-6 py-4   ">
                 {{ $permohonans->links() }}
             </div>
         </div>
