@@ -18,7 +18,7 @@
         {{-- ═══════════════════════════════════════════
              PROFESSIONAL GOVERNMENT JUMBOTRON
         ═══════════════════════════════════════════ --}}
-        <section class="relative overflow-hidden group bg-linear-to-br from-[#0a2465] via-[#0e3191] to-[#024ad8] -mt-28" aria-label="Selamat Datang di Desa Tatung">
+        <section class="relative overflow-hidden group bg-linear-to-br from-prt-navy-dark via-prt-secondary to-prt-primary -mt-28" aria-label="Selamat Datang di Desa Tatung">
             <div class="absolute inset-0 z-0 opacity-85">
                 <img
                     src="{{ asset('assets/images/jumbotron.jpg') }}"
@@ -27,13 +27,13 @@
                     loading="eager"
                 />
             </div>
-            <div class="absolute inset-0 bg-linear-to-b from-[#0e3191]/5 via-[#0a2465]/48 to-[#0a2465]/60 z-5"></div>
+            <div class="absolute inset-0 bg-linear-to-b from-prt-secondary/5 via-prt-navy-dark/48 to-prt-navy-dark/60 z-5"></div>
 
             <x-public.container class="relative z-10 pt-28 sm:pt-36 lg:pt-44 pb-10 sm:pb-14 lg:pb-20 text-white">
                 <div class="max-w-3xl">
                     <div class="flex items-center gap-3 mb-5">
-                        <div class="h-1 w-12  bg-[#ff5050]"></div>
-                        <span class="text-xs font-semibold tracking-wide text-[#fde3a5]">Portal Resmi</span>
+                        <div class="h-1 w-12  bg-prt-accent"></div>
+                        <span class="text-xs font-semibold tracking-wide text-prt-gold-light">Portal Resmi</span>
                     </div>
                     <h1 class="text-3xl sm:text-6xl text-white lg:text-7xl tracking-normal leading-[1.1] mb-4">
                         Pemerintah Desa Tatung
@@ -45,7 +45,7 @@
                         Melayani dengan transparansi, inovasi, dan komitmen penuh untuk pembangunan desa yang berkelanjutan dan kesejahteraan seluruh warga masyarakat.
                     </p>
                     <div class="flex flex-wrap gap-3">
-                        <a href="{{ route('publik.layanan.informasi-surat') }}" class="inline-flex items-center  bg-[#ff5050] px-6 py-3 text-xs font-semibold tracking-wide text-slate-900 transition-all hover:-translate-y-0.5 hover:bg-[#e3a31a]  hover:shadow-[#ff5050]/30 focus:ring-2 focus:ring-[#ff5050] focus:ring-offset-2">
+                        <a href="{{ route('publik.layanan.informasi-surat') }}" class="inline-flex items-center  bg-prt-accent px-6 py-3 text-xs font-semibold tracking-wide text-slate-900 transition-all hover:-translate-y-0.5 hover:bg-prt-gold  hover:shadow-prt-accent/30 focus:ring-2 focus:ring-prt-accent focus:ring-offset-2">
                             <flux:icon.document-text class="size-5 mr-2" />
                             Layanan Surat Online
                         </a>
@@ -61,10 +61,10 @@
         {{-- ═══════════════════════════════════════════
              ANNOUNCEMENT TICKER
         ═══════════════════════════════════════════ --}}
-        <section class="ticker bg-[#0a2465]-4  aria-label="Pengumuman penting">
+        <section class="ticker bg-prt-navy-dark-4  aria-label="Pengumuman penting">
             <x-public.container>
                 <div class="ticker__inner">
-                    <span class="ticker__label text-[#ff5050]">
+                    <span class="ticker__label text-prt-accent">
                         <flux:icon.megaphone class="size-5" />
                         <span class="ml-2 text-lg font-bold text-black tracking-wide">Sekilas Info</span>
                     </span>
@@ -83,7 +83,7 @@
                             @endforelse
                         </p>
                     </div>
-                    <button class="ticker__pause ! !text-[#ff5050] hover:!bg-[#ff5050] hover:!text-[#0a2465]" id="ticker-pause-btn" type="button">Jeda</button>
+                    <button class="ticker__pause ! !text-prt-accent hover:!bg-prt-accent hover:!text-prt-navy-dark" id="ticker-pause-btn" type="button">Jeda</button>
                 </div>
             </x-public.container>
         </section>
@@ -102,33 +102,33 @@
                         <a href="{{ route('publik.layanan.informasi-surat') }}" class="group bg-white p-2 transition-all hover:-translate-y-0.5">
                             <div class="flex flex-col items-center text-center space-y-2">
                                 <div class="bg-blue-50 p-2 transition-colors group-hover:bg-blue-100">
-                                    <flux:icon.document-text class="size-5 text-[#024ad8] transition-transform group-hover:scale-110" />
+                                    <flux:icon.document-text class="size-5 text-prt-primary transition-transform group-hover:scale-110" />
                                 </div>
-                                <span class="text-xs font-bold leading-snug text-slate-900 transition-colors group-hover:text-[#0e3191] sm:text-sm">Surat Keterangan</span>
+                                <span class="text-xs font-bold leading-snug text-slate-900 transition-colors group-hover:text-prt-secondary sm:text-sm">Surat Keterangan</span>
                             </div>
                         </a>
                         <a href="#" class="group bg-white p-2 transition-all hover:-translate-y-0.5">
                             <div class="flex flex-col items-center text-center space-y-2">
                                 <div class="bg-blue-50 p-2 transition-colors group-hover:bg-blue-100">
-                                    <flux:icon.chat-bubble-left class="size-5 text-[#024ad8] transition-transform group-hover:scale-110" />
+                                    <flux:icon.chat-bubble-left class="size-5 text-prt-primary transition-transform group-hover:scale-110" />
                                 </div>
-                                <span class="text-xs font-bold leading-snug text-slate-900 transition-colors group-hover:text-[#0e3191] sm:text-sm">Pengaduan & Aspirasi</span>
+                                <span class="text-xs font-bold leading-snug text-slate-900 transition-colors group-hover:text-prt-secondary sm:text-sm">Pengaduan & Aspirasi</span>
                             </div>
                         </a>
                         <a href="{{ route('publik.publikasi.berita.index') }}" class="group bg-white p-2 transition-all hover:-translate-y-0.5">
                             <div class="flex flex-col items-center text-center space-y-2">
                                 <div class="bg-blue-50 p-2 transition-colors group-hover:bg-blue-100">
-                                    <flux:icon.newspaper class="size-5 text-[#024ad8] transition-transform group-hover:scale-110" />
+                                    <flux:icon.newspaper class="size-5 text-prt-primary transition-transform group-hover:scale-110" />
                                 </div>
-                                <span class="text-xs font-bold leading-snug text-slate-900 transition-colors group-hover:text-[#0e3191] sm:text-sm">Berita & Info</span>
+                                <span class="text-xs font-bold leading-snug text-slate-900 transition-colors group-hover:text-prt-secondary sm:text-sm">Berita & Info</span>
                             </div>
                         </a>
                         <a href="{{ route('publik.transparansi.apbdes') }}" class="group bg-white p-2 transition-all hover:-translate-y-0.5">
                             <div class="flex flex-col items-center text-center space-y-2">
                                 <div class="bg-blue-50 p-2 transition-colors group-hover:bg-blue-100">
-                                    <flux:icon.document-chart-bar class="size-5 text-[#024ad8] transition-transform group-hover:scale-110" />
+                                    <flux:icon.document-chart-bar class="size-5 text-prt-primary transition-transform group-hover:scale-110" />
                                 </div>
-                                <span class="text-xs font-bold leading-snug text-slate-900 transition-colors group-hover:text-[#0e3191] sm:text-sm">Transparansi APBDes</span>
+                                <span class="text-xs font-bold leading-snug text-slate-900 transition-colors group-hover:text-prt-secondary sm:text-sm">Transparansi APBDes</span>
                             </div>
                         </a>
                     </div>
@@ -137,10 +137,10 @@
                 <section aria-labelledby="berita-heading" class="space-y-4">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-3">
-                            <div class="h-8 w-1.5 bg-[#024ad8]"></div>
+                            <div class="h-8 w-1.5 bg-prt-primary"></div>
                             <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-wide" id="berita-heading">Berita Terbaru</h2>
                         </div>
-                        <a href="{{ route('publik.publikasi.berita.index') }}" class="inline-flex items-center gap-1.5 min-h-11 px-3 py-2 text-sm font-semibold tracking-wide text-white bg-[#024ad8] transition-colors hover:bg-[#0e3191] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#024ad8]">
+                        <a href="{{ route('publik.publikasi.berita.index') }}" class="inline-flex items-center gap-1.5 min-h-11 px-3 py-2 text-sm font-semibold tracking-wide text-white bg-prt-primary transition-colors hover:bg-prt-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-primary">
                             Lihat Semua <flux:icon.arrow-right class="size-4" />
                         </a>
                     </div>
@@ -149,7 +149,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {{-- Lead News Item — entire card is a single link --}}
                             <a href="{{ route('publik.publikasi.berita.show', $beritaUtama->slug) }}"
-                               class="group block bg-white transition-shadow focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#024ad8]">
+                               class="group block bg-white transition-shadow focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-primary">
                                 <div class="w-full overflow-hidden bg-slate-100">
                                     @if ($beritaUtama->gambar)
                                         <img src="{{ $beritaUtama->gambar_url }}" alt="" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
@@ -161,12 +161,12 @@
                                 </div>
                                 <div class="p-4">
                                     <div class="flex items-center gap-3 mb-2">
-                                        <span class="inline-flex bg-[#024ad8] px-3 py-1 text-xs font-bold text-white">Berita Desa</span>
+                                        <span class="inline-flex bg-prt-primary px-3 py-1 text-xs font-bold text-white">Berita Desa</span>
                                         <time datetime="{{ ($beritaUtama->published_at ?? $beritaUtama->created_at)?->toDateString() }}" class="text-sm font-semibold text-slate-600">
                                             {{ ($beritaUtama->published_at ?? $beritaUtama->created_at)?->translatedFormat('d F Y') }}
                                         </time>
                                     </div>
-                                    <h3 class="text-lg font-bold text-slate-900 mb-1.5 line-clamp-2 group-hover:text-[#0e3191] transition-colors">{{ $beritaUtama->judul }}</h3>
+                                    <h3 class="text-lg font-bold text-slate-900 mb-1.5 line-clamp-2 group-hover:text-prt-secondary transition-colors">{{ $beritaUtama->judul }}</h3>
                                     <p class="text-base text-slate-600 leading-relaxed line-clamp-3">
                                         {{ $beritaUtama->ringkasan ?? Str::limit(strip_tags($beritaUtama->konten), 160) }}
                                     </p>
@@ -177,7 +177,7 @@
                             <div class="flex flex-col gap-4">
                                 @forelse ($beritaLainnya as $item)
                                     <a href="{{ route('publik.publikasi.berita.show', $item->slug) }}"
-                                       class="group flex gap-4 bg-white p-3 transition-shadow focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#024ad8]">
+                                       class="group flex gap-4 bg-white p-3 transition-shadow focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-primary">
                                         <div class="shrink-0 w-28 h-28 overflow-hidden bg-slate-100">
                                             @if ($item->gambar)
                                                 <img src="{{ $item->gambar_url }}" alt="" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
@@ -188,8 +188,8 @@
                                             @endif
                                         </div>
                                         <div class="flex-1 min-w-0">
-                                            <div class="inline-flex bg-[#0e3191] px-2 py-0.5 text-xs font-bold text-white mb-1.5">Artikel Baru</div>
-                                            <h4 class="text-base font-bold text-slate-900 mb-1 line-clamp-2 group-hover:text-[#0e3191] transition-colors">{{ $item->judul }}</h4>
+                                            <div class="inline-flex bg-prt-secondary px-2 py-0.5 text-xs font-bold text-white mb-1.5">Artikel Baru</div>
+                                            <h4 class="text-base font-bold text-slate-900 mb-1 line-clamp-2 group-hover:text-prt-secondary transition-colors">{{ $item->judul }}</h4>
                                             <p class="text-sm font-medium text-slate-600">
                                                 {{ ($item->published_at ?? $item->created_at)?->translatedFormat('d F Y') }}
                                             </p>
@@ -216,9 +216,9 @@
                 {{-- TRANSPARENCY SECTION --}}
                 <section aria-labelledby="apbdes-heading">
                     <div class="mb-2 flex items-center gap-3 pb-1">
-                        <div class="h-8 w-2 bg-[#ff5050]"></div>
+                        <div class="h-8 w-2 bg-prt-accent"></div>
                         <h2 class="text-lg sm:text-xl font-bold text-slate-900 tracking-wide" id="apbdes-heading">Transparansi Anggaran Desa 2025</h2>
-                        <a href="{{ route('publik.transparansi.apbdes') }}" class="ml-auto bg-[#0e3191] px-4 py-2 text-xs font-semibold tracking-wide text-white transition-colors hover:bg-[#0a2465]">
+                        <a href="{{ route('publik.transparansi.apbdes') }}" class="ml-auto bg-prt-secondary px-4 py-2 text-xs font-semibold tracking-wide text-white transition-colors hover:bg-prt-navy-dark">
                             Laporan Lengkap &rarr;
                         </a>
                     </div>
@@ -228,20 +228,20 @@
                         <div class="bg-white p-2">
                             <div class="flex items-center justify-between mb-2">
                                 <div>
-                                    <h3 class="text-sm font-bold tracking-wide text-[#0e3191]">Pendapatan Desa</h3>
-                                    <p class="mt-0.5 text-[11px] font-semibold tracking-wide text-[#024ad8]">Ringkasan Pendapatan</p>
+                                    <h3 class="text-sm font-bold tracking-wide text-prt-secondary">Pendapatan Desa</h3>
+                                    <p class="mt-0.5 text-[11px] font-semibold tracking-wide text-prt-primary">Ringkasan Pendapatan</p>
                                 </div>
                                 <div class="bg-blue-50 p-1">
-                                    <flux:icon.arrow-down-tray class="size-6 text-[#024ad8]" />
+                                    <flux:icon.arrow-down-tray class="size-6 text-prt-primary" />
                                 </div>
                             </div>
 
                             <div class="space-y-2">
                                 <div class="bg-gradient-to-r from-blue-50 to-white p-1.5">
-                                    <div class="mb-1 inline-flex bg-amber-100 px-2.5 py-0.5 text-[10px] font-bold tracking-wide text-[#9a6a05]">
+                                    <div class="mb-1 inline-flex bg-amber-100 px-2.5 py-0.5 text-[10px] font-bold tracking-wide text-prt-gold-dark">
                                         Target Pendapatan
                                     </div>
-                                    <p class="text-2xl font-bold text-[#0e3191]">Rp 1,77 Miliar</p>
+                                    <p class="text-2xl font-bold text-prt-secondary">Rp 1,77 Miliar</p>
                                 </div>
 
                                 @foreach([
@@ -253,11 +253,11 @@
                                         <span class="text-sm font-bold text-slate-700">{{ $item['label'] }}</span>
                                         <div class="text-right">
                                             <p class="text-sm font-bold text-slate-900">Rp {{ $item['val'] }}</p>
-                                            <p class="text-xs font-bold text-[#0e3191]">{{ $item['p'] }}% Realisasi</p>
+                                            <p class="text-xs font-bold text-prt-secondary">{{ $item['p'] }}% Realisasi</p>
                                         </div>
                                     </div>
                                     <div class="h-3 w-full overflow-hidden bg-slate-100">
-                                        <div class="h-full bg-gradient-to-r from-[#ff5050] to-[#d89a14] transition-all duration-1000" style="width: {{ $item['p'] }}%"></div>
+                                        <div class="h-full bg-gradient-to-r from-prt-accent to-prt-gold-dark transition-all duration-1000" style="width: {{ $item['p'] }}%"></div>
                                     </div>
                                 </div>
                                 @endforeach
@@ -268,20 +268,20 @@
                         <div class="bg-white p-2">
                             <div class="flex items-center justify-between mb-2">
                                 <div>
-                                    <h3 class="text-sm font-bold tracking-wide text-[#0e3191]">Belanja Desa</h3>
-                                    <p class="mt-0.5 text-[11px] font-semibold tracking-wide text-[#024ad8]">Ringkasan Belanja</p>
+                                    <h3 class="text-sm font-bold tracking-wide text-prt-secondary">Belanja Desa</h3>
+                                    <p class="mt-0.5 text-[11px] font-semibold tracking-wide text-prt-primary">Ringkasan Belanja</p>
                                 </div>
                                 <div class="bg-blue-50 p-1">
-                                    <flux:icon.arrow-up-tray class="size-6 text-[#024ad8]" />
+                                    <flux:icon.arrow-up-tray class="size-6 text-prt-primary" />
                                 </div>
                             </div>
 
                             <div class="space-y-2">
                                 <div class="bg-gradient-to-r from-blue-50 to-white p-1.5">
-                                    <div class="mb-1 inline-flex bg-blue-100 px-2.5 py-0.5 text-[10px] font-bold tracking-wide text-[#0e3191]">
+                                    <div class="mb-1 inline-flex bg-blue-100 px-2.5 py-0.5 text-[10px] font-bold tracking-wide text-prt-secondary">
                                         Realisasi Belanja
                                     </div>
-                                    <p class="text-2xl font-bold text-[#0e3191]">Rp 1,50 Miliar</p>
+                                    <p class="text-2xl font-bold text-prt-secondary">Rp 1,50 Miliar</p>
                                 </div>
 
                                 @foreach([
@@ -293,11 +293,11 @@
                                         <span class="text-sm font-bold text-slate-700">{{ $item['label'] }}</span>
                                         <div class="text-right">
                                             <p class="text-sm font-bold text-slate-900">Rp {{ $item['val'] }}</p>
-                                            <p class="text-xs font-bold text-[#024ad8]">{{ $item['p'] }}% Realisasi</p>
+                                            <p class="text-xs font-bold text-prt-primary">{{ $item['p'] }}% Realisasi</p>
                                         </div>
                                     </div>
                                     <div class="h-3 w-full overflow-hidden bg-slate-100">
-                                        <div class="h-full bg-linear-to-r from-[#024ad8] to-[#0e3191] transition-all duration-1000" style="width: {{ $item['p'] }}%"></div>
+                                        <div class="h-full bg-linear-to-r from-prt-primary to-prt-secondary transition-all duration-1000" style="width: {{ $item['p'] }}%"></div>
                                     </div>
                                 </div>
                                 @endforeach
@@ -311,16 +311,16 @@
             <aside class="space-y-2">
                 {{-- Population Statistics Widget --}}
                 <div class="overflow-hidden bg-white">
-                    <div class="flex items-center justify-center bg-linear-to-r from-[#0e3191] to-[#024ad8] px-3 py-2">
-                        <h2 class="text-center text-xs font-bold tracking-wide text-white">Kependudukan</h2>
+                    <div class="flex items-center justify-center bg-linear-to-r from-prt-secondary to-prt-primary px-3 py-2">
+                        <h2 class="text-center text-sm font-bold tracking-wide text-white">Kependudukan</h2>
                     </div>
                     <div class="space-y-3 p-2">
                         <div class="text-center">
-                            <p class="text-3xl font-bold text-[#0e3191]">2.847</p>
+                            <p class="text-3xl font-bold text-prt-secondary">2.847</p>
                             <p class="text-xs font-semibold text-slate-600 tracking-wide mt-1">Total Penduduk Desa</p>
                         </div>
                         <div class="space-y-2">
-                            @foreach([['l' => 'Laki-laki', 'p' => 51, 'c' => 'from-[#024ad8] to-[#0e3191]'], ['l' => 'Perempuan', 'p' => 49, 'c' => 'from-[#ff5050] to-[#d89a14]']] as $s)
+                            @foreach([['l' => 'Laki-laki', 'p' => 51, 'c' => 'from-prt-primary to-prt-secondary'], ['l' => 'Perempuan', 'p' => 49, 'c' => 'from-prt-accent to-prt-gold-dark']] as $s)
                                 <div class="space-y-2">
                                     <div class="flex justify-between text-xs font-semibold text-slate-600 tracking-wide">
                                         <span>{{ $s['l'] }}</span>
@@ -332,7 +332,7 @@
                                 </div>
                             @endforeach
                         </div>
-                        <a href="{{ route('infografis') }}" class="block w-full bg-blue-50 py-2 text-center text-xs font-semibold tracking-wide text-[#024ad8] transition-colors hover:bg-blue-100 hover:text-[#0e3191]">
+                        <a href="{{ route('infografis') }}" class="block w-full bg-blue-50 py-2 text-center text-xs font-semibold tracking-wide text-prt-primary transition-colors hover:bg-blue-100 hover:text-prt-secondary">
                             Lihat Infografis →
                         </a>
                     </div>
@@ -340,8 +340,8 @@
 
                 {{-- Head of Village Widget --}}
                 <div class="overflow-hidden bg-white">
-                    <div class="flex items-center justify-center bg-linear-to-r from-[#0e3191] to-[#024ad8] px-3 py-2">
-                        <h2 class="text-center text-xs font-bold tracking-wide text-white">Kepala Desa</h2>
+                    <div class="flex items-center justify-center bg-linear-to-r from-prt-secondary to-prt-primary px-3 py-2">
+                        <h2 class="text-center text-sm font-bold tracking-wide text-white">Kepala Desa</h2>
                     </div>
                     <div class="space-y-2 p-2 text-center">
                         <div class="mx-auto h-52 w-52 overflow-hidden">
@@ -349,7 +349,7 @@
                         </div>
                         <div>
                             <h3 class="text-base font-bold text-slate-900 tracking-normal">Bapak Rudianto</h3>
-                            <p class="mt-0.5 text-xs font-semibold tracking-wide text-[#024ad8]">Masa Jabatan 2020-2026</p>
+                            <p class="mt-0.5 text-xs font-semibold tracking-wide text-prt-primary">Masa Jabatan 2020-2026</p>
                         </div>
                         <div class="pt-2">
                             <p class="text-xs text-slate-600 font-medium italic leading-relaxed">"Melayani dengan hati, membangun dengan bukti demi Desa Tatung yang mandiri."</p>
@@ -359,8 +359,8 @@
 
                 {{-- Important Information Widget --}}
                 <div class="overflow-hidden bg-white">
-                    <div class="flex items-center justify-center bg-gradient-to-r from-[#0e3191] to-[#024ad8] px-3 py-2">
-                        <h2 class="text-center text-xs font-bold tracking-wide text-white">Informasi Penting</h2>
+                    <div class="flex items-center justify-center bg-gradient-to-r from-prt-secondary to-prt-primary px-3 py-2">
+                        <h2 class="text-center text-sm font-bold tracking-wide text-white">Informasi Penting</h2>
                     </div>
                     <div class="space-y-2 p-2">
                         <div class="bg-blue-50 p-2">
@@ -398,8 +398,8 @@
                                 </div>
                             @endif
                         </div>
-                        <h3 class="text-sm font-bold text-slate-900 transition-colors group-hover:text-[#0e3191]">{{ $p->nama }}</h3>
-                        <p class="mt-1 text-xs font-medium text-[#024ad8]">{{ $p->jabatan }}</p>
+                        <h3 class="text-sm font-bold text-slate-900 transition-colors group-hover:text-prt-secondary">{{ $p->nama }}</h3>
+                        <p class="mt-1 text-xs font-medium text-prt-primary">{{ $p->jabatan }}</p>
                     </article>
                 @empty
                     <div class="flex items-center justify-center w-full py-8 text-slate-400">
@@ -419,8 +419,8 @@
                                     </div>
                                 @endif
                             </div>
-                            <h3 class="text-sm font-bold text-slate-900 transition-colors group-hover:text-[#0e3191]">{{ $p->nama }}</h3>
-                            <p class="mt-1 text-xs font-medium text-[#024ad8]">{{ $p->jabatan }}</p>
+                            <h3 class="text-sm font-bold text-slate-900 transition-colors group-hover:text-prt-secondary">{{ $p->nama }}</h3>
+                            <p class="mt-1 text-xs font-medium text-prt-primary">{{ $p->jabatan }}</p>
                         </article>
                     @endforeach
                 @endif
@@ -433,14 +433,14 @@
             {{-- Photo Gallery Section --}}
             <section class="space-y-2">
                 <div class="flex items-center gap-3 pb-1">
-                    <div class="h-6 w-1.5 bg-[#024ad8]"></div>
+                    <div class="h-6 w-1.5 bg-prt-primary"></div>
                     <h2 class="text-lg font-bold text-slate-900 tracking-wide">Galeri Foto</h2>
                 </div>
                 <div class="grid grid-cols-2 gap-2">
                     @forelse ($galeri->take(4) as $g)
                         <div class="group relative overflow-hidden transition-shadow">
                             <img src="{{ Storage::url($g->gambar) }}" alt="{{ $g->judul }}" class="aspect-square object-cover w-full group-hover:scale-110 transition-transform duration-300" loading="lazy">
-                            <div class="absolute inset-0 bg-[#0e3191]/0 transition-colors duration-300 group-hover:bg-[#0e3191]/20"></div>
+                            <div class="absolute inset-0 bg-prt-secondary/0 transition-colors duration-300 group-hover:bg-prt-secondary/20"></div>
                         </div>
                     @empty
                         <div class="col-span-2 py-8 text-center text-slate-400">
@@ -448,7 +448,7 @@
                         </div>
                     @endforelse
                 </div>
-                <a href="{{ route('publik.profil.sejarah') }}" class="block w-full bg-[#0e3191] py-2 text-center text-xs font-semibold tracking-wide text-white transition-colors hover:bg-[#0a2465]">
+                <a href="{{ route('publik.profil.sejarah') }}" class="block w-full bg-prt-secondary py-2 text-center text-xs font-semibold tracking-wide text-white transition-colors hover:bg-prt-navy-dark">
                     Lihat Semua Galeri
                 </a>
             </section>
@@ -456,19 +456,19 @@
             {{-- Potential Section --}}
             <section class="space-y-2">
                 <div class="flex items-center gap-3 pb-1">
-                    <div class="h-6 w-1.5 bg-[#024ad8]"></div>
+                    <div class="h-6 w-1.5 bg-prt-primary"></div>
                     <h2 class="text-lg font-bold text-slate-900 tracking-wide">Potensi Desa</h2>
                 </div>
                 <div class="space-y-2">
                     <a href="{{ route('publik.potensi.umkm') }}" class="group block relative overflow-hidden h-40">
                         <img src="{{ asset('assets/images/background.jpg') }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 flex items-end bg-linear-to-t from-[#0e3191]/90 to-[#024ad8]/25 p-4">
+                        <div class="absolute inset-0 flex items-end bg-linear-to-t from-prt-secondary/90 to-prt-primary/25 p-4">
                             <span class="text-white font-bold text-sm tracking-wide">UMKM Tatung</span>
                         </div>
                     </a>
                     <a href="{{ route('publik.potensi.pariwisata') }}" class="group block relative overflow-hidden h-40">
                         <img src="{{ asset('assets/images/background.jpg') }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 flex items-end bg-linear-to-t from-[#0e3191]/90 to-[#024ad8]/25 p-4">
+                        <div class="absolute inset-0 flex items-end bg-linear-to-t from-prt-secondary/90 to-prt-primary/25 p-4">
                             <span class="text-white font-bold text-sm tracking-wide">Pariwisata</span>
                         </div>
                     </a>

@@ -52,6 +52,26 @@
     --radius-xl: 0.2rem;
     --radius-2xl: 0.2rem;
     --radius-3xl: 0.2rem;
+
+    /* --- PORTAL DESIGN SYSTEM (prt-* prefix avoids conflict with admin theme) --- */
+    --color-prt-primary: #024ad8;
+    --color-prt-secondary: #0e3191;
+    --color-prt-navy-dark: #0a2465;
+    --color-prt-accent: #ff5050;
+    --color-prt-ink: #1a1a1a;
+    --color-prt-body: #3d3d3d;
+    --color-prt-muted: #636363;
+    --color-prt-border: #e8e8e8;
+    --color-prt-bg: #f7f7f7;
+    --color-prt-white: #ffffff;
+    --color-prt-blue-light: #94b3e6;
+    --color-prt-blue-border: #b5cef2;
+    --color-prt-blue-xlight: #c8d8f5;
+    --color-prt-focus: #f59e0b;
+    --color-prt-gold: #e3a31a;
+    --color-prt-gold-light: #fde3a5;
+    --color-prt-gold-dark: #9a6a05;
+    --color-prt-emerald: #388E3C;
 }
 
 @layer theme {

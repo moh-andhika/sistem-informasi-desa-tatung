@@ -14,8 +14,8 @@
 @section('content')
     <div class="space-y-6">
         <section aria-labelledby="history-title" class="bg-white  overflow-hidden">
-            <div class="bg-[#024ad8] px-6 py-4 flex items-center justify-between">
-                <h2 class="text-sm font-black text-white uppercase tracking-wide" id="history-title">Sejarah &amp; Asal-usul Desa</h2>
+            <div class="bg-prt-primary px-6 py-4 flex items-center justify-between">
+                <h2 class="text-base font-black text-white uppercase tracking-wide" id="history-title">Sejarah &amp; Asal-usul Desa</h2>
                 <flux:icon.book-open class="size-5 text-white/70" />
             </div>
             <div class="p-8 sm:p-12">
@@ -82,7 +82,7 @@
     <div class="space-y-6">
         <section aria-labelledby="history-title" class="bg-white   overflow-hidden">
             <div class="bg-prt-primary px-6 py-4 flex items-center justify-between">
-                <h2 class="text-sm font-black text-white uppercase tracking-wide" id="history-title">Sejarah & Asal-usul Desa</h2>
+                <h2 class="text-base font-black text-white uppercase tracking-wide" id="history-title">Sejarah & Asal-usul Desa</h2>
                 <flux:icon.book-open class="size-5 text-white/70" />
             </div>
             <div class="p-8 sm:p-12">

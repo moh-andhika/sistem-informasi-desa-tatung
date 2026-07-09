@@ -15,8 +15,8 @@
     <div class="space-y-6">
         {{-- Statistik Kependudukan Berdasarkan Jenis Kelamin --}}
         <section aria-labelledby="stats-sex-title" class="bg-white  overflow-hidden">
-            <div class="bg-[#024ad8] px-6 py-4 flex items-center justify-between">
-                <h2 class="text-sm font-black text-white uppercase tracking-wide" id="stats-sex-title">Data Penduduk (Jenis Kelamin)</h2>
+            <div class="bg-prt-primary px-6 py-4 flex items-center justify-between">
+                <h2 class="text-base font-black text-white uppercase tracking-wide" id="stats-sex-title">Data Penduduk (Jenis Kelamin)</h2>
                 <flux:icon.users class="size-5 text-white/70" />
             </div>
             <div class="p-8">
@@ -39,7 +39,7 @@
 
                         {{-- Total box --}}
                         <div class="mt-4 p-4 bg-blue-50  flex items-center gap-4">
-                            <div class="size-12  bg-[#024ad8] flex items-center justify-center shrink-0">
+                            <div class="size-12  bg-prt-primary flex items-center justify-center shrink-0">
                                 <flux:icon.users class="size-6 text-white" />
                             </div>
                             <div>
@@ -65,8 +65,8 @@
 
         {{-- Statistik Berdasarkan Pendidikan --}}
         <section aria-labelledby="stats-edu-title" class="bg-white  overflow-hidden">
-            <div class="bg-[#024ad8] px-6 py-4 flex items-center justify-between">
-                <h2 class="text-sm font-black text-white uppercase tracking-wide" id="stats-edu-title">Data Penduduk (Pendidikan)</h2>
+            <div class="bg-prt-primary px-6 py-4 flex items-center justify-between">
+                <h2 class="text-base font-black text-white uppercase tracking-wide" id="stats-edu-title">Data Penduduk (Pendidikan)</h2>
                 <flux:icon.academic-cap class="size-5 text-white/70" />
             </div>
             <div class="p-8 space-y-5">
@@ -82,7 +82,7 @@
                         <span class="text-slate-900">{{ $item['val'] }} <span class="text-slate-400 font-bold">Jiwa</span></span>
                     </div>
                     <div class="h-3 w-full bg-blue-50  overflow-hidden shadow-inner" role="progressbar" aria-valuenow="{{ $item['p'] }}" aria-valuemin="0" aria-valuemax="100" aria-label="Persentase penduduk dengan pendidikan {{ $item['label'] }}">
-                        <div class="bg-[#024ad8] h-full " style="width: {{ $item['p'] }}%"></div>
+                        <div class="bg-prt-primary h-full " style="width: {{ $item['p'] }}%"></div>
                     </div>
                 </div>
                 @endforeach
@@ -91,8 +91,8 @@
 
         {{-- Statistik Berdasarkan Pekerjaan --}}
         <section aria-labelledby="stats-job-title" class="bg-white  overflow-hidden">
-            <div class="bg-[#0e3191] px-6 py-4 flex items-center justify-between">
-                <h2 class="text-sm font-black text-white uppercase tracking-wide" id="stats-job-title">Data Penduduk (Pekerjaan)</h2>
+            <div class="bg-prt-secondary px-6 py-4 flex items-center justify-between">
+                <h2 class="text-base font-black text-white uppercase tracking-wide" id="stats-job-title">Data Penduduk (Pekerjaan)</h2>
                 <flux:icon.briefcase class="size-5 text-white/70" />
             </div>
             <div class="p-8 space-y-5">
@@ -109,7 +109,7 @@
                         <span class="text-slate-900">{{ $item['val'] }} <span class="text-slate-400 font-bold">Jiwa</span></span>
                     </div>
                     <div class="h-3 w-full bg-blue-50  overflow-hidden shadow-inner" role="progressbar" aria-valuenow="{{ $item['p'] }}" aria-valuemin="0" aria-valuemax="100" aria-label="Persentase penduduk dengan pekerjaan {{ $item['label'] }}">
-                        <div class="bg-[#0e3191] h-full " style="width: {{ $item['p'] }}%"></div>
+                        <div class="bg-prt-secondary h-full " style="width: {{ $item['p'] }}%"></div>
                     </div>
                 </div>
                 @endforeach
@@ -118,7 +118,7 @@
 
         {{-- Disclaimer sumber data --}}
         <div class="p-5 bg-blue-50  flex gap-3">
-            <flux:icon.information-circle class="size-5 text-[#024ad8] shrink-0 mt-0.5" />
+            <flux:icon.information-circle class="size-5 text-prt-primary shrink-0 mt-0.5" />
             <p class="text-xs text-blue-900 font-medium leading-relaxed">Data kependudukan bersumber dari Sistem Informasi Administrasi Kependudukan (SIAK) Desa Tatung. Diperbarui secara berkala sesuai data terkini dari operator kependudukan desa.</p>
         </div>
     </div>

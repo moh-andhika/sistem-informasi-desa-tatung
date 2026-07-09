@@ -20,11 +20,11 @@
             </div>
         @endif
 
-        <div class="p-8 sm:p-12">
+        <div class="p-6 sm:p-8">
             {{-- Prose/Text --}}
-            <div class="prose prose-slate prose-sm sm:prose-base max-w-none prose-headings:font-black prose-headings:uppercase prose-headings:tracking-normal prose-a:text-[#024ad8] hover:prose-a:text-[#0e3191] prose-img: prose-strong:text-slate-900 leading-relaxed text-slate-700">
+            <div class="prose prose-slate prose-sm sm:prose-base max-w-none prose-headings:font-black prose-headings:uppercase prose-headings:tracking-normal prose-a:text-prt-primary hover:prose-a:text-prt-secondary prose-img: prose-strong:text-slate-900 leading-relaxed text-slate-700">
                 @if($berita->ringkasan)
-                    <p class="text-lg text-slate-800 font-bold mb-10  pl-6 py-2 italic leading-relaxed bg-blue-50 -r-lg">
+                    <p class="text-base text-slate-800 font-bold mb-6  pl-4 py-1 italic leading-relaxed bg-blue-50 -r-lg">
                         "{{ $berita->ringkasan }}"
                     </p>
                 @endif
@@ -35,7 +35,7 @@
             </div>
 
             {{-- Share & Footer --}}
-            <div class="mt-16 pt-10  flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="mt-8 pt-6  flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div class="flex items-center gap-4">
                     <span class="text-[10px] font-black text-slate-700 uppercase tracking-wide">Bagikan:</span>
                     <div class="flex gap-2">
@@ -48,7 +48,7 @@
                     </div>
                 </div>
 
-                <a href="{{ route('publik.publikasi.berita.index') }}" class="inline-flex items-center gap-2 text-xs font-black text-[#024ad8] uppercase tracking-wide hover:gap-3 transition-all   px-4 py-2 hover:bg-blue-50">
+                <a href="{{ route('publik.publikasi.berita.index') }}" class="inline-flex items-center gap-2 text-xs font-black text-prt-primary uppercase tracking-wide hover:gap-3 transition-all   px-4 py-2 hover:bg-blue-50">
                     <flux:icon.arrow-left class="size-3.5" /> Kembali ke Daftar Berita
                 </a>
             </div>

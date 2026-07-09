@@ -15,8 +15,8 @@
     <div class="space-y-12">
         {{-- Bagan Struktur --}}
         <section aria-labelledby="bagan-title" class="bg-white  overflow-hidden">
-            <div class="bg-[#024ad8] px-6 py-4 flex items-center justify-between">
-                <h2 class="text-sm font-black text-white uppercase tracking-wide" id="bagan-title">Bagan Struktur Organisasi</h2>
+            <div class="bg-prt-primary px-6 py-4 flex items-center justify-between">
+                <h2 class="text-base font-black text-white uppercase tracking-wide" id="bagan-title">Bagan Struktur Organisasi</h2>
                 <flux:icon.chart-pie class="size-5 text-white/70" />
             </div>
             <div class="p-8">
@@ -28,8 +28,8 @@
 
         {{-- Struktur Aparatur Desa --}}
         <section aria-labelledby="personil-title" class="bg-white  overflow-hidden">
-            <div class="bg-[#0e3191] px-6 py-4lue-900 flex items-center justify-between">
-                <h2 class="text-sm font-black text-white uppercase tracking-wide" id="personil-title">Daftar Aparatur Desa</h2>
+            <div class="bg-prt-secondary px-6 py-4lue-900 flex items-center justify-between">
+                <h2 class="text-base font-black text-white uppercase tracking-wide" id="personil-title">Daftar Aparatur Desa</h2>
                 <flux:icon.identification class="size-5 text-blue-400" />
             </div>
 
@@ -42,7 +42,7 @@
             <div class="flex flex-col items-center py-12" role="list" aria-label="Struktur Organisasi Pemerintah Desa Tatung">
                 {{-- Level 1: Kepala Desa --}}
                 @if ($kepalaDesa)
-                    <article class="w-full max-w-sm flex flex-col items-center p-4 bg-[#f9fafb] relative mb-8 focus-within:ring-2 focus-within:ring-blue-600" role="listitem">
+                    <article class="w-full max-w-sm flex flex-col items-center p-4 bg-prt-bg relative mb-8 focus-within:ring-2 focus-within:ring-blue-600" role="listitem">
                         <div class="size-24 overflow-hidden mb-3">
                             @if ($kepalaDesa->gambar)
                                 <img src="{{ Storage::url($kepalaDesa->gambar) }}" class="w-full h-full object-cover" alt="Foto Kepala Desa: {{ $kepalaDesa->nama }}">
@@ -50,8 +50,8 @@
                                 <img src="https://ui-avatars.com/api/?name={{ urlencode($kepalaDesa->nama) }}&background=0E3191&color=fff&size=128" class="w-full h-full object-cover" alt="Foto Kepala Desa: {{ $kepalaDesa->nama }}">
                             @endif
                         </div>
-                        <h3 class="text-base font-bold text-[#1a1a1a] uppercase tracking-normal text-center mb-1 leading-none">{{ $kepalaDesa->nama }}</h3>
-                        <p class="text-xs font-medium text-[#3d3d3d] uppercase tracking-[0.2em] mb-2">{{ $kepalaDesa->jabatan }}</p>
+                        <h3 class="text-base font-bold text-prt-ink uppercase tracking-normal text-center mb-1 leading-none">{{ $kepalaDesa->nama }}</h3>
+                        <p class="text-xs font-medium text-prt-body uppercase tracking-[0.2em] mb-2">{{ $kepalaDesa->jabatan }}</p>
                         <div class="absolute -bottom-12 left-1/2 w-px h-12 bg-blue-200" aria-hidden="true"></div>
                     </article>
                 @endif
@@ -66,8 +66,8 @@
                                 <img src="https://ui-avatars.com/api/?name={{ urlencode($sekretaris->nama) }}&background=2E7D32&color=fff&size=128" class="w-full h-full object-cover" alt="Foto Sekretaris Desa: {{ $sekretaris->nama }}">
                             @endif
                         </div>
-                        <h3 class="text-base font-bold text-[#1a1a1a] uppercase tracking-normal text-center mb-1 leading-none">{{ $sekretaris->nama }}</h3>
-                        <p class="text-[11px] font-medium text-[#3d3d3d] uppercase tracking-wide mb-1">{{ $sekretaris->jabatan }}</p>
+                        <h3 class="text-base font-bold text-prt-ink uppercase tracking-normal text-center mb-1 leading-none">{{ $sekretaris->nama }}</h3>
+                        <p class="text-[11px] font-medium text-prt-body uppercase tracking-wide mb-1">{{ $sekretaris->jabatan }}</p>
                         <div class="absolute -bottom-16 left-1/2 w-px h-16 bg-blue-200 hidden lg:block" aria-hidden="true"></div>
                     </article>
                 @endif
@@ -82,7 +82,7 @@
                                 @foreach($staf as $person)
                                     <article class="flex flex-col items-center relative group focus-within:ring-2 focus-within:ring-blue-600" role="listitem">
                                         <div class="absolute -top-16 left-1/2 w-px h-16 bg-blue-200 hidden lg:block" aria-hidden="true"></div>
-                                        <div class="w-full p-4 bg-[#f9fafb] group-hover:bg-white transition-all flex flex-col items-center">
+                                        <div class="w-full p-4 bg-prt-bg group-hover:bg-white transition-all flex flex-col items-center">
                                             <div class="size-20 overflow-hidden mb-3">
                                                 @if ($person->gambar)
                                                     <img src="{{ Storage::url($person->gambar) }}" class="w-full h-full object-cover" alt="Foto {{ $person->jabatan }}: {{ $person->nama }}">
@@ -90,8 +90,8 @@
                                                     <img src="https://ui-avatars.com/api/?name={{ urlencode($person->nama) }}&background=2E7D32&color=fff&size=128" class="w-full h-full object-cover" alt="Foto {{ $person->jabatan }}: {{ $person->nama }}">
                                                 @endif
                                             </div>
-                                            <h3 class="text-xs font-bold text-[#1a1a1a] uppercase tracking-normal text-center mb-1 leading-tight">{{ $person->nama }}</h3>
-                                            <p class="text-[10px] font-medium text-[#3d3d3d] uppercase tracking-wide text-center">{{ $person->jabatan }}</p>
+                                            <h3 class="text-xs font-bold text-prt-ink uppercase tracking-normal text-center mb-1 leading-tight">{{ $person->nama }}</h3>
+                                            <p class="text-[10px] font-medium text-prt-body uppercase tracking-wide text-center">{{ $person->jabatan }}</p>
                                         </div>
                                     </article>
                                 @endforeach

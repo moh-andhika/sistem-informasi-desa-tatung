@@ -17,7 +17,7 @@
             <a
                 href="{{ route('home') }}"
                 wire:navigate
-                class="group flex items-center gap-3  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5050] focus-visible:ring-offset-2"
+                class="group flex items-center gap-3  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-prt-accent focus-visible:ring-offset-2"
             >
                 <img
                     src="{{ asset('assets/ponorogo__sid__60A13U2.png') }}"
@@ -33,7 +33,7 @@
                     </span>
                     <span
                         class="text-xs font-bold uppercase tracking-[0.18em] transition-colors duration-300"
-                        x-bind:class="(scrolled || !@json($isLanding)) ? 'text-[#024ad8]' : 'text-[#ff5050]'"
+                        x-bind:class="(scrolled || !@json($isLanding)) ? 'text-prt-primary' : 'text-prt-accent'"
                     >
                         Tatung
                     </span>
@@ -47,18 +47,18 @@
                 @php
                     $isActive = request()->routeIs($item['active_pattern']);
                     $desktopLinkScrolledClasses = $isActive
-                        ? 'text-[#0e3191] underline decoration-[#ff5050] decoration-2 underline-offset-8'
-                        : 'text-slate-700 hover:text-[#0e3191] hover:underline hover:decoration-[#ff5050] hover:decoration-2 hover:underline-offset-8';
+                        ? 'text-prt-secondary underline decoration-prt-accent decoration-2 underline-offset-8'
+                        : 'text-slate-700 hover:text-prt-secondary hover:underline hover:decoration-prt-accent hover:decoration-2 hover:underline-offset-8';
                     $desktopLinkLandingClasses = $isActive
-                        ? 'text-white underline decoration-[#ff5050] decoration-2 underline-offset-8'
-                        : 'text-white/95 hover:text-white hover:underline hover:decoration-[#ff5050] hover:decoration-2 hover:underline-offset-8';
+                        ? 'text-white underline decoration-prt-accent decoration-2 underline-offset-8'
+                        : 'text-white/95 hover:text-white hover:underline hover:decoration-prt-accent hover:decoration-2 hover:underline-offset-8';
                 @endphp
 
                 @if(empty($item['subitems']))
                     <a
                         href="{{ route($item['route']) }}"
                         wire:navigate
-                        class=" px-3.5 py-2.5 text-[15px] font-semibold leading-5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5050] focus-visible:ring-offset-2"
+                        class=" px-3.5 py-2.5 text-[15px] font-semibold leading-5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-prt-accent focus-visible:ring-offset-2"
                         x-bind:class="(scrolled || !@json($isLanding)) ? @js($desktopLinkScrolledClasses) : @js($desktopLinkLandingClasses)"
                     >
                         {{ $item['label'] }}
@@ -81,7 +81,7 @@
                             :aria-controls="$id('desktop-submenu')"
                             :aria-expanded="open"
                             aria-haspopup="true"
-                            class="flex items-center gap-1.5  px-3.5 py-2.5 text-[15px] font-semibold leading-5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5050] focus-visible:ring-offset-2"
+                            class="flex items-center gap-1.5  px-3.5 py-2.5 text-[15px] font-semibold leading-5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-prt-accent focus-visible:ring-offset-2"
                             x-bind:class="(scrolled || !@json($isLanding)) ? @js($desktopLinkScrolledClasses) : @js($desktopLinkLandingClasses)"
                         >
                             <span>{{ $item['label'] }}</span>
@@ -112,7 +112,7 @@
                                             href="{{ route($sub['route']) }}"
                                             wire:navigate
                                             x-on:click="open = false"
-                                            class="block  px-3 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-blue-50 hover:text-[#0e3191] focus-visible:bg-blue-50 focus-visible:text-[#0e3191] focus-visible:outline-none"
+                                            class="block  px-3 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-blue-50 hover:text-prt-secondary focus-visible:bg-blue-50 focus-visible:text-prt-secondary focus-visible:outline-none"
                                         >
                                             {{ $sub['label'] }}
                                         </a>
@@ -142,9 +142,9 @@
                     <flux:dropdown position="bottom" align="end">
                         <button
                             type="button"
-                            class="flex items-center gap-2  border py-1 pl-1 pr-3 text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5050] focus-visible:ring-offset-2"
+                            class="flex items-center gap-2  border py-1 pl-1 pr-3 text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-prt-accent focus-visible:ring-offset-2"
                             x-bind:class="(scrolled || !@json($isLanding))
-                                ? ' bg-blue-50 text-[#0e3191] hover: hover:bg-blue-100'
+                                ? ' bg-blue-50 text-prt-secondary hover: hover:bg-blue-100'
                                 : ' bg-white/10 text-white hover:bg-white/15'"
                         >
                             <flux:avatar :name="auth()->user()->name" :initials="auth()->user()->initials()" size="xs" />
@@ -182,9 +182,9 @@
                 <a
                     href="{{ route('login') }}"
                     wire:navigate
-                    class="hidden items-center justify-center  border px-4 py-2 text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5050] focus-visible:ring-offset-2 sm:inline-flex"
+                    class="hidden items-center justify-center  border px-4 py-2 text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-prt-accent focus-visible:ring-offset-2 sm:inline-flex"
                     x-bind:class="(scrolled || !@json($isLanding))
-                        ? ' text-slate-700 hover: hover:bg-blue-50 hover:text-[#0e3191]'
+                        ? ' text-slate-700 hover: hover:bg-blue-50 hover:text-prt-secondary'
                         : ' bg-white/10 text-white hover:bg-white/15'"
                 >
                     Masuk
@@ -192,10 +192,10 @@
                 <a
                     href="{{ route('register') }}"
                     wire:navigate
-                    class="hidden items-center justify-center  bg-[#ff5050] px-4 py-2 text-sm font-semibold text-[#0a2465] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5050] focus-visible:ring-offset-2 sm:inline-flex"
+                    class="hidden items-center justify-center  bg-prt-accent px-4 py-2 text-sm font-semibold text-prt-navy-dark transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-prt-accent focus-visible:ring-offset-2 sm:inline-flex"
                     x-bind:class="(scrolled || !@json($isLanding))
-                        ? 'hover:bg-[#e3a31a]'
-                        : ' shadow-black/10 hover:bg-[#e3a31a]'"
+                        ? 'hover:bg-prt-gold'
+                        : ' shadow-black/10 hover:bg-prt-gold'"
                 >
                     Buat Akun
                 </a>
@@ -209,9 +209,9 @@
                 :aria-label="mobileMenuOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi'"
                 aria-controls="mobile-menu"
                 aria-haspopup="true"
-                class="inline-flex items-center justify-center  p-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5050] focus-visible:ring-offset-2 lg:hidden"
+                class="inline-flex items-center justify-center  p-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-prt-accent focus-visible:ring-offset-2 lg:hidden"
                 x-bind:class="(scrolled || !@json($isLanding))
-                    ? 'text-slate-700 hover:bg-blue-50 hover:text-[#0e3191]'
+                    ? 'text-slate-700 hover:bg-blue-50 hover:text-prt-secondary'
                     : 'text-white hover:bg-white/10'"
             >
                 <flux:icon.bars-3 x-show="!mobileMenuOpen" class="size-6" aria-hidden="true" />
@@ -240,7 +240,7 @@
                     <flux:avatar :name="auth()->user()->name" :initials="auth()->user()->initials()" />
                     <div class="flex min-w-0 flex-col">
                         <span class="truncate text-sm font-bold text-slate-900">{{ auth()->user()->name }}</span>
-                        <span class="truncate text-xs font-semibold uppercase tracking-wide text-[#024ad8]">{{ $roleLabel }}</span>
+                        <span class="truncate text-xs font-semibold uppercase tracking-wide text-prt-primary">{{ $roleLabel }}</span>
                         <span class="truncate text-xs text-slate-500">NIK {{ auth()->user()->nik }}</span>
                     </div>
                 </div>
@@ -256,7 +256,7 @@
                         href="{{ route($item['route']) }}"
                         wire:navigate
                         x-on:click="mobileMenuOpen = false"
-                        class="{{ $isMobileActive ? 'bg-blue-50 text-[#0e3191]' : 'text-slate-900 hover:bg-blue-50 hover:text-[#0e3191]' }} block  px-3 py-3 text-base font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5050] focus-visible:ring-offset-2"
+                        class="{{ $isMobileActive ? 'bg-blue-50 text-prt-secondary' : 'text-slate-900 hover:bg-blue-50 hover:text-prt-secondary' }} block  px-3 py-3 text-base font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-prt-accent focus-visible:ring-offset-2"
                     >
                         {{ $item['label'] }}
                     </a>
@@ -268,7 +268,7 @@
                             :aria-controls="$id('mobile-submenu')"
                             :aria-expanded="open"
                             aria-haspopup="true"
-                            class="{{ $isMobileActive ? 'bg-blue-50 text-[#0e3191]' : 'text-slate-900 hover:bg-blue-50 hover:text-[#0e3191]' }} flex w-full items-center justify-between  px-3 py-3 text-base font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5050] focus-visible:ring-offset-2"
+                            class="{{ $isMobileActive ? 'bg-blue-50 text-prt-secondary' : 'text-slate-900 hover:bg-blue-50 hover:text-prt-secondary' }} flex w-full items-center justify-between  px-3 py-3 text-base font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-prt-accent focus-visible:ring-offset-2"
                         >
                             <span>{{ $item['label'] }}</span>
                             <flux:icon.chevron-down
@@ -294,7 +294,7 @@
                                         href="{{ route($sub['route']) }}"
                                         wire:navigate
                                         x-on:click="mobileMenuOpen = false"
-                                        class="block  px-3 py-2.5 text-sm font-medium text-slate-600 transition-colors hover:bg-blue-50 hover:text-[#0e3191] focus-visible:bg-blue-50 focus-visible:text-[#0e3191] focus-visible:outline-none"
+                                        class="block  px-3 py-2.5 text-sm font-medium text-slate-600 transition-colors hover:bg-blue-50 hover:text-prt-secondary focus-visible:bg-blue-50 focus-visible:text-prt-secondary focus-visible:outline-none"
                                     >
                                         {{ $sub['label'] }}
                                     </a>
@@ -312,7 +312,7 @@
                         href="{{ $dashboardRoute }}"
                         wire:navigate
                         x-on:click="mobileMenuOpen = false"
-                        class="flex items-center justify-center gap-2  bg-[#0e3191] px-4 py-3 text-base font-semibold text-white transition-colors hover:bg-[#0a2465] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5050] focus-visible:ring-offset-2"
+                        class="flex items-center justify-center gap-2  bg-prt-secondary px-4 py-3 text-base font-semibold text-white transition-colors hover:bg-prt-navy-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-prt-accent focus-visible:ring-offset-2"
                     >
                         <flux:icon.layout-grid class="size-5" />
                         <span>Masuk ke Dasbor</span>
@@ -321,7 +321,7 @@
                         @csrf
                         <button
                             type="submit"
-                            class="flex w-full items-center justify-center gap-2   bg-red-50 px-4 py-3 text-base font-semibold text-red-700 transition-colors hover:bg-red-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5050] focus-visible:ring-offset-2"
+                            class="flex w-full items-center justify-center gap-2   bg-red-50 px-4 py-3 text-base font-semibold text-red-700 transition-colors hover:bg-red-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-prt-accent focus-visible:ring-offset-2"
                         >
                             <flux:icon.arrow-right-start-on-rectangle class="size-5" />
                             <span>Keluar</span>
@@ -332,7 +332,7 @@
                         href="{{ route('login') }}"
                         wire:navigate
                         x-on:click="mobileMenuOpen = false"
-                        class="flex items-center justify-center   px-4 py-3 text-base font-semibold text-slate-700 transition-colors hover:bg-blue-50 hover:text-[#0e3191] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5050] focus-visible:ring-offset-2"
+                        class="flex items-center justify-center   px-4 py-3 text-base font-semibold text-slate-700 transition-colors hover:bg-blue-50 hover:text-prt-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-prt-accent focus-visible:ring-offset-2"
                     >
                         Masuk
                     </a>
@@ -340,7 +340,7 @@
                         href="{{ route('register') }}"
                         wire:navigate
                         x-on:click="mobileMenuOpen = false"
-                        class="flex items-center justify-center  bg-[#ff5050] px-4 py-3 text-base font-semibold text-[#0a2465] transition-colors hover:bg-[#e3a31a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5050] focus-visible:ring-offset-2"
+                        class="flex items-center justify-center  bg-prt-accent px-4 py-3 text-base font-semibold text-prt-navy-dark transition-colors hover:bg-prt-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-prt-accent focus-visible:ring-offset-2"
                     >
                         Buat Akun
                     </a>
