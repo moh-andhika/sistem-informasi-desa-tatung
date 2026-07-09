@@ -97,10 +97,9 @@
             ];
         @endphp
 
-        <!-- Styling kustom ter-scoped agar Active State mirip AdminLTE -->
         <style>
             .adminlte-sidebar [data-flux-sidebar-item][data-current] {
-                background-color: var(--color-blue-600) !important;
+                background-color: var(--color-prt-primary) !important;
                 color: white !important;
             }
         </style>
@@ -137,7 +136,7 @@
                                 <div class="flex items-center justify-between w-full">
                                     <span>{{ $item['title'] }}</span>
                                     @isset($item['badge'])
-                                        <span class="text-[11px]  bg-yellow-100 px-2 py-0.5 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
+                                        <span class="text-[11px] bg-prt-accent/10 px-2 py-0.5 text-prt-accent">
                                             {{ $item['badge'] }}
                                         </span>
                                     @endisset
@@ -159,7 +158,7 @@
                                 <div class="flex items-center justify-between w-full">
                                     <span>{{ $item['title'] }}</span>
                                     @isset($item['badge'])
-                                        <span class="text-[11px]  bg-yellow-100 px-2 py-0.5 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
+                                        <span class="text-[11px] bg-prt-accent/10 px-2 py-0.5 text-prt-accent">
                                             {{ $item['badge'] }}
                                         </span>
                                     @endisset
@@ -171,15 +170,6 @@
             </flux:sidebar.nav>
 
             <flux:spacer />
-
-            <flux:sidebar.nav>
-                <flux:sidebar.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
-                    {{ __('Repository') }}
-                </flux:sidebar.item>
-                <flux:sidebar.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">
-                    {{ __('Documentation') }}
-                </flux:sidebar.item>
-            </flux:sidebar.nav>
 
             <x-desktop-user-menu class="hidden lg:block" :name="$user?->name ?? ''" />
         </flux:sidebar>
@@ -207,7 +197,7 @@
 
                                 <div class="grid flex-1 text-start text-sm leading-tight">
                                     <flux:heading class="truncate">{{ $user?->name }}</flux:heading>
-                                    <flux:text class="truncate">{{ $user?->email }}</flux:text>
+                                    <flux:text class="truncate">NIK {{ $user?->nik }}</flux:text>
                                 </div>
                             </div>
                         </div>
@@ -221,7 +211,7 @@
                             x-show="!$flux.dark"
                             x-on:click="$flux.dark = true"
                         >
-                            {{ __('Ganti ke Mode Gelap') }}
+                            {{ __('Mode Gelap') }}
                         </flux:menu.item>
                         <flux:menu.item
                             icon="sun"
@@ -229,7 +219,7 @@
                             x-on:click="$flux.dark = false"
                             x-cloak
                         >
-                            {{ __('Ganti ke Mode Terang') }}
+                            {{ __('Mode Terang') }}
                         </flux:menu.item>
                     </flux:menu.radio.group>
 
@@ -238,7 +228,7 @@
                     <flux:menu.radio.group>
 
                         <flux:menu.item :href="route('profile.edit')" icon="cog" wire:navigate>
-                            {{ __('Settings') }}
+                            {{ __('Pengaturan') }}
                         </flux:menu.item>
                     </flux:menu.radio.group>
 
@@ -253,7 +243,7 @@
                             class="w-full cursor-pointer"
                             data-test="logout-button"
                         >
-                            {{ __('Log out') }}
+                            {{ __('Keluar') }}
                         </flux:menu.item>
                     </form>
                 </flux:menu>

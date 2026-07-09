@@ -9,7 +9,13 @@
       x-data="{ scrolled: false }"
       x-init="scrolled = window.pageYOffset > 20"
       @scroll.window="scrolled = (window.pageYOffset > 20)">
-   
+    
+    {{-- Skip-to-content link (WCAG 2.4.1) --}}
+    <a href="#main-content" class="prt-skip-link">
+        Langsung ke konten utama
+    </a>
+    
+
 
     @include('partials.header')
 

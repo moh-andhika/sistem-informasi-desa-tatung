@@ -54,10 +54,10 @@
     --radius-3xl: 0.2rem;
 
     /* --- PORTAL DESIGN SYSTEM (prt-* prefix avoids conflict with admin theme) --- */
-    --color-prt-primary: #024ad8;
-    --color-prt-secondary: #0e3191;
-    --color-prt-navy-dark: #0a2465;
-    --color-prt-accent: #ff5050;
+    --color-prt-primary: #3570A8;
+    --color-prt-secondary: #1A4B7A;
+    --color-prt-navy-dark: #0D3A5C;
+    --color-prt-accent: #C67F1D;
     --color-prt-ink: #1a1a1a;
     --color-prt-body: #3d3d3d;
     --color-prt-muted: #636363;

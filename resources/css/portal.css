@@ -23,13 +23,13 @@
 
 :root {
   /* — HP Design System Color Palette — */
-  --c-primary: #024ad8; /* HP Electric Blue */
-  --c-secondary: #0e3191; /* HP Deep Navy */
-  --c-navy: #0e3191;
-  --c-navy-mid: #024ad8;
-  --c-blue: #024ad8;
-  --c-blue-hover: #0e3191;
-  --c-accent: #ff5050; /* HP Bloom Coral */
+  --c-primary: #3570A8; /* Soft Steel Blue (passes WCAG AA 4.63:1 on white) */
+  --c-secondary: #1A4B7A; /* Muted Navy */
+  --c-navy: #1A4B7A;
+  --c-navy-mid: #3B7CB8;
+  --c-blue: #3B7CB8;
+  --c-blue-hover: #1A4B7A;
+  --c-accent: #C67F1D; /* Warm Gold — L=0.27, 3.3:1 on white, 3.1:1 on navy */
   --c-emerald: #388E3C;
   --c-text: #1a1a1a; /* HP Ink */
   --c-body: #1a1a1a;
@@ -55,7 +55,7 @@
   /* — Shape — */
   --prt-radius: 0px; /* Flat design: no rounding */
   /* — Focus ring — */
-  --focus-ring: 0 0 0 3px #024ad8, 0 0 0 5px rgba(2, 74, 216, 0.2);
+  --focus-ring: 0 0 0 3px #3570A8, 0 0 0 5px rgba(53, 112, 168, 0.2);
 }
 
 /* — Branding Utilities — */
@@ -101,6 +101,32 @@
 .font-heading {
   font-family: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
   font-weight: 700;
+}
+
+/* =====================
+ * WCAG: SKIP-TO-CONTENT LINK (2.4.1)
+ * Visible only on keyboard focus.
+ * ===================== */
+
+.prt-skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0.5rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: #1B5E20;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 0 0 4px 4px;
+  outline: 3px solid var(--c-focus);
+  outline-offset: 0;
+  transition: top 0.1s;
+}
+
+.prt-skip-link:focus {
+  top: 0;
 }
 
 /* =====================
@@ -329,8 +355,42 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ticker__text {
+  .ticker__text,
+  .aparatur-strip {
     animation: none;
+  }
+  .aparatur-strip {
+    flex-wrap: wrap;
+    width: auto;
+    padding-inline: 1.25rem;
+    justify-content: center;
+  }
+  .group-hover\:scale-105,
+  .group-hover\:scale-110,
+  .hover\:scale-105,
+  img[class*="hover\:scale-"],
+  img[class*="group-hover\:scale-"] {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* WCAG: High contrast mode support */
+@media (prefers-contrast: more) {
+  .portal-page {
+    --c-border: #1a1a1a;
+    --c-muted: #1a1a1a;
+  }
+  .portal-page :focus-visible {
+    outline-width: 4px;
+    outline-offset: 3px;
+  }
+  .badge,
+  .widget,
+  .ticker,
+  .service-card,
+  .btn-outline-white {
+    border-width: 2px;
   }
 }
 
