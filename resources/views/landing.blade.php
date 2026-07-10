@@ -13,7 +13,6 @@
 @endphp
 
 @section('header_content')
-    <div class="portal-page">
         {{-- JUMBOTRON --}}
         <section class="relative overflow-hidden group bg-prt-navy-dark -mt-28" aria-label="Selamat Datang di Desa Tatung">
             <div class="absolute inset-0 z-0 opacity-85" aria-hidden="true">
@@ -70,7 +69,7 @@
                         <flux:icon.megaphone class="size-5 shrink-0" aria-hidden="true" />
                         <span class="ml-2 text-lg font-bold text-white tracking-wide">Sekilas Info</span>
                     </span>
-                    <div class="ticker__track" role="marquee" aria-live="off">
+                    <div class="ticker__track" aria-live="off">
                         <p class="ticker__text text-lg text-white" id="ticker-text">
                             @forelse ($tickerItems as $item)
                                 ✦ {{ Str::limit($item->ringkasan ?: $item->judul, 120) }}
@@ -86,7 +85,7 @@
                         </p>
                     </div>
                     <button
-                        class="ticker__pause text-prt-accent hover:bg-prt-accent hover:text-prt-navy-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent min-h-[36px] min-w-[60px]"
+                        class="ticker__pause text-white hover:bg-prt-accent hover:text-prt-navy-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent min-h-[44px] min-w-[44px]"
                         id="ticker-pause-btn"
                         type="button"
                         aria-label="Jeda atau lanjutkan pengumuman berjalan"
@@ -97,12 +96,10 @@
                 </div>
             </x-public.container>
         </section>
-    </div>
 @endsection
 
 @section('content')
-    <div class="portal-page">
-        <div class="prt-layout pt-3">
+        <div class="prt-layout">
             {{-- MAIN CONTENT --}}
             <div class="space-y-8">
 
@@ -110,18 +107,22 @@
                 <section aria-label="Statistik kependudukan desa">
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
                         <div class="border border-prt-primary/8 bg-white p-4 text-center transition-all hover:border-prt-primary/20">
+                            <flux:icon.users class="size-6 text-prt-primary mx-auto mb-2" aria-hidden="true" />
                             <p class="text-2xl sm:text-3xl font-bold text-prt-secondary">2.847</p>
                             <p class="text-[10px] font-semibold text-prt-muted mt-1 uppercase tracking-wide">Total Penduduk</p>
                         </div>
                         <div class="border border-prt-primary/8 bg-white p-4 text-center transition-all hover:border-prt-primary/20">
+                            <flux:icon.home class="size-6 text-prt-primary mx-auto mb-2" aria-hidden="true" />
                             <p class="text-2xl sm:text-3xl font-bold text-prt-secondary">1.024</p>
                             <p class="text-[10px] font-semibold text-prt-muted mt-1 uppercase tracking-wide">Kepala Keluarga</p>
                         </div>
                         <div class="border border-prt-primary/8 bg-white p-4 text-center transition-all hover:border-prt-primary/20">
+                            <flux:icon.map-pin class="size-6 text-prt-primary mx-auto mb-2" aria-hidden="true" />
                             <p class="text-2xl sm:text-3xl font-bold text-prt-secondary">4</p>
                             <p class="text-[10px] font-semibold text-prt-muted mt-1 uppercase tracking-wide">Dusun</p>
                         </div>
                         <div class="border border-prt-primary/8 bg-white p-4 text-center transition-all hover:border-prt-primary/20">
+                            <flux:icon.globe-alt class="size-6 text-prt-primary mx-auto mb-2" aria-hidden="true" />
                             <p class="text-2xl sm:text-3xl font-bold text-prt-secondary">12,5 km²</p>
                             <p class="text-[10px] font-semibold text-prt-muted mt-1 uppercase tracking-wide">Luas Wilayah</p>
                         </div>
@@ -275,13 +276,13 @@
                 </section>
 
                 {{-- TRANSPARANSI ANGGARAN --}}
-                <section aria-labelledby="apbdes-heading" class="bg-prt-primary/[0.02] -mx-3 px-3 py-4">
+                <section aria-labelledby="apbdes-heading" class="bg-prt-primary/[0.02] py-4">
                     <div class="flex flex-wrap items-center gap-3 mb-4 border-b border-prt-primary/15 pb-2">
                         <div class="h-7 w-1 bg-prt-accent" aria-hidden="true"></div>
                         <h2 class="text-lg sm:text-xl font-bold text-prt-ink" id="apbdes-heading">Transparansi Anggaran Desa 2025</h2>
                         <a
                             href="{{ route('publik.transparansi.apbdes') }}"
-                            class="ml-auto bg-prt-secondary px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-prt-navy-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent min-h-[36px]"
+                            class="ml-auto bg-prt-secondary px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-prt-navy-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent min-h-[44px]"
                         >
                             Laporan Lengkap &rarr;
                         </a>
@@ -419,7 +420,7 @@
                         </div>
                         <a
                             href="{{ route('infografis') }}"
-                            class="block w-full border border-prt-primary/15 bg-prt-primary/5 py-2.5 text-center text-xs font-semibold text-prt-primary transition-colors hover:bg-prt-primary/10 hover:text-prt-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent min-h-[36px]"
+                            class="block w-full border border-prt-primary/15 bg-prt-primary/5 py-2.5 text-center text-xs font-semibold text-prt-primary transition-colors hover:bg-prt-primary/10 hover:text-prt-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent min-h-[44px]"
                         >
                             Lihat Infografis →
                         </a>
@@ -476,9 +477,11 @@
                 </div>
             </aside>
         </div>
+@endsection
 
+@section('footer_content')
         {{-- CTA BANNER --}}
-        <section aria-label="Ajakan menggunakan layanan desa" class="bg-prt-secondary mt-4">
+        <section aria-label="Ajakan menggunakan layanan desa" class="bg-prt-secondary">
             <x-public.container class="flex flex-col items-center text-center py-8 sm:py-10">
                 <h2 class="text-xl sm:text-2xl font-bold text-white mb-2">Butuh Surat Keterangan Desa?</h2>
                 <p class="text-sm sm:text-base text-prt-blue-light max-w-lg mb-4">Ajukan permohonan secara online tanpa harus datang ke kantor. Proses cepat, transparan, dan terpantau.</p>
@@ -540,62 +543,63 @@
         </section>
 
         {{-- GALERI & POTENSI --}}
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
-            {{-- Photo Gallery --}}
-            <section class="space-y-3" aria-labelledby="galeri-heading">
-                <div class="flex items-center gap-3 border-b border-prt-primary/15 pb-2">
-                    <div class="h-5 w-1 bg-prt-primary" aria-hidden="true"></div>
-                    <h2 class="text-lg font-bold text-prt-ink" id="galeri-heading">Galeri Foto</h2>
-                </div>
-                <div class="grid grid-cols-2 gap-2.5">
-                    @forelse ($galeri->take(4) as $g)
-                        <div class="group relative overflow-hidden border border-prt-primary/8 transition-shadow hover:shadow-sm">
-                            <img src="{{ Storage::url($g->gambar) }}" alt="" class="aspect-square object-cover w-full group-hover:scale-110 transition-transform duration-300" loading="lazy">
-                            <div class="absolute inset-0 bg-prt-secondary/0 transition-colors duration-300 group-hover:bg-prt-secondary/20" aria-hidden="true"></div>
-                        </div>
-                    @empty
-                        <div class="col-span-2 py-8 text-center text-prt-muted" role="status">
-                            <p>Belum ada galeri foto.</p>
-                        </div>
-                    @endforelse
-                </div>
-                <a
-                    href="{{ route('publik.profil.sejarah') }}"
-                    class="block w-full border border-prt-primary/15 bg-prt-primary/5 py-2.5 text-center text-xs font-semibold text-prt-primary transition-colors hover:bg-prt-primary/10 hover:text-prt-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent min-h-[36px]"
-                >
-                    Lihat Semua Galeri
-                </a>
-            </section>
+        <x-public.container class="py-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {{-- Photo Gallery --}}
+                <section class="space-y-3" aria-labelledby="galeri-heading">
+                    <div class="flex items-center gap-3 border-b border-prt-primary/15 pb-2">
+                        <div class="h-5 w-1 bg-prt-primary" aria-hidden="true"></div>
+                        <h2 class="text-lg font-bold text-prt-ink" id="galeri-heading">Galeri Foto</h2>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2.5">
+                        @forelse ($galeri->take(4) as $g)
+                            <div class="group relative overflow-hidden border border-prt-primary/8 transition-shadow hover:shadow-sm">
+                                <img src="{{ Storage::url($g->gambar) }}" alt="" class="aspect-square object-cover w-full group-hover:scale-110 transition-transform duration-300" loading="lazy">
+                                <div class="absolute inset-0 bg-prt-secondary/0 transition-colors duration-300 group-hover:bg-prt-secondary/20" aria-hidden="true"></div>
+                            </div>
+                        @empty
+                            <div class="col-span-2 py-8 text-center text-prt-muted" role="status">
+                                <p>Belum ada galeri foto.</p>
+                            </div>
+                        @endforelse
+                    </div>
+                    <a
+                        href="{{ route('publik.profil.sejarah') }}"
+                        class="block w-full border border-prt-primary/15 bg-prt-primary/5 py-2.5 text-center text-xs font-semibold text-prt-primary transition-colors hover:bg-prt-primary/10 hover:text-prt-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent min-h-[44px]"
+                    >
+                        Lihat Semua Galeri
+                    </a>
+                </section>
 
-            {{-- Potensi --}}
-            <section class="space-y-3" aria-labelledby="potensi-heading">
-                <div class="flex items-center gap-3 border-b border-prt-primary/15 pb-2">
-                    <div class="h-5 w-1 bg-prt-primary" aria-hidden="true"></div>
-                    <h2 class="text-lg font-bold text-prt-ink" id="potensi-heading">Potensi Desa</h2>
-                </div>
-                <div class="space-y-2.5">
-                    <a
-                        href="{{ route('publik.potensi.umkm') }}"
-                        class="group block relative overflow-hidden h-40 border border-prt-primary/8 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent"
-                    >
-                        <img src="{{ asset('assets/images/background.jpg') }}" alt="Kunjungi halaman UMKM Tatung" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy">
-                        <div class="absolute inset-0 flex items-end bg-prt-secondary/70 p-4" aria-hidden="true">
-                            <span class="text-white font-bold text-sm tracking-wide drop-shadow-sm">UMKM Tatung</span>
-                        </div>
-                    </a>
-                    <a
-                        href="{{ route('publik.potensi.pariwisata') }}"
-                        class="group block relative overflow-hidden h-40 border border-prt-primary/8 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent"
-                    >
-                        <img src="{{ asset('assets/images/background.jpg') }}" alt="Kunjungi halaman Pariwisata Tatung" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy">
-                        <div class="absolute inset-0 flex items-end bg-prt-secondary/70 p-4" aria-hidden="true">
-                            <span class="text-white font-bold text-sm tracking-wide drop-shadow-sm">Pariwisata</span>
-                        </div>
-                    </a>
-                </div>
-            </section>
-        </div>
-    </div>
+                {{-- Potensi --}}
+                <section class="space-y-3" aria-labelledby="potensi-heading">
+                    <div class="flex items-center gap-3 border-b border-prt-primary/15 pb-2">
+                        <div class="h-5 w-1 bg-prt-primary" aria-hidden="true"></div>
+                        <h2 class="text-lg font-bold text-prt-ink" id="potensi-heading">Potensi Desa</h2>
+                    </div>
+                    <div class="space-y-2.5">
+                        <a
+                            href="{{ route('publik.potensi.umkm') }}"
+                            class="group block relative overflow-hidden h-40 border border-prt-primary/8 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent"
+                        >
+                            <img src="{{ asset('assets/images/background.jpg') }}" alt="Kunjungi halaman UMKM Tatung" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy">
+                            <div class="absolute inset-0 flex items-end bg-prt-secondary/70 p-4" aria-hidden="true">
+                                <span class="text-white font-bold text-sm tracking-wide drop-shadow-sm">UMKM Tatung</span>
+                            </div>
+                        </a>
+                        <a
+                            href="{{ route('publik.potensi.pariwisata') }}"
+                            class="group block relative overflow-hidden h-40 border border-prt-primary/8 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent"
+                        >
+                            <img src="{{ asset('assets/images/background.jpg') }}" alt="Kunjungi halaman Pariwisata Tatung" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy">
+                            <div class="absolute inset-0 flex items-end bg-prt-secondary/70 p-4" aria-hidden="true">
+                                <span class="text-white font-bold text-sm tracking-wide drop-shadow-sm">Pariwisata</span>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </x-public.container>
 @endsection
 
 @push('scripts')

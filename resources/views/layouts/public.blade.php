@@ -5,7 +5,7 @@
     @include('partials.head')
     <title>{{ $title ?? config('app.name', 'Sistem Informasi Desa Tatung') }}</title>
 </head>
-<body class="min-h-screen bg-slate-50 text-slate-900 antialiased portal-page" 
+<body class="min-h-screen text-slate-900 antialiased portal-page" 
       x-data="{ scrolled: false }"
       x-init="scrolled = window.pageYOffset > 20"
       @scroll.window="scrolled = (window.pageYOffset > 20)">
