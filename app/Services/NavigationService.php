@@ -20,8 +20,7 @@ class NavigationService
                 'label' => 'Profil Desa',
                 'active_pattern' => 'publik.profil.*',
                 'subitems' => [
-                    ['label' => 'Sejarah Desa', 'route' => 'publik.profil.sejarah'],
-                    ['label' => 'Visi & Misi', 'route' => 'publik.profil.visi-misi'],
+
                     ['label' => 'Aparatur Desa', 'route' => 'publik.profil.aparatur'],
                     ['label' => 'Peta & Wilayah', 'route' => 'publik.profil.wilayah'],
                 ],
@@ -30,9 +29,8 @@ class NavigationService
                 'label' => 'Publikasi',
                 'active_pattern' => 'publik.publikasi.*',
                 'subitems' => [
-                    ['label' => 'Berita Desa', 'route' => 'publik.publikasi.berita.index'],
-                    ['label' => 'Agenda Kegiatan', 'route' => 'publik.publikasi.agenda'],
-                    ['label' => 'Galeri Foto', 'route' => 'publik.publikasi.galeri'],
+                    ['label' => 'Aparatur Desa', 'route' => 'publik.profil.aparatur'],
+                    ['label' => 'Peta & Wilayah', 'route' => 'publik.profil.wilayah'],
                 ],
             ],
             [

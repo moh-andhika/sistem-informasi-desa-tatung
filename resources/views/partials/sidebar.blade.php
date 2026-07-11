@@ -17,7 +17,7 @@
 
 <div class="space-y-3 pb-12">
     {{-- Layanan Mandiri (Login Widget) --}}
-    <section class="border border-prt-primary/8 bg-white" aria-labelledby="widget-login-title">
+    <section class="border border-prt-primary/8 bg-white rounded-lg shadow-sm overflow-hidden" aria-labelledby="widget-login-title">
         <div class="flex items-center justify-between bg-prt-secondary px-4 py-3">
             <h3 class="text-sm font-bold text-white" id="widget-login-title">Layanan Mandiri</h3>
             <flux:icon.user-circle class="size-5 text-prt-accent" aria-hidden="true" />
@@ -67,7 +67,7 @@
     </section>
 
     {{-- Pengumuman Widget --}}
-    <section class="border border-prt-primary/8 bg-white" aria-labelledby="widget-announcement-title">
+    <section class="border border-prt-primary/8 bg-white rounded-lg shadow-sm overflow-hidden" aria-labelledby="widget-announcement-title">
         <div class="flex items-center justify-between bg-prt-secondary px-4 py-3">
             <h3 class="text-sm font-bold text-white" id="widget-announcement-title">Pengumuman Terkini</h3>
             <flux:icon.megaphone class="size-5 text-prt-accent" aria-hidden="true" />
@@ -91,7 +91,7 @@
     </section>
 
     {{-- Statistik Penduduk Widget --}}
-    <section class="border border-prt-primary/8 bg-white" aria-labelledby="widget-stats-title">
+    <section class="border border-prt-primary/8 bg-white rounded-lg shadow-sm overflow-hidden" aria-labelledby="widget-stats-title">
         <div class="flex items-center justify-between bg-prt-secondary px-4 py-3">
             <h3 class="text-sm font-bold text-white" id="widget-stats-title">Statistik Penduduk</h3>
             <flux:icon.users class="size-5 text-prt-accent" aria-hidden="true" />
@@ -127,7 +127,7 @@
     </section>
 
     {{-- Lokasi Widget --}}
-    <section class="border border-prt-primary/8 bg-white" aria-labelledby="widget-location-title">
+    <section class="border border-prt-primary/8 bg-white rounded-lg shadow-sm overflow-hidden" aria-labelledby="widget-location-title">
         <div class="flex items-center justify-between bg-prt-secondary px-4 py-3">
             <h3 class="text-sm font-bold text-white" id="widget-location-title">Wilayah Desa</h3>
             <flux:icon.map-pin class="size-5 text-prt-accent" aria-hidden="true" />

@@ -23,7 +23,7 @@
         <div>
             <p class="text-[10px] font-black text-prt-accent uppercase tracking-[0.2em] mb-5 pb-2lue-700">Profil &amp; Potensi</p>
             <ul class="space-y-3 text-sm">
-                <li><a href="{{ route('publik.profil.sejarah') }}" class="text-blue-100 hover:text-prt-accent hover:translate-x-1 transition-all inline-flex items-center gap-2"><flux:icon.chevron-right class="size-3 text-blue-500" />Sejarah Desa</a></li>
+                <li><a href="{{ route('publik.profil.wilayah') }}" class="text-blue-100 hover:text-prt-accent hover:translate-x-1 transition-all inline-flex items-center gap-2"><flux:icon.chevron-right class="size-3 text-blue-500" />Profil Wilayah</a></li>
                 <li><a href="{{ route('publik.profil.aparatur') }}" class="text-blue-100 hover:text-prt-accent hover:translate-x-1 transition-all inline-flex items-center gap-2"><flux:icon.chevron-right class="size-3 text-blue-500" />Aparatur Pemerintahan</a></li>
                 <li><a href="{{ route('publik.potensi.umkm') }}" class="text-blue-100 hover:text-prt-accent hover:translate-x-1 transition-all inline-flex items-center gap-2"><flux:icon.chevron-right class="size-3 text-blue-500" />Produk UMKM Unggulan</a></li>
                 <li><a href="{{ route('publik.potensi.pariwisata') }}" class="text-blue-100 hover:text-prt-accent hover:translate-x-1 transition-all inline-flex items-center gap-2"><flux:icon.chevron-right class="size-3 text-blue-500" />Destinasi Pariwisata</a></li>

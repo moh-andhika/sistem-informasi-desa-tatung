@@ -52,10 +52,6 @@ Route::name('publik.')->group(function () {
     Route::prefix('profil')
         ->name('profil.')
         ->group(function () {
-            Route::view('sejarah', 'pages.profil.sejarah')->name('sejarah');
-            Route::view('visi-misi', 'pages.profil.visi-misi')->name(
-                'visi-misi',
-            );
             Route::get('aparatur', function () {
                 $aparatur = perangkat_desa::orderBy('urutan')->get();
 

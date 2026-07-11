@@ -36,22 +36,55 @@
                     <p class="text-base sm:text-lg text-white leading-relaxed mb-6 max-w-2xl font-medium">
                         Melayani dengan transparansi, inovasi, dan komitmen penuh untuk pembangunan desa yang berkelanjutan dan kesejahteraan seluruh warga masyarakat.
                     </p>
-                    <div class="flex flex-wrap gap-3">
-                        <a
-                            href="{{ route('publik.layanan.informasi-surat') }}"
-                            class="inline-flex items-center bg-prt-accent px-6 py-3.5 text-sm font-bold tracking-wide text-black transition-all hover:-translate-y-0.5 hover:bg-prt-gold hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent min-h-[44px] rounded-lg shadow-sm"
-                        >
-                            <flux:icon.document-text class="size-5 mr-2 shrink-0" aria-hidden="true" />
-                            <span>Layanan Surat Online</span>
-                        </a>
-                        <a
-                            href="{{ route('publik.publikasi.berita.index') }}"
-                            class="inline-flex items-center px-6 py-3.5 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white text-sm font-bold tracking-wide border border-white/30 transition-all hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 min-h-[44px] rounded-lg shadow-sm"
-                        >
-                            <flux:icon.newspaper class="size-5 mr-2 shrink-0" aria-hidden="true" />
-                            <span>Berita Terbaru</span>
-                        </a>
-                    </div>
+
+                </div>
+
+                {{-- Layanan Cards --}}
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl">
+                    <a
+                        href="{{ route('publik.layanan.informasi-surat') }}"
+                        class="group bg-white/10 backdrop-blur-md border border-white/20 p-4 transition-all hover:bg-white/20 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent min-h-[100px] rounded-lg"
+                    >
+                        <div class="flex flex-col items-center text-center space-y-2">
+                            <div class="bg-white/15 p-2.5 rounded-lg transition-colors group-hover:bg-white/25" aria-hidden="true">
+                                <flux:icon.document-text class="size-5 text-white transition-transform group-hover:scale-110" aria-hidden="true" />
+                            </div>
+                            <span class="text-xs font-bold leading-snug text-white/90 transition-colors group-hover:text-white">Surat Keterangan</span>
+                        </div>
+                    </a>
+                    <a
+                        href="#"
+                        class="group bg-white/10 backdrop-blur-md border border-white/20 p-4 transition-all hover:bg-white/20 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent min-h-[100px] rounded-lg"
+                    >
+                        <div class="flex flex-col items-center text-center space-y-2">
+                            <div class="bg-white/15 p-2.5 rounded-lg transition-colors group-hover:bg-white/25" aria-hidden="true">
+                                <flux:icon.chat-bubble-left class="size-5 text-white transition-transform group-hover:scale-110" aria-hidden="true" />
+                            </div>
+                            <span class="text-xs font-bold leading-snug text-white/90 transition-colors group-hover:text-white">Pengaduan &amp; Aspirasi</span>
+                        </div>
+                    </a>
+                    <a
+                        href="{{ route('publik.publikasi.berita.index') }}"
+                        class="group bg-white/10 backdrop-blur-md border border-white/20 p-4 transition-all hover:bg-white/20 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent min-h-[100px] rounded-lg"
+                    >
+                        <div class="flex flex-col items-center text-center space-y-2">
+                            <div class="bg-white/15 p-2.5 rounded-lg transition-colors group-hover:bg-white/25" aria-hidden="true">
+                                <flux:icon.newspaper class="size-5 text-white transition-transform group-hover:scale-110" aria-hidden="true" />
+                            </div>
+                            <span class="text-xs font-bold leading-snug text-white/90 transition-colors group-hover:text-white">Berita &amp; Info</span>
+                        </div>
+                    </a>
+                    <a
+                        href="{{ route('publik.transparansi.apbdes') }}"
+                        class="group bg-white/10 backdrop-blur-md border border-white/20 p-4 transition-all hover:bg-white/20 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent min-h-[100px] rounded-lg"
+                    >
+                        <div class="flex flex-col items-center text-center space-y-2">
+                            <div class="bg-white/15 p-2.5 rounded-lg transition-colors group-hover:bg-white/25" aria-hidden="true">
+                                <flux:icon.document-chart-bar class="size-5 text-white transition-transform group-hover:scale-110" aria-hidden="true" />
+                            </div>
+                            <span class="text-xs font-bold leading-snug text-white/90 transition-colors group-hover:text-white">Transparansi APBDes</span>
+                        </div>
+                    </a>
                 </div>
             </x-public.container>
         </section>
@@ -116,60 +149,58 @@
                     </div>
 
                     @if ($beritaUtama)
-                        {{-- Lead News — horizontal --}}
+                        {{-- Lead News — full-image overlay --}}
                         <a
                             href="{{ route('publik.publikasi.berita.show', $beritaUtama->slug) }}"
-                            class="group flex flex-col sm:flex-row border border-prt-primary/8 bg-white transition-all hover:border-prt-primary/20 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent rounded-lg shadow-sm overflow-hidden"
+                            class="group relative block w-full overflow-hidden rounded-lg shadow-sm border border-prt-primary/8 bg-prt-primary/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent"
                             aria-labelledby="berita-utama-title"
                         >
-                            <div class="shrink-0 w-full sm:w-72 lg:w-80 overflow-hidden bg-prt-primary/5" aria-hidden="true">
-                                @if ($beritaUtama->gambar)
-                                    <img src="{{ $beritaUtama->gambar_url }}" alt="" class="w-full h-48 sm:h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-                                @else
-                                    <div class="w-full h-48 sm:h-full flex items-center justify-center text-prt-muted">
-                                        <flux:icon.newspaper class="size-16" aria-hidden="true" />
-                                    </div>
-                                @endif
-                            </div>
-                            <div class="flex flex-col justify-center p-5 min-w-0">
+                            @if ($beritaUtama->gambar)
+                                <img src="{{ $beritaUtama->gambar_url }}" alt="" class="w-full aspect-[16/9] sm:aspect-[21/9] object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                            @else
+                                <div class="w-full aspect-[16/9] sm:aspect-[21/9] flex items-center justify-center text-prt-muted bg-prt-primary/5">
+                                    <flux:icon.newspaper class="size-16" aria-hidden="true" />
+                                </div>
+                            @endif
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" aria-hidden="true"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
                                 <div class="flex flex-wrap items-center gap-3 mb-2">
                                     <span class="inline-flex bg-prt-primary px-3 py-1 text-xs font-bold text-white rounded-md">Berita Desa</span>
-                                    <time datetime="{{ ($beritaUtama->published_at ?? $beritaUtama->created_at)?->toDateString() }}" class="text-sm font-semibold text-prt-muted">
+                                    <time datetime="{{ ($beritaUtama->published_at ?? $beritaUtama->created_at)?->toDateString() }}" class="text-sm font-semibold text-white/70">
                                         {{ ($beritaUtama->published_at ?? $beritaUtama->created_at)?->translatedFormat('d F Y') }}
                                     </time>
                                 </div>
-                                <h3 class="text-lg font-bold text-prt-ink mb-1.5 line-clamp-2 group-hover:text-prt-secondary transition-colors" id="berita-utama-title">{{ $beritaUtama->judul }}</h3>
-                                <p class="text-base text-prt-muted leading-relaxed line-clamp-3">
+                                <h3 class="text-lg sm:text-xl font-bold text-white mb-1.5 line-clamp-2 group-hover:text-prt-accent transition-colors drop-shadow-sm" id="berita-utama-title">{{ $beritaUtama->judul }}</h3>
+                                <p class="text-sm sm:text-base text-white/80 leading-relaxed line-clamp-2 drop-shadow-sm">
                                     {{ $beritaUtama->ringkasan ?? Str::limit(strip_tags($beritaUtama->konten), 160) }}
                                 </p>
                             </div>
                         </a>
 
-                        {{-- Secondary News — 3-col grid --}}
+                        {{-- Secondary News — 3-col grid, full-image overlay --}}
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                             @forelse ($beritaLainnya as $item)
                                 <a
                                     href="{{ route('publik.publikasi.berita.show', $item->slug) }}"
-                                    class="group flex flex-col border border-prt-primary/8 bg-white transition-all hover:border-prt-primary/20 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent rounded-lg shadow-sm overflow-hidden"
+                                    class="group relative block w-full overflow-hidden rounded-lg shadow-sm border border-prt-primary/8 bg-prt-primary/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent"
                                     aria-labelledby="berita-item-{{ $item->id }}-title"
                                 >
-                                    <div class="shrink-0 w-full h-40 overflow-hidden bg-prt-primary/5" aria-hidden="true">
-                                        @if ($item->gambar)
-                                            <img src="{{ $item->gambar_url }}" alt="" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-                                        @else
-                                            <div class="w-full h-full flex items-center justify-center text-prt-muted">
-                                                <flux:icon.newspaper class="size-8" aria-hidden="true" />
-                                            </div>
-                                        @endif
+                                    @if ($item->gambar)
+                                        <img src="{{ $item->gambar_url }}" alt="" class="w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+                                    @else
+                                        <div class="w-full aspect-[4/3] flex items-center justify-center text-prt-muted bg-prt-primary/5">
+                                            <flux:icon.newspaper class="size-8" aria-hidden="true" />
+                                        </div>
+                                    @endif
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" aria-hidden="true"></div>
+                                    <div class="absolute top-3 left-3">
+                                        <span class="inline-flex bg-prt-accent px-2 py-0.5 text-xs font-bold text-black rounded-md">Artikel Baru</span>
                                     </div>
-                                    <div class="flex flex-col flex-1 p-4">
-                                        <div class="inline-flex bg-prt-secondary px-2 py-0.5 text-xs font-bold text-white mb-1.5 rounded-md w-fit">Artikel Baru</div>
-                                        <h3 class="text-base font-bold text-prt-ink mb-1 line-clamp-2 group-hover:text-prt-secondary transition-colors" id="berita-item-{{ $item->id }}-title">{{ $item->judul }}</h3>
-                                        <p class="text-sm font-medium text-prt-muted mt-auto">
-                                            <time datetime="{{ ($item->published_at ?? $item->created_at)?->toDateString() }}">
-                                                {{ ($item->published_at ?? $item->created_at)?->translatedFormat('d F Y') }}
-                                            </time>
-                                        </p>
+                                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                                        <h3 class="text-sm font-bold text-white mb-1 line-clamp-2 group-hover:text-prt-accent transition-colors drop-shadow-sm" id="berita-item-{{ $item->id }}-title">{{ $item->judul }}</h3>
+                                        <time datetime="{{ ($item->published_at ?? $item->created_at)?->toDateString() }}" class="text-xs font-medium text-white/70 drop-shadow-sm">
+                                            {{ ($item->published_at ?? $item->created_at)?->translatedFormat('d F Y') }}
+                                        </time>
                                     </div>
                                 </a>
                             @empty
@@ -212,60 +243,6 @@
                             <p class="text-2xl sm:text-3xl font-bold text-prt-secondary">12,5 km²</p>
                             <p class="text-[10px] font-semibold text-prt-muted mt-1 uppercase tracking-wide">Luas Wilayah</p>
                         </div>
-                    </div>
-                </section>
-
-                {{-- LAYANAN UNGGULAN --}}
-                <section aria-labelledby="layanan-heading">
-                    <div class="flex items-center gap-3 border-b border-prt-primary/15 pb-2 mb-3">
-                        <div class="h-7 w-1 bg-prt-primary" aria-hidden="true"></div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-prt-ink" id="layanan-heading">Layanan Unggulan</h2>
-                    </div>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <a
-                            href="{{ route('publik.layanan.informasi-surat') }}"
-                            class="group border border-prt-primary/8 bg-white p-4 transition-all hover:-translate-y-1 hover:border-prt-primary/30 hover:shadow-md hover:shadow-prt-primary/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent min-h-[120px] rounded-lg shadow-sm"
-                        >
-                            <div class="flex flex-col items-center text-center space-y-2.5">
-                                <div class="bg-prt-primary/8 p-2.5 rounded-lg transition-colors group-hover:bg-prt-primary/15" aria-hidden="true">
-                                    <flux:icon.document-text class="size-6 text-prt-primary transition-transform group-hover:scale-110" aria-hidden="true" />
-                                </div>
-                                <span class="text-xs font-bold leading-snug text-prt-ink transition-colors group-hover:text-prt-secondary sm:text-sm">Surat Keterangan</span>
-                            </div>
-                        </a>
-                        <a
-                            href="#"
-                            class="group border border-prt-primary/8 bg-white p-4 transition-all hover:-translate-y-1 hover:border-prt-primary/30 hover:shadow-md hover:shadow-prt-primary/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent min-h-[120px] rounded-lg shadow-sm"
-                        >
-                            <div class="flex flex-col items-center text-center space-y-2.5">
-                                <div class="bg-prt-primary/8 p-2.5 rounded-lg transition-colors group-hover:bg-prt-primary/15" aria-hidden="true">
-                                    <flux:icon.chat-bubble-left class="size-6 text-prt-primary transition-transform group-hover:scale-110" aria-hidden="true" />
-                                </div>
-                                <span class="text-xs font-bold leading-snug text-prt-ink transition-colors group-hover:text-prt-secondary sm:text-sm">Pengaduan &amp; Aspirasi</span>
-                            </div>
-                        </a>
-                        <a
-                            href="{{ route('publik.publikasi.berita.index') }}"
-                            class="group border border-prt-primary/8 bg-white p-4 transition-all hover:-translate-y-1 hover:border-prt-primary/30 hover:shadow-md hover:shadow-prt-primary/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent min-h-[120px] rounded-lg shadow-sm"
-                        >
-                            <div class="flex flex-col items-center text-center space-y-2.5">
-                                <div class="bg-prt-primary/8 p-2.5 rounded-lg transition-colors group-hover:bg-prt-primary/15" aria-hidden="true">
-                                    <flux:icon.newspaper class="size-6 text-prt-primary transition-transform group-hover:scale-110" aria-hidden="true" />
-                                </div>
-                                <span class="text-xs font-bold leading-snug text-prt-ink transition-colors group-hover:text-prt-secondary sm:text-sm">Berita &amp; Info</span>
-                            </div>
-                        </a>
-                        <a
-                            href="{{ route('publik.transparansi.apbdes') }}"
-                            class="group border border-prt-primary/8 bg-white p-4 transition-all hover:-translate-y-1 hover:border-prt-primary/30 hover:shadow-md hover:shadow-prt-primary/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent min-h-[120px] rounded-lg shadow-sm"
-                        >
-                            <div class="flex flex-col items-center text-center space-y-2.5">
-                                <div class="bg-prt-primary/8 p-2.5 rounded-lg transition-colors group-hover:bg-prt-primary/15" aria-hidden="true">
-                                    <flux:icon.document-chart-bar class="size-6 text-prt-primary transition-transform group-hover:scale-110" aria-hidden="true" />
-                                </div>
-                                <span class="text-xs font-bold leading-snug text-prt-ink transition-colors group-hover:text-prt-secondary sm:text-sm">Transparansi APBDes</span>
-                            </div>
-                        </a>
                     </div>
                 </section>
 
@@ -413,7 +390,7 @@
                             @endforeach
                         </div>
                     <a
-                        href="{{ route('publik.profil.sejarah') }}"
+                        href="{{ route('publik.profil.wilayah') }}"
                         class="block w-full border border-prt-primary/15 bg-prt-primary/5 py-2.5 text-center text-xs font-semibold text-prt-primary transition-colors hover:bg-prt-primary/10 hover:text-prt-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent min-h-[44px] rounded-lg"
                     >
                         Detail Kependudukan
@@ -437,7 +414,6 @@
                         stop() {
                             clearInterval(this.autoplay);
                         },
-                        go(i) { this.current = i; this.stop(); this.start(); }
                     }"
                     x-init="start()"
                     @mouseenter="stop()"
@@ -455,10 +431,11 @@
                     </template>
 
                     <template x-if="items.length > 0">
-                        <div class="relative">
+                        <div class="relative" x-cloak>
                             <template x-for="(p, i) in items" :key="p.id">
                                 <div
                                     x-show="current === i"
+                                    x-cloak
                                     x-transition:enter="transition ease-out duration-300"
                                     x-transition:enter-start="opacity-0 translate-x-4"
                                     x-transition:enter-end="opacity-100 translate-x-0"
@@ -480,18 +457,6 @@
                                     </div>
                                 </div>
                             </template>
-
-                            <div class="flex items-center justify-center gap-1.5 pb-3" x-show="items.length > 1">
-                                <template x-for="(p, i) in items" :key="'dot-' + p.id">
-                                    <button
-                                        type="button"
-                                        class="size-2 rounded-full transition-all duration-200"
-                                        :class="current === i ? 'bg-prt-secondary w-5' : 'bg-prt-primary/30 hover:bg-prt-primary/50'"
-                                        @click="go(i)"
-                                        :aria-label="'Lihat ' + p.nama"
-                                    ></button>
-                                </template>
-                            </div>
                         </div>
                     </template>
 
@@ -575,7 +540,7 @@
                         @endforelse
                     </div>
                     <a
-                        href="{{ route('publik.profil.sejarah') }}"
+                        href="{{ route('publik.publikasi.galeri') }}"
                         class="block w-full border border-prt-primary/15 bg-prt-primary/5 py-2.5 text-center text-xs font-semibold text-prt-primary transition-colors hover:bg-prt-primary/10 hover:text-prt-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prt-accent min-h-[44px] rounded-lg"
                     >
                         Lihat Semua Galeri
