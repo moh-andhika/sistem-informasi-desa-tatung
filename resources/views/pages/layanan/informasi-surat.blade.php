@@ -14,7 +14,7 @@
 @section('content')
     <div class="space-y-10">
         {{-- Banner info jam pelayanan --}}
-        <div class="bg-blue-50  p-6  ">
+        <div class="bg-blue-50 rounded-lg shadow-sm p-6">
             <div class="flex gap-4">
                 <flux:icon.information-circle class="size-6 text-prt-primary shrink-0 mt-0.5" />
                 <div>
@@ -34,7 +34,7 @@
             ];
         @endphp
 
-        <section aria-labelledby="accordion-title" class="bg-white  overflow-hidden">
+        <section aria-labelledby="accordion-title" class="bg-white rounded-lg shadow-sm overflow-hidden">
             <div class="bg-prt-primary px-6 py-4 flex items-center justify-between">
                 <h2 class="text-base font-black text-white uppercase tracking-wide" id="accordion-title">Jenis Layanan Surat</h2>
                 <flux:icon.document-text class="size-5 text-white/70" />
@@ -84,7 +84,7 @@
         </section>
 
         {{-- Alur Pengajuan --}}
-        <section aria-labelledby="alur-title" class="bg-white  overflow-hidden">
+        <section aria-labelledby="alur-title" class="bg-white rounded-lg shadow-sm overflow-hidden">
             <div class="bg-prt-secondary px-6 py-4 flex items-center justify-between">
                 <h2 class="text-base font-black text-white uppercase tracking-wide" id="alur-title">Alur Pengajuan Surat</h2>
                 <flux:icon.arrow-path class="size-5 text-white/70" />

@@ -9,6 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
+            $table->dropUnique(['email']);
             $table->dropColumn(['email', 'email_verified_at']);
             $table->string('nik', 16)->nullable(false)->change();
         });

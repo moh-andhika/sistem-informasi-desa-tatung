@@ -16,6 +16,8 @@ Route::get('/', function () {
         ->take(4)
         ->get();
 
+    $beritaLainnya = $beritaTerbaru->skip(1)->values();
+
     $pengumuman = Pengumuman::where('is_active', true)
         ->latest('published_at')
         ->take(3)
@@ -27,14 +29,17 @@ Route::get('/', function () {
         ->get();
 
     $galeri = Galeri::latest()->take(6)->get();
+    $jumbotron = Galeri::jumbotron()->first();
 
     $perangkatDesa = perangkat_desa::orderBy('urutan')->get();
 
     return view('landing', [
         'beritaTerbaru' => $beritaTerbaru,
+        'beritaLainnya' => $beritaLainnya,
         'pengumuman' => $pengumuman,
         'runningTexts' => $runningTexts,
         'galeri' => $galeri,
+        'jumbotron' => $jumbotron,
         'perangkatDesa' => $perangkatDesa,
     ]);
 })->name('home');

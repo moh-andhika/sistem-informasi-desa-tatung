@@ -14,7 +14,7 @@
 @section('content')
     <div class="space-y-12">
         {{-- Bagan Struktur --}}
-        <section aria-labelledby="bagan-title" class="bg-white  overflow-hidden">
+        <section aria-labelledby="bagan-title" class="bg-white rounded-lg shadow-sm overflow-hidden">
             <div class="bg-prt-primary px-6 py-4 flex items-center justify-between">
                 <h2 class="text-base font-black text-white uppercase tracking-wide" id="bagan-title">Bagan Struktur Organisasi</h2>
                 <flux:icon.chart-pie class="size-5 text-white/70" />
@@ -27,7 +27,7 @@
         </section>
 
         {{-- Struktur Aparatur Desa --}}
-        <section aria-labelledby="personil-title" class="bg-white  overflow-hidden">
+        <section aria-labelledby="personil-title" class="bg-white rounded-lg shadow-sm overflow-hidden">
             <div class="bg-prt-secondary px-6 py-4lue-900 flex items-center justify-between">
                 <h2 class="text-base font-black text-white uppercase tracking-wide" id="personil-title">Daftar Aparatur Desa</h2>
                 <flux:icon.identification class="size-5 text-blue-400" />

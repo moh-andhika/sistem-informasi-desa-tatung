@@ -21,6 +21,12 @@ class GaleriFactory extends Factory
             'judul' => fake()->sentence(),
             'deskripsi' => fake()->paragraph(),
             'gambar' => 'galeri/example.jpg',
+            'is_jumbotron' => false,
         ];
+    }
+
+    public function jumbotron(): static
+    {
+        return $this->state(['is_jumbotron' => true]);
     }
 }

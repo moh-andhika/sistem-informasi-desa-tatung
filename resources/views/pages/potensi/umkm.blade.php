@@ -14,7 +14,7 @@
 @section('content')
     <div class="space-y-8">
         {{-- Banner promosi lokal --}}
-        <div class="bg-blue-50   p-5 flex gap-4 items-start">
+        <div class="bg-blue-50 rounded-lg shadow-sm p-5 flex gap-4 items-start">
             <flux:icon.shopping-bag class="size-6 text-prt-primary shrink-0 mt-0.5" />
             <div>
                 <h4 class="text-sm font-black text-blue-900 uppercase tracking-normal mb-1">Beli Lokal, Dukung UMKM Desa</h4>
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <section aria-labelledby="umkm-grid-title" class="bg-white  overflow-hidden">
+        <section aria-labelledby="umkm-grid-title" class="bg-white rounded-lg shadow-sm overflow-hidden">
             <div class="bg-prt-primary px-6 py-4 flex items-center justify-between">
                 <h2 class="text-base font-black text-white uppercase tracking-wide" id="umkm-grid-title">Produk Unggulan Masyarakat</h2>
                 <flux:icon.shopping-bag class="size-5 text-white/70" />
@@ -39,7 +39,7 @@
 
                 <div class="grid gap-8 sm:grid-cols-2" role="list" aria-label="Daftar produk unggulan UMKM Desa Tatung">
                     @foreach($umkms as $umkm)
-                    <article class="group  overflow-hidden   transition-all bg-white" role="listitem">
+                    <article class="group rounded-lg overflow-hidden shadow-sm transition-all bg-white" role="listitem">
                         <div class="aspect-[4/3] bg-slate-100 overflow-hidden relative">
                             <img src="{{ $umkm['img'] }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Produk: {{ $umkm['nama'] }}">
                             <div class="absolute top-3 left-3">

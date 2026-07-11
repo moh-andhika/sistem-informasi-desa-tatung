@@ -78,6 +78,20 @@ new #[Layout('layouts.app'), Title('Manajemen Galeri')] class extends Component 
         $this->resetForm();
     }
 
+    public function toggleJumbotron($id)
+    {
+        $galeri = Galeri::findOrFail($id);
+
+        if ($galeri->is_jumbotron) {
+            $galeri->update(['is_jumbotron' => false]);
+            session()->flash('success', 'Jumbotron telah dihapus.');
+        } else {
+            Galeri::query()->update(['is_jumbotron' => false]);
+            $galeri->update(['is_jumbotron' => true]);
+            session()->flash('success', "{$galeri->judul} — sekarang menjadi jumbotron.");
+        }
+    }
+
     public function delete($id)
     {
         $galeri = Galeri::findOrFail($id);
@@ -144,12 +158,20 @@ new #[Layout('layouts.app'), Title('Manajemen Galeri')] class extends Component 
                     </div>
 
                     <div class="p-4">
-                        <h3 class="font-medium text-slate-900 dark:text-white truncate">{{ $item->judul }}</h3>
+                        <div class="flex items-start justify-between gap-2">
+                            <h3 class="font-medium text-slate-900 dark:text-white truncate">{{ $item->judul }}</h3>
+                            @if($item->is_jumbotron)
+                                <flux:badge color="amber" size="sm" class="shrink-0">Jumbotron</flux:badge>
+                            @endif
+                        </div>
                         @if($item->deskripsi)
                             <p class="mt-1 text-xs text-slate-500 dark:text-slate-400 line-clamp-2">{{ $item->deskripsi }}</p>
                         @endif
 
-                        <div class="mt-4 flex items-center justify-between gap-2">
+                        <div class="mt-4 flex flex-wrap items-center gap-2">
+                            <flux:button wire:click="toggleJumbotron({{ $item->id }})" variant="ghost" size="sm" icon="photo">
+                                {{ $item->is_jumbotron ? 'Hapus Jumbotron' : 'Jadikan Jumbotron' }}
+                            </flux:button>
                             <flux:button wire:click="edit({{ $item->id }})" variant="ghost" size="sm" icon="pencil-square">Edit</flux:button>
                             <flux:button wire:click="delete({{ $item->id }})" variant="ghost" size="sm" icon="trash" color="red" wire:confirm="Apakah Anda yakin ingin menghapus foto ini?">Hapus</flux:button>
                         </div>

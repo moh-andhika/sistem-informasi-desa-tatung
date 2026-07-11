@@ -14,7 +14,7 @@
 @section('content')
     <div class="space-y-8">
         {{-- Peta Interaktif --}}
-        <section aria-labelledby="map-title" class="bg-white  overflow-hidden">
+        <section aria-labelledby="map-title" class="bg-white rounded-lg shadow-sm overflow-hidden">
             <div class="bg-prt-primary px-6 py-4 flex items-center justify-between">
                 <h2 class="text-base font-black text-white uppercase tracking-wide" id="map-title">Peta Administrasi Desa</h2>
                 <flux:icon.map class="size-5 text-white/70" />
@@ -32,8 +32,8 @@
                 ['val' => '5 Dusun', 'label' => 'Wilayah Dusun', 'icon' => 'rectangle-group'],
                 ['val' => '105 mdpl', 'label' => 'Ketinggian', 'icon' => 'arrow-trending-up'],
             ] as $stat)
-            <div class="bg-white  p-5 flex flex-col items-center text-center group hover:  transition-all">
-                <div class="size-10  bg-blue-100 flex items-center justify-center mb-3 group-hover:bg-prt-primary transition-colors">
+            <div class="bg-white rounded-lg shadow-sm p-5 flex flex-col items-center text-center group hover:shadow-md transition-all">
+                <div class="size-10 rounded-lg bg-blue-100 flex items-center justify-center mb-3 group-hover:bg-prt-primary transition-colors">
                     <flux:icon :name="$stat['icon']" class="size-5 text-prt-primary group-hover:text-white transition-colors" />
                 </div>
                 <p class="text-xl font-black text-slate-900 leading-none mb-1">{{ $stat['val'] }}</p>
@@ -44,7 +44,7 @@
 
         {{-- Batas Wilayah & Geografis --}}
         <div class="grid sm:grid-cols-2 gap-6">
-            <section aria-labelledby="borders-title" class="bg-white  overflow-hidden">
+            <section aria-labelledby="borders-title" class="bg-white rounded-lg shadow-sm overflow-hidden">
                 <div class="bg-prt-secondary px-6 py-4lue-900 flex items-center justify-between">
                     <h3 class="text-sm font-black text-white uppercase tracking-wide" id="borders-title">Batas Wilayah</h3>
                     <flux:icon.arrows-right-left class="size-4 text-blue-400" />
@@ -69,7 +69,7 @@
                 </div>
             </section>
 
-            <section aria-labelledby="geo-title" class="bg-white  overflow-hidden">
+            <section aria-labelledby="geo-title" class="bg-white rounded-lg shadow-sm overflow-hidden">
                 <div class="bg-prt-primary px-6 py-4lue-900 flex items-center justify-between">
                     <h3 class="text-sm font-black text-white uppercase tracking-wide" id="geo-title">Orbitasi &amp; Geografis</h3>
                     <flux:icon.globe-asia-australia class="size-4 text-white/70" />
@@ -93,7 +93,7 @@
         </div>
 
         {{-- Pembagian Wilayah Dusun --}}
-        <section aria-labelledby="dusun-title" class="bg-white  overflow-hidden">
+        <section aria-labelledby="dusun-title" class="bg-white rounded-lg shadow-sm overflow-hidden">
             <div class="bg-prt-primary px-6 py-4lue-700 flex items-center justify-between">
                 <h2 class="text-base font-black text-white uppercase tracking-wide" id="dusun-title">Wilayah Administratif Dusun</h2>
                 <flux:icon.rectangle-group class="size-5 text-white/70" />

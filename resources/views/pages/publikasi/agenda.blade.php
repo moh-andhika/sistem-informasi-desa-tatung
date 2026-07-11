@@ -13,7 +13,7 @@
 
 @section('content')
     <div class="space-y-6">
-        <section aria-labelledby="agenda-list-title" class="bg-white  overflow-hidden">
+        <section aria-labelledby="agenda-list-title" class="bg-white rounded-lg shadow-sm overflow-hidden">
             <div class="bg-prt-primary px-4 py-3 flex items-center justify-between">
                 <h2 class="text-sm font-black text-white uppercase tracking-wide" id="agenda-list-title">Kalender Kegiatan Desa</h2>
                 <flux:icon.calendar-days class="size-4 text-white/70" />
@@ -60,7 +60,7 @@
         </section>
 
         {{-- Disclaimer --}}
-        <div class="p-4 bg-blue-50  flex gap-2">
+        <div class="p-4 bg-blue-50 rounded-lg flex gap-2">
             <flux:icon.information-circle class="size-5 text-prt-primary shrink-0 mt-0.5" />
             <p class="text-xs text-blue-900 font-medium leading-relaxed">Jadwal kegiatan dapat berubah sewaktu-waktu menyesuaikan dengan kondisi di lapangan. Untuk konfirmasi lebih lanjut, silakan hubungi perangkat desa terkait.</p>
         </div>

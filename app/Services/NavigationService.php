@@ -44,7 +44,7 @@ class NavigationService
                 ],
             ],
             [
-                'label' => 'Transparansi',
+                'label' => 'Data Desa',
                 'active_pattern' => 'publik.transparansi.*',
                 'subitems' => [
                     ['label' => 'Info APBDes', 'route' => 'publik.transparansi.apbdes'],
@@ -52,6 +52,7 @@ class NavigationService
             ],
             [
                 'label' => 'Layanan',
+                'route' => 'publik.layanan.informasi-surat',
                 'active_pattern' => 'publik.layanan.*',
                 'subitems' => [
                     ['label' => 'Informasi Surat', 'route' => 'publik.layanan.informasi-surat'],

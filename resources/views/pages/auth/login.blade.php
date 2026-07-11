@@ -1,10 +1,5 @@
 <x-layouts::auth :title="__('Masuk Portal')">
     <div class="flex flex-col gap-6">
-        <!-- Logo Desktop (Visible on LG screens to fill empty space) -->
-        <div class="hidden lg:flex justify-center mb-6">
-            <img src="{{ asset('assets/images/tatung_hebat.png') }}" alt="Tatung Hebat" class="h-32 w-auto object-contain" />
-        </div>
-
         <x-auth-header :title="__('Akses Layanan Desa')" :description="__('Silakan masuk dengan NIK dan kata sandi Anda yang terdaftar pada sistem pemerintahan desa.')" />
 
         <!-- Session Status -->
